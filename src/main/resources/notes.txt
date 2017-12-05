@@ -1,0 +1,7 @@
+IGeneticAlgorithm
+initialGeneration()
+findBestEver()
+calculateProbabilities()
+nextGeneration()
+
+
