@@ -1,7 +1,6 @@
 package view;
 
 import domain.Point;
-import utilities.MathUtilities;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,8 +40,8 @@ public class JPolygonComponent extends JComponent {
         graphics2D.setColor(Color.RED);
         for (Point point : points) {
 //            if (!MathUtilities.isInside(convexHull, point)){
-                Ellipse2D.Double shape = new Ellipse2D.Double(point.getX()-1.25, point.getY()-1.25, 2.5, 2.5);
-                graphics2D.fill(shape);
+            Ellipse2D.Double shape = new Ellipse2D.Double(point.getX() - 1.25, point.getY() - 1.25, 2.5, 2.5);
+            graphics2D.fill(shape);
 //            }
 
         }

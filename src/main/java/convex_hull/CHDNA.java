@@ -14,7 +14,7 @@ public class CHDNA implements DNA {
     private List<Point> points;
     private Map<Integer, MutationTechnique> mutationTechniqueMap;
     private List<Point> outsidePoints;
-    private List<Point> sickJoints = new ArrayList<>();
+    private List<Point> sickJoints;// = new ArrayList<>();
     private int intersections;
 
     private FitnessTechnique fitnessTechnique;
@@ -71,22 +71,19 @@ public class CHDNA implements DNA {
     }
 
     @Override
+    public FitnessTechnique getFitnessTechnique() {
+        return fitnessTechnique;
+    }
+
+    @Override
     public DNA mutate() {
-//        DNA mutatedDNA = this.getCopy();
-//        List<Point> mutatedHull;
-//        for (int i =0; i < mutationTechniqueMap.size(); i++){
-//            int mutationChance = new Random().nextInt(mutationTechniqueMap.size());
-//            mutatedHull = mutationTechniqueMap.get(mutationChance).execute(mutatedDNA);
-//            mutatedDNA = new CHDNA(new LinkedHashSet<>(mutatedHull), points, mutationTechniqueMap);
-//        }
         int mutationChance = new Random().nextInt(mutationTechniqueMap.size());
-        List<Point> mutatedHull = mutationTechniqueMap.get(mutationChance).execute(this);
-        DNA mutatedDNA = new CHDNA(new LinkedHashSet<>(mutatedHull), points, mutationTechniqueMap, fitnessTechnique);
-        if (mutatedDNA.getIntersections() == 0){
+        DNA mutatedDNA = mutationTechniqueMap.get(mutationChance).execute(this);
+        if (mutatedDNA.getIntersections() == 0) {
             return mutatedDNA;
+        } else {
+            return this;
         }
-        else return this;
-//        return mutatedDNA;
     }
 
 }

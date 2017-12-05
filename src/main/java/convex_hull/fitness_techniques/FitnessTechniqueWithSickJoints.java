@@ -5,6 +5,18 @@ import ga.FitnessTechnique;
 
 public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
 
+    private static FitnessTechniqueWithSickJoints fitnessTechniqueWithSickJoints;
+
+    private FitnessTechniqueWithSickJoints() {
+    }
+
+    public static synchronized FitnessTechniqueWithSickJoints getInstance() {
+        if (fitnessTechniqueWithSickJoints == null) {
+            fitnessTechniqueWithSickJoints = new FitnessTechniqueWithSickJoints();
+        }
+        return fitnessTechniqueWithSickJoints;
+    }
+
     @Override
     public double calculateFitness(DNA dna) {
         if (dna.getGene().size() < 3) {
@@ -17,4 +29,5 @@ public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
         double fitness = 1 / (double) (fitIntersections * fitOutsidePoints * fitSickJoints);
         return fitness;
     }
+
 }

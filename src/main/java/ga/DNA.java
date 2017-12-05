@@ -26,5 +26,7 @@ public interface DNA {
 
     List<Point> getOutsidePoints();
 
+    FitnessTechnique getFitnessTechnique();
+
 
 }

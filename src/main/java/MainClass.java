@@ -3,7 +3,7 @@ import convex_hull.fitness_techniques.FitnessTechniqueWithSickJoints;
 import convex_hull.fitness_techniques.FitnessTechniqueWithoutSickJoints;
 import convex_hull.mutation_techniques.MutationTechniqueAddOutsidePoint;
 import convex_hull.mutation_techniques.MutationTechniqueRemoveIntersection;
-import convex_hull.mutation_techniques.MutationTechniqueRemoveSickJoint;
+import convex_hull.mutation_techniques.MutationTechniqueRemoveSickJoints;
 import convex_hull.mutation_techniques.MutationTechniqueReplaceWithOutsidePoint;
 import domain.Point;
 import ga.FitnessTechnique;
@@ -11,7 +11,9 @@ import ga.MutationTechnique;
 import utilities.ConvexHullUtilities;
 import view.Canvas;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MainClass {
 
@@ -35,22 +37,23 @@ public class MainClass {
             chGeneticAlgorithm.setFitnessTechnique(fitnessTechnique);
             chGeneticAlgorithm.eliteGeneration();
             chGeneticAlgorithm.run();
+            System.out.println((chGeneticAlgorithm.getFittestChromosomeEver().getDNA().getIntersections()));
 //            new Scanner(System.in).next();
         }
     }
 
     public static void setupForPhase1() {
         mutationTechniqueMap.clear();
-        mutationTechniqueMap.put(0, new MutationTechniqueAddOutsidePoint());
-        mutationTechniqueMap.put(1, new MutationTechniqueReplaceWithOutsidePoint());
-        mutationTechniqueMap.put(2, new MutationTechniqueRemoveIntersection());
-        mutationTechniqueMap.put(3, new MutationTechniqueRemoveSickJoint());
-        fitnessTechnique = new FitnessTechniqueWithoutSickJoints();
+        mutationTechniqueMap.put(0, MutationTechniqueAddOutsidePoint.getInstance());
+        mutationTechniqueMap.put(1, MutationTechniqueReplaceWithOutsidePoint.getInstance());
+        mutationTechniqueMap.put(2, MutationTechniqueRemoveIntersection.getInstance());
+        mutationTechniqueMap.put(3, MutationTechniqueRemoveSickJoints.getInstance());
+        fitnessTechnique = FitnessTechniqueWithoutSickJoints.getInstance();
     }
 
     public static void setupForPhase2() {
         mutationTechniqueMap.clear();
-        mutationTechniqueMap.put(0, new MutationTechniqueRemoveSickJoint());
-        fitnessTechnique = new FitnessTechniqueWithSickJoints();
+        mutationTechniqueMap.put(0, MutationTechniqueRemoveSickJoints.getInstance());
+        fitnessTechnique = FitnessTechniqueWithSickJoints.getInstance();
     }
 }

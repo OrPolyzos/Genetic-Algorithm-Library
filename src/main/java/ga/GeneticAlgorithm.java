@@ -39,8 +39,7 @@ public abstract class GeneticAlgorithm {
             this.bestFitnessEver = this.population.getFittestChromosome().getFitness();
             this.fittestChromosomeEver = this.population.getFittestChromosome().getCopy();
 //            System.out.println("Generation: " + generationsCounter + " | Best Fitness (so far): " + bestFitnessEver);
-        }
-        else if (this.population.getFittestChromosome().getFitness() == this.bestFitnessEver) {
+        } else if (this.population.getFittestChromosome().getFitness() == this.bestFitnessEver) {
             if (this.population.getFittestChromosome().getDNA().getOutsidePoints().size() == this.fittestChromosomeEver.getDNA().getOutsidePoints().size()) {
                 if (this.population.getFittestChromosome().getDNA().getGene().size() < this.fittestChromosomeEver.getDNA().getGene().size()) {
                     this.bestFitnessEver = this.population.getFittestChromosome().getFitness();

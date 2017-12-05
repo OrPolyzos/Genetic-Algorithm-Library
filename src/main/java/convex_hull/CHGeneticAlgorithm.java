@@ -1,16 +1,10 @@
 package convex_hull;
 
-import domain.Line;
 import domain.Point;
 import ga.*;
-import utilities.MathUtilities;
 import view.Canvas;
-import view.JMessageComponent;
 import view.JPolygonComponent;
-import view.JStatsPanel;
 
-
-import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -20,7 +14,7 @@ public class CHGeneticAlgorithm extends GeneticAlgorithm {
     private Canvas canvas;
     private List<Point> points;
 
-    public CHGeneticAlgorithm(List<Point> points,Canvas canvas, int populationCount, FitnessTechnique fitnessTechnique, double mutationRate, Map<Integer, MutationTechnique> mutationTechniqueMap) {
+    public CHGeneticAlgorithm(List<Point> points, Canvas canvas, int populationCount, FitnessTechnique fitnessTechnique, double mutationRate, Map<Integer, MutationTechnique> mutationTechniqueMap) {
         super(populationCount, fitnessTechnique, mutationRate, mutationTechniqueMap);
         this.canvas = canvas;
         this.points = points;
@@ -37,7 +31,7 @@ public class CHGeneticAlgorithm extends GeneticAlgorithm {
 //            }
 //        }
 //        List<JComponent> jComponentList = new ArrayList<>();
-        JPolygonComponent jPolygon = new JPolygonComponent(convexHull,new ArrayList<>(points));
+        JPolygonComponent jPolygon = new JPolygonComponent(convexHull, new ArrayList<>(points));
         jPolygon.setPreferredSize(new Dimension(canvas.getWidth(), canvas.getHeight()));
 //        jComponentList.add(jPolygon);
 //

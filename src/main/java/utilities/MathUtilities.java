@@ -3,7 +3,6 @@ package utilities;
 import domain.Point;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MathUtilities {
 
@@ -115,7 +114,7 @@ public class MathUtilities {
 //                    System.out.println("#########################");
 //
 //                }
-                    count++;
+                count++;
             }
             i = next;
         } while (i != 0);
