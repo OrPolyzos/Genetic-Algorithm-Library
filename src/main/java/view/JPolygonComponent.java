@@ -40,11 +40,10 @@ public class JPolygonComponent extends JComponent {
         graphics2D.draw(path);
         graphics2D.setColor(Color.RED);
         for (Point point : points) {
-            if (!MathUtilities.isInside(convexHull, point)){
+//            if (!MathUtilities.isInside(convexHull, point)){
                 Ellipse2D.Double shape = new Ellipse2D.Double(point.getX()-1.25, point.getY()-1.25, 2.5, 2.5);
                 graphics2D.fill(shape);
-            }
-//            graphics2D.drawString(Integer.toString(point.getLabel()), (float) point.getX(), (float) point.getY());
+//            }
 
         }
     }
