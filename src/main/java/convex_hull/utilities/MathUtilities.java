@@ -1,6 +1,6 @@
-package utilities;
+package convex_hull.utilities;
 
-import domain.Point;
+import convex_hull.domain.Point;
 
 import java.util.List;
 

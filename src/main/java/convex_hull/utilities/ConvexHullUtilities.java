@@ -1,11 +1,11 @@
-package utilities;
+package convex_hull.utilities;
 
-import domain.Point;
+import convex_hull.domain.Point;
 import view.Canvas;
 
 import java.util.*;
 
-import static utilities.MathUtilities.isInside;
+import static convex_hull.utilities.MathUtilities.isInside;
 
 public class ConvexHullUtilities {
 

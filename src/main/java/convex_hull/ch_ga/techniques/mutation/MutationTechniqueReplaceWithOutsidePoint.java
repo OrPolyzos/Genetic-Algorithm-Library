@@ -1,10 +1,10 @@
-package convex_hull.mutation_techniques;
+package convex_hull.ch_ga.techniques.mutation;
 
-import convex_hull.CHDNA;
-import domain.Point;
-import ga.DNA;
-import ga.MutationTechnique;
-import utilities.ConvexHullUtilities;
+import convex_hull.ch_ga.CH_DNA;
+import convex_hull.domain.Point;
+import convex_hull.utilities.ConvexHullUtilities;
+import ga.domain.DNA;
+import ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -34,7 +34,7 @@ public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechniq
             int toBeReplacedIndex = ConvexHullUtilities.findClosest(chosenPoint, mutatedHull);
             mutatedHull.set(toBeReplacedIndex, new Point(chosenPoint));
         }
-        return new CHDNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getMutationTechniqueMap(), dnaToMutate.getFitnessTechnique());
+        return new CH_DNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getGeneticAlgorithm());
 
 //        return mutatedHull;
     }

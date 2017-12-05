@@ -1,4 +1,4 @@
-package domain;
+package convex_hull.domain;
 
 public class Point implements Cloneable {
 

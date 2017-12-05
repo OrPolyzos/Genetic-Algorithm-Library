@@ -1,9 +1,9 @@
-package convex_hull.mutation_techniques;
+package convex_hull.ch_ga.techniques.mutation;
 
-import convex_hull.CHDNA;
-import domain.Point;
-import ga.DNA;
-import ga.MutationTechnique;
+import convex_hull.ch_ga.CH_DNA;
+import convex_hull.domain.Point;
+import ga.domain.DNA;
+import ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -30,7 +30,7 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique {
         int chosen = new Random().nextInt(mutatedHull.size() - 1);
         mutatedHull.remove(chosen);
         mutatedHull.remove(chosen++);
-        return new CHDNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getMutationTechniqueMap(), dnaToMutate.getFitnessTechnique());
+        return new CH_DNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getGeneticAlgorithm());
 
 //        return mutatedHull;
     }

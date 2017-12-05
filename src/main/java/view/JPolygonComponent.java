@@ -1,6 +1,6 @@
 package view;
 
-import domain.Point;
+import convex_hull.domain.Point;
 
 import javax.swing.*;
 import java.awt.*;

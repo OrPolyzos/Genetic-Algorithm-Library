@@ -1,20 +1,24 @@
-package ga;
+package ga.domain;
 
 import java.util.List;
-import java.util.Random;
 
-public abstract class Population {
+public class Population {
 
     private List<Chromosome> chromosomes;
     private Chromosome fittestChromosome;
 
-    public Population(List<Chromosome> chromosomes) {
+    private GeneticAlgorithm geneticAlgorithm;
+
+    public Population(List<Chromosome> chromosomes, GeneticAlgorithm geneticAlgorithm) {
         this.chromosomes = chromosomes;
+        this.geneticAlgorithm = geneticAlgorithm;
         fittestChromosome = findFittestChromosome();
         calculateProbabilities();
     }
 
-    public abstract Population getCopy();
+    public Population getCopy() {
+        return new Population(this.chromosomes, this.geneticAlgorithm);
+    }
 
     private Chromosome findFittestChromosome() {
         double bestFitness = Double.MIN_VALUE;
@@ -37,6 +41,14 @@ public abstract class Population {
         return fittestChromosome;
     }
 
+    public GeneticAlgorithm getGeneticAlgorithm() {
+        return geneticAlgorithm;
+    }
+
+    public void setGeneticAlgorithm(GeneticAlgorithm geneticAlgorithm) {
+        this.geneticAlgorithm = geneticAlgorithm;
+    }
+
     private void calculateProbabilities() {
         double fitnessesSum = 0;
         for (int i = 0; i < chromosomes.size(); i++) {
@@ -47,17 +59,6 @@ public abstract class Population {
             double probability = chromosomes.get(i).getFitness() / fitnessesSum;
             chromosomes.get(i).setProbability(probability);
         }
-    }
-
-    public Chromosome pickOne() {
-        int index = 0;
-        double r = new Random().nextDouble();
-        while (r > 0) {
-            r = r - chromosomes.get(index).getProbability();
-            index++;
-        }
-        index--;
-        return chromosomes.get(index);
     }
 
 }

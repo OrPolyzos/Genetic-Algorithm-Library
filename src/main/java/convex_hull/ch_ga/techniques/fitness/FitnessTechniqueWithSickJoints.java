@@ -1,7 +1,7 @@
-package convex_hull.fitness_techniques;
+package convex_hull.ch_ga.techniques.fitness;
 
-import ga.DNA;
-import ga.FitnessTechnique;
+import ga.domain.DNA;
+import ga.techniques.FitnessTechnique;
 
 public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
 

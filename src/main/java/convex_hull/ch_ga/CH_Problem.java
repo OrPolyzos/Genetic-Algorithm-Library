@@ -1,8 +1,8 @@
-package convex_hull;
+package convex_hull.ch_ga;
 
-import domain.Point;
+import convex_hull.domain.Point;
+import convex_hull.utilities.ConvexHullUtilities;
 import ga.Problem;
-import utilities.ConvexHullUtilities;
 
 import java.util.ArrayList;
 import java.util.List;

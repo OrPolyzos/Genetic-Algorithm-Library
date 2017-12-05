@@ -1,7 +1,1 @@
-IGeneticAlgorithm
-initialGeneration()
-findBestEver()
-calculateProbabilities()
-nextGeneration()
-
-
+DNA interface needs fixing.

@@ -1,9 +1,9 @@
-package convex_hull.mutation_techniques;
+package convex_hull.ch_ga.techniques.mutation;
 
-import convex_hull.CHDNA;
-import domain.Point;
-import ga.DNA;
-import ga.MutationTechnique;
+import convex_hull.ch_ga.CH_DNA;
+import convex_hull.domain.Point;
+import ga.domain.DNA;
+import ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -33,7 +33,7 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique {
             int randomIndex = new Random().nextInt(mutatedHull.size());
             mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOne)));
         }
-        return new CHDNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getMutationTechniqueMap(), dnaToMutate.getFitnessTechnique());
+        return new CH_DNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getGeneticAlgorithm());
 //        return mutatedHull;
     }
 }
