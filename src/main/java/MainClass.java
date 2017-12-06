@@ -22,8 +22,8 @@ import java.util.Map;
 public class MainClass {
 
     private static double mutationRate = 1;
-    private static int populationCount = 50;
-    private static int pointsCount = 500;
+    private static int populationCount = 25;
+    private static int pointsCount = 1000;
 
     private static Map<Integer, MutationTechnique> mutationTechniqueMap = new LinkedHashMap<>();
     private static FitnessTechnique fitnessTechnique;

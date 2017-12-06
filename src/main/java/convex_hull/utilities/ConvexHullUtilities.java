@@ -166,22 +166,34 @@ public class ConvexHullUtilities {
 //        pointList.add(new Point(6,195,255));
 //        pointList.add(new Point(7,250,300));
         //Creating random coordinates (points)
-        int border = 40;
-        for (int i = 0; i < pointsCount; i++) {
+//        int border = 40;
+//        for (int i = 0; i < pointsCount; i++) {
+//            double x = new Random().nextDouble() * canvas.getWidth();
+//            if (x < border) {
+//                x += border;
+//            } else if (x >= canvas.getWidth() - border) {
+//                x -= border;
+//            }
+//            double y = new Random().nextDouble() * canvas.getHeight();
+//            if (y < border) {
+//                y += border;
+//            } else if (y >= canvas.getHeight() - border) {
+//                y -= border;
+//            }
+//            Point point = new Point(i, x, y);
+//            pointList.add(point);
+//        }
+        Point middle = new Point(-1,canvas.getWidth()/2,canvas.getHeight()/2);
+        int i = 0;
+        while (pointList.size() < pointsCount){
             double x = new Random().nextDouble() * canvas.getWidth();
-            if (x < border) {
-                x += border;
-            } else if (x >= canvas.getWidth() - border) {
-                x -= border;
-            }
             double y = new Random().nextDouble() * canvas.getHeight();
-            if (y < border) {
-                y += border;
-            } else if (y >= canvas.getHeight() - border) {
-                y -= border;
+            Point testP = new Point(i, x,y);
+            if (MathUtilities.calculateDistance(middle,testP) < canvas.getWidth()/2.5){
+                pointList.add(testP);
+                i++;
             }
-            Point point = new Point(i, x, y);
-            pointList.add(point);
+
         }
         return pointList;
     }

@@ -40,6 +40,7 @@ public abstract class GeneticAlgorithm {
             draw();
             findFittestChromosomeEver();
             nextGeneration();
+//            new Scanner(System.in).next();
         }
         draw();
     }

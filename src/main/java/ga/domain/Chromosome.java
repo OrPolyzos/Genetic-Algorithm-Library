@@ -1,5 +1,8 @@
 package ga.domain;
 
+import ga.techniques.MutationTechnique;
+
+import java.util.Map;
 import java.util.Random;
 
 public class Chromosome {
