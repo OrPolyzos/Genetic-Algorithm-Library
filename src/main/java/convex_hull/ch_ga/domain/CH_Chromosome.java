@@ -1,7 +1,7 @@
 package convex_hull.ch_ga.domain;
 
 import ga.domain.Chromosome;
-import ga.domain.DNA;
+import ga.DNA;
 
 public class CH_Chromosome extends Chromosome {
 

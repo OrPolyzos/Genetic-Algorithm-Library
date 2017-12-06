@@ -1,13 +1,12 @@
 package ga.domain;
 
-import ga.techniques.MutationTechnique;
+import ga.DNA;
 
-import java.util.Map;
 import java.util.Random;
 
 public class Chromosome {
 
-    private ga.domain.DNA DNA;
+    private ga.DNA DNA;
     private double fitness;
     private double probability;
 

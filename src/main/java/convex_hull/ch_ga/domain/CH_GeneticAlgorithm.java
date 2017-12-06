@@ -3,7 +3,7 @@ package convex_hull.ch_ga.domain;
 import convex_hull.ch_ga.CH_DNA;
 import convex_hull.domain.Point;
 import ga.domain.Chromosome;
-import ga.domain.DNA;
+import ga.DNA;
 import ga.domain.GeneticAlgorithm;
 import ga.domain.Population;
 import ga.techniques.FitnessTechnique;

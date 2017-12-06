@@ -1,6 +1,6 @@
 package ga.techniques;
 
-import ga.domain.DNA;
+import ga.DNA;
 
 public interface MutationTechnique {
     DNA execute(DNA dnaToMutate);

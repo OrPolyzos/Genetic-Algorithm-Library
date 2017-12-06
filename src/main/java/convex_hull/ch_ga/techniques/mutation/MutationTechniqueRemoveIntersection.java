@@ -2,7 +2,7 @@ package convex_hull.ch_ga.techniques.mutation;
 
 import convex_hull.ch_ga.CH_DNA;
 import convex_hull.domain.Point;
-import ga.domain.DNA;
+import ga.DNA;
 import ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;

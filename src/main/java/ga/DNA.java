@@ -1,7 +1,8 @@
-package ga.domain;
+package ga;
 
 
 import convex_hull.domain.Point;
+import ga.domain.GeneticAlgorithm;
 
 import java.util.List;
 
