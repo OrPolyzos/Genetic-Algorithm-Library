@@ -1,33 +1,21 @@
 package ga;
 
-
 import convex_hull.domain.Point;
-import ga.domain.GeneticAlgorithm;
+import ga.techniques.FitnessTechnique;
+import ga.techniques.MutationTechnique;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DNA {
 
-    DNA getCopy();
+    DNA mutate(MutationTechnique mutationTechnique);
 
-    DNA mutate();
-
-    List<Point> getPoints();
-
-    List<Point> getSickJoints();
-
-    int getIntersections();
-
-
-    List<Point> getGene();
+    Map<Integer,List<Point>> getGene();
 
     double calculateFitness();
 
-    List<Point> getOutsidePoints();
+    FitnessTechnique getFitnessTechnique();
 
-    GeneticAlgorithm getGeneticAlgorithm();
-
-    void setGeneticAlgorithm(GeneticAlgorithm geneticAlgorithm);
-
-
+    int getIntersections();
 }

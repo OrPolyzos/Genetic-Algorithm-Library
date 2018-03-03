@@ -33,4 +33,9 @@ public class SelectionTechniqueRouletteWheel implements SelectionTechnique {
         index--;
         return chromosomes.get(index).getCopy();
     }
+
+    @Override
+    public String toString() {
+        return "Using: SelectionTechniqueRouletteWheel";
+    }
 }

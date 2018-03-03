@@ -25,4 +25,9 @@ public class CrossOverTechniqueElitism implements CrossOverTechnique {
             return parentB;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Using: CrossOverTechniqueElitism";
+    }
 }

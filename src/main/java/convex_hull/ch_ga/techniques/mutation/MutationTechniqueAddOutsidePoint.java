@@ -3,11 +3,12 @@ package convex_hull.ch_ga.techniques.mutation;
 import convex_hull.ch_ga.CH_DNA;
 import convex_hull.domain.Point;
 import ga.DNA;
+import ga.techniques.FitnessTechnique;
 import ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class MutationTechniqueAddOutsidePoint implements MutationTechnique {
@@ -26,14 +27,25 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique {
 
     @Override
     public DNA execute(DNA dnaToMutate) {
-        List<Point> mutatedHull = new ArrayList<>(dnaToMutate.getGene());
-        List<Point> outsidePoints = dnaToMutate.getOutsidePoints();
+        Map<Integer,List<Point>> geneMap = dnaToMutate.getGene();
+
+        List<Point> outsidePoints = geneMap.get(2);
         if (!outsidePoints.isEmpty()) {
-            int chosenOne = new Random().nextInt(outsidePoints.size());
+            List<Point> points = geneMap.get(0);
+            List<Point> mutatedHull = new ArrayList<>(geneMap.get(1));
+            FitnessTechnique fitnessTechnique = dnaToMutate.getFitnessTechnique();
+
+            int chosenOutsidePoint = new Random().nextInt(outsidePoints.size());
             int randomIndex = new Random().nextInt(mutatedHull.size());
-            mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOne)));
+            mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOutsidePoint)));
+
+            return new CH_DNA(points, mutatedHull, fitnessTechnique);
         }
-        return new CH_DNA(new LinkedHashSet<>(mutatedHull), dnaToMutate.getPoints(), dnaToMutate.getGeneticAlgorithm());
-//        return mutatedHull;
+        return dnaToMutate;
+    }
+
+    @Override
+    public String toString() {
+        return "Using: MutationTechniqueAddOutsidePoint";
     }
 }

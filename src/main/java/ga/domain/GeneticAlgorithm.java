@@ -6,11 +6,13 @@ import ga.techniques.FitnessTechnique;
 import ga.techniques.MutationTechnique;
 import ga.techniques.SelectionTechnique;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-public abstract class GeneticAlgorithm {
+public abstract class GeneticAlgorithm{//} extends JComponent {
 
     private int populationCount;
     private double mutationRate;
@@ -25,11 +27,13 @@ public abstract class GeneticAlgorithm {
     private double bestFitnessEver;
     private int generationsCounter;
 
-    public GeneticAlgorithm(int populationCount, double mutationRate, FitnessTechnique fitnessTechnique, SelectionTechnique selectionTechnique, Map<Integer, MutationTechnique> mutationTechniqueMap) {
+
+    public GeneticAlgorithm(int populationCount, double mutationRate, FitnessTechnique fitnessTechnique, SelectionTechnique selectionTechnique, CrossOverTechnique crossOverTechnique, Map<Integer, MutationTechnique> mutationTechniqueMap) {
         this.populationCount = populationCount;
         this.mutationRate = mutationRate;
         this.fitnessTechnique = fitnessTechnique;
         this.selectionTechnique = selectionTechnique;
+        this.crossOverTechnique = crossOverTechnique;
         this.mutationTechniqueMap = mutationTechniqueMap;
     }
 
@@ -37,12 +41,10 @@ public abstract class GeneticAlgorithm {
         bestFitnessEver = Double.MIN_VALUE;
         fittestChromosomeEver = population.getFittestChromosome();
         while (bestFitnessEver < 1) {
-            draw();
             findFittestChromosomeEver();
             nextGeneration();
-//            new Scanner(System.in).next();
+            draw();
         }
-        draw();
     }
 
     public abstract void initialGeneration();
@@ -55,10 +57,11 @@ public abstract class GeneticAlgorithm {
             Chromosome parentA = selectionTechnique.select(population);
             Chromosome parentB = selectionTechnique.select(population);
             Chromosome child = crossOverTechnique.crossOver(parentA, parentB);
-            child.mutate(mutationRate);
+            MutationTechnique mutationTechnique = getMutationTechniqueMap().get(new Random().nextInt(getMutationTechniqueMap().size()));
+            child.mutate(mutationRate,mutationTechnique);
             nextChromosomes.add(child);
         }
-        population = new Population(nextChromosomes, this);
+        population = new Population(nextChromosomes);
         generationsCounter++;
     }
 

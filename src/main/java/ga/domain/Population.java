@@ -7,17 +7,17 @@ public class Population {
     private List<Chromosome> chromosomes;
     private Chromosome fittestChromosome;
 
-    private GeneticAlgorithm geneticAlgorithm;
+//    private GeneticAlgorithm geneticAlgorithm;
 
-    public Population(List<Chromosome> chromosomes, GeneticAlgorithm geneticAlgorithm) {
+    public Population(List<Chromosome> chromosomes) {
         this.chromosomes = chromosomes;
-        this.geneticAlgorithm = geneticAlgorithm;
+//        this.geneticAlgorithm = geneticAlgorithm;
         fittestChromosome = findFittestChromosome();
         calculateProbabilities();
     }
 
     public Population getCopy() {
-        return new Population(this.chromosomes, this.geneticAlgorithm);
+        return new Population(this.chromosomes);
     }
 
     private Chromosome findFittestChromosome() {
@@ -39,14 +39,6 @@ public class Population {
 
     public Chromosome getFittestChromosome() {
         return fittestChromosome;
-    }
-
-    public GeneticAlgorithm getGeneticAlgorithm() {
-        return geneticAlgorithm;
-    }
-
-    public void setGeneticAlgorithm(GeneticAlgorithm geneticAlgorithm) {
-        this.geneticAlgorithm = geneticAlgorithm;
     }
 
     private void calculateProbabilities() {

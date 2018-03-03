@@ -3,64 +3,42 @@ package convex_hull.ch_ga;
 import convex_hull.domain.Point;
 import convex_hull.utilities.ConvexHullUtilities;
 import ga.DNA;
-import ga.domain.GeneticAlgorithm;
+import ga.techniques.FitnessTechnique;
+import ga.techniques.MutationTechnique;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CH_DNA implements DNA {
 
-    private List<Point> convexHull;
-    private List<Point> points;
-    private List<Point> outsidePoints;
-    private List<Point> sickJoints = new ArrayList<>();
+    private Map<Integer, List<Point>> geneMap = new LinkedHashMap<>();
     private int intersections;
+    private FitnessTechnique fitnessTechnique;
 
-    private GeneticAlgorithm geneticAlgorithm;
+    public CH_DNA(List<Point> points, List<Point> convexHull, FitnessTechnique fitnessTechnique) {
+        this.fitnessTechnique = fitnessTechnique;
 
-    public CH_DNA(Set<Point> convexHull, List<Point> points, GeneticAlgorithm geneticAlgorithm) {
-        this.convexHull = new ArrayList<>(convexHull);
-        this.points = new ArrayList<>(points);
-        this.geneticAlgorithm = geneticAlgorithm;
+        List<Point> outsidePoints = ConvexHullUtilities.calculateOutsidePoints(convexHull, points);
+        List<Point> sickJoints = ConvexHullUtilities.calculateSickJoints(convexHull);
 
-        outsidePoints = ConvexHullUtilities.calculateOutsidePoints(this.convexHull, points);
-        intersections = ConvexHullUtilities.calculateIntersections(this.convexHull);
-        if (this.convexHull.size() >= 3) {
-            sickJoints = ConvexHullUtilities.calculateSickJoints(this.convexHull);
-        }
+        geneMap.put(0,points);
+        geneMap.put(1, convexHull);
+        geneMap.put(2, outsidePoints);
+        geneMap.put(3, sickJoints);
 
-    }
+        intersections = ConvexHullUtilities.calculateIntersections(convexHull);
 
-    public GeneticAlgorithm getGeneticAlgorithm() {
-        return geneticAlgorithm;
-    }
-
-    public void setGeneticAlgorithm(GeneticAlgorithm geneticAlgorithm) {
-        this.geneticAlgorithm = geneticAlgorithm;
     }
 
     @Override
-    public DNA getCopy() {
-        return new CH_DNA(new LinkedHashSet<>(convexHull), new ArrayList<>(points), geneticAlgorithm);
+    public FitnessTechnique getFitnessTechnique() {
+        return fitnessTechnique;
     }
 
     @Override
-    public List<Point> getGene() {
-        return convexHull;
-    }
-
-    @Override
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    @Override
-    public List<Point> getSickJoints() {
-        return sickJoints;
-    }
-
-    @Override
-    public List<Point> getOutsidePoints() {
-        return outsidePoints;
+    public Map<Integer, List<Point>> getGene() {
+        return geneMap;
     }
 
     @Override
@@ -70,18 +48,13 @@ public class CH_DNA implements DNA {
 
     @Override
     public double calculateFitness() {
-        return geneticAlgorithm.getFitnessTechnique().calculateFitness(this);
+        return fitnessTechnique.calculateFitness(this);
     }
 
     @Override
-    public DNA mutate() {
-        int mutationChance = new Random().nextInt(geneticAlgorithm.getMutationTechniqueMap().size());
-        DNA mutatedDNA = geneticAlgorithm.getMutationTechniqueMap().get(mutationChance).execute(this);
-        if (mutatedDNA.getIntersections() == 0) {
-            return mutatedDNA;
-        } else {
-            return this;
-        }
+    public DNA mutate(MutationTechnique mutationTechnique) {
+        DNA mutatedDNA = mutationTechnique.execute(this);
+        return mutatedDNA;
     }
 
 }

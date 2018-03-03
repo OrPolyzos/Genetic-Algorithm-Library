@@ -20,6 +20,11 @@ public class SelectionTechniqueElitism implements SelectionTechnique {
 
     @Override
     public Chromosome select(Population population) {
-        return population.getGeneticAlgorithm().getFittestChromosomeEver().getCopy();
+        return population.getFittestChromosome().getCopy();
+    }
+
+    @Override
+    public String toString() {
+        return "Using: SelectionTechniqueElitism";
     }
 }

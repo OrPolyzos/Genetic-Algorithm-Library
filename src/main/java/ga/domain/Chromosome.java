@@ -1,12 +1,15 @@
 package ga.domain;
 
 import ga.DNA;
+import ga.techniques.FitnessTechnique;
+import ga.techniques.MutationTechnique;
 
+import java.util.Map;
 import java.util.Random;
 
 public class Chromosome {
 
-    private ga.DNA DNA;
+    private DNA DNA;
     private double fitness;
     private double probability;
 
@@ -35,10 +38,10 @@ public class Chromosome {
         this.probability = probability;
     }
 
-    public Chromosome mutate(double mutationRate) {
+    public Chromosome mutate(double mutationRate, MutationTechnique mutationTechnique) {
         double chanceToMutate = new Random().nextDouble();
         if (chanceToMutate < mutationRate) {
-            DNA = DNA.mutate();
+            DNA = DNA.mutate(mutationTechnique);
             fitness = DNA.calculateFitness();
         }
         return this;

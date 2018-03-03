@@ -1,7 +1,12 @@
 package convex_hull.ch_ga.techniques.fitness;
 
+import convex_hull.domain.Point;
 import ga.DNA;
 import ga.techniques.FitnessTechnique;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique {
 
@@ -22,10 +27,19 @@ public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique {
         if (dna.getGene().size() < 3) {
             return 0;
         }
-        int fitOutsidePoints = dna.getOutsidePoints().size() + 1;
+
+        Map<Integer,List<Point>> geneMap = dna.getGene();
+        List<Point> outsidePoints = geneMap.get(2);
+
+        int fitOutsidePoints = outsidePoints.size() + 1;
         int fitIntersections = dna.getIntersections() + 1;
 
         double fitness = 1 / (double) (fitOutsidePoints * fitIntersections);
         return fitness;
+    }
+
+    @Override
+    public String toString() {
+        return "Using: FitnessTechniqueWithoutSickJoints";
     }
 }
