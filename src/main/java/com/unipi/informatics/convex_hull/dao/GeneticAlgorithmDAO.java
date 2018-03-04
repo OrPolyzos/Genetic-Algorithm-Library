@@ -1,11 +1,12 @@
 package com.unipi.informatics.convex_hull.dao;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "GeneticAlgorithm")
-public class GeneticAlgorithmDAO {
+public class GeneticAlgorithmDAO implements Serializable{
 
     @Id
     @Column(name = "id", nullable = false)

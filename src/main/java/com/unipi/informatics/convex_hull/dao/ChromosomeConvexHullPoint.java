@@ -1,15 +1,20 @@
 package com.unipi.informatics.convex_hull.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "ConvexHullPoints")
-public class ChromosomeConvexHullPoint {
+public class ChromosomeConvexHullPoint implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "chromosome_id", referencedColumnName = "id")
     private ChromosomeDAO chromosomeDAO;

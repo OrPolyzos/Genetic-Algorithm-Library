@@ -20,12 +20,18 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
 
     private List<Point> points;
 
-
     public CH_GeneticAlgorithm(List<Point> points, int populationCount, double mutationRate, FitnessTechnique fitnessTechnique, SelectionTechnique selectionTechnique, CrossOverTechnique crossOverTechnique, Map<Integer, MutationTechnique> mutationTechniqueMap) {
         super(populationCount, mutationRate, fitnessTechnique, selectionTechnique, crossOverTechnique, mutationTechniqueMap);
         this.points = points;
     }
 
+    public List<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<Point> points) {
+        this.points = points;
+    }
 
     public void initialGeneration() {
         List<Chromosome> chromosomes = new ArrayList<>();
@@ -35,7 +41,7 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
             Chromosome chromosome = new Chromosome(DNA, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
-        Population initialPopulation = new Population(chromosomes);
+        Population initialPopulation = new CH_Population(chromosomes);
         this.setPopulation(initialPopulation);
     }
 
@@ -47,7 +53,7 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
         List<Chromosome> chromosomes = new ArrayList<>();
         for (int i = 0; i < this.getPopulationCount(); i++) {
             DNA DNA = new CH_DNA(points, poorConvexHullPoints);
-            Chromosome chromosome = new Chromosome(DNA, getFitnessTechnique());
+            Chromosome chromosome = new CH_Chromosome(DNA, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
         Population elitePopulation = new Population(chromosomes);
@@ -57,17 +63,15 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
 
     @Override
     public void draw() {
-        System.out.println(toString());
+        System.out.println("Generation: " + getGenerationsCounter() + " | Fitness: " + getFittestChromosomeEver().getFitness());
     }
 
     @Override
     public void findFittestChromosomeEver() {
-
         Chromosome bestChromosomeEver = this.getFittestChromosomeEver();
         double bestFitnessEver = this.getBestFitnessEver();
         Chromosome bestPopulationChromosome = this.getPopulation().getFittestChromosome();
         double bestPopulationFitness = bestPopulationChromosome.getFitness();
-
         if (bestPopulationFitness > bestFitnessEver) {
             this.setBestFitnessEver(bestPopulationFitness);
             this.setFittestChromosomeEver(bestPopulationChromosome);
@@ -81,33 +85,6 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
         }
 
     }
-
-//    protected void paintComponent(Graphics graphics) {
-//        super.paintComponent(graphics);
-//        Graphics2D graphics2D = (Graphics2D) graphics.create();
-//
-//          /* Enable anti-aliasing and pure stroke */
-//        graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        graphics2D.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
-//
-//        Path2D path = new Path2D.Double();
-//        List<Point> convexHull = this.getFittestChromosomeEver().getDNA().getGene();
-//        path.moveTo(convexHull.get(0).getX(), convexHull.get(0).getY());
-//        for (int i = 1; i < convexHull.size(); ++i) {
-//            path.lineTo(convexHull.get(i).getX(), convexHull.get(i).getY());
-//        }
-//        path.closePath();
-//        graphics2D.setColor(Color.BLACK);
-//        graphics2D.draw(path);
-//
-//
-//        List<Point> points = this.getFittestChromosomeEver().getDNA().getPoints();
-//        graphics2D.setColor(Color.RED);
-//        for (Point point : points) {
-//            Ellipse2D.Double shape = new Ellipse2D.Double(point.getX() - 1.25, point.getY() - 1.25, 2.5, 2.5);
-//            graphics2D.fill(shape);
-//        }
-//    }
 
     @Override
     public String toString() {

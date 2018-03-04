@@ -6,12 +6,13 @@ import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public abstract class GeneticAlgorithm{//} extends JComponent {
+public abstract class GeneticAlgorithm{
 
     private int populationCount;
     private double mutationRate;

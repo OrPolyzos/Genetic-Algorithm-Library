@@ -148,7 +148,7 @@ public class ConvexHullUtilities {
         return new ArrayList<>(possibleHullPoints);
     }
 
-    public static List<Point> generatePoints(int pointsCount) {//}, Canvas canvas) {
+    public static List<Point> generatePoints(int width, int height, int pointsCount) {//}, Canvas canvas) {
         Set<Point> pointSet = new HashSet<>();
 //        pointList.add(new Point(0,45,45));
 //        pointList.add(new Point(1,150,45));
@@ -161,16 +161,16 @@ public class ConvexHullUtilities {
         //Creating random coordinates (points)
         int border = 25;
         for (int i = 0; i < pointsCount; i++) {
-            double x = new Random().nextDouble() * (double) 5 * 500 / 6;
+            double x = new Random().nextDouble() * (double) width;
             if (x < border) {
                 x += border;
-            } else if (x >= 500 - border) {
+            } else if (x >= width - border) {
                 x -= border;
             }
-            double y = new Random().nextDouble() * (double) 5 * 500 / 6;
+            double y = new Random().nextDouble() * (double) height;
             if (y < border) {
                 y += border;
-            } else if (y >= 500 - border) {
+            } else if (y >= height - border) {
                 y -= border;
             }
             Point point = new Point(i, x, y);

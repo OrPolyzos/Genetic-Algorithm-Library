@@ -26,7 +26,7 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique {
 
     @Override
     public DNA execute(DNA dnaToMutate) {
-        Map<Integer,List<Point>> geneMap = dnaToMutate.getGene();
+        Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
 
         List<Point> outsidePoints = geneMap.get(2);
         if (!outsidePoints.isEmpty()) {

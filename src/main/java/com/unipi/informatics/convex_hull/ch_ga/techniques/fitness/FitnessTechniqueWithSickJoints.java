@@ -4,6 +4,7 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
             return 0;
         }
 
-        Map<Integer,List<Point>> geneMap = dna.getGene();
+        Map<Integer, List<Point>> geneMap = dna.getGene();
         List<Point> outsidePoints = geneMap.get(2);
         List<Point> sickJoints = geneMap.get(3);
 

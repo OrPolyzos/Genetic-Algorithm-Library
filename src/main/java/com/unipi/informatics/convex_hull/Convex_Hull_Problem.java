@@ -11,7 +11,6 @@ import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechn
 import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueElitism;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.utilities.ConvexHullUtilities;
-import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
@@ -27,17 +26,21 @@ public class Convex_Hull_Problem {
     private double mutationRate;
     private int populationCount;
     private int pointsCount;
+    private int width;
+    private int height;
     private List<Point> points;
     private Map<Integer, MutationTechnique> mutationTechniqueMap = new LinkedHashMap<>();
     private FitnessTechnique fitnessTechnique;
     private SelectionTechnique selectionTechnique;
     private CrossOverTechnique crossOverTechnique;
 
-    public Convex_Hull_Problem(double mutationRate, int populationCount, int pointsCount) {
+    public Convex_Hull_Problem(int width, int height, double mutationRate, int populationCount, int pointsCount) {
+        this.width = width;
+        this.height = height;
         this.mutationRate = mutationRate;
         this.populationCount = populationCount;
         this.pointsCount = pointsCount;
-        this.points = ConvexHullUtilities.generatePoints(pointsCount);
+        this.points = ConvexHullUtilities.generatePoints(width,height,pointsCount);
 
     }
 

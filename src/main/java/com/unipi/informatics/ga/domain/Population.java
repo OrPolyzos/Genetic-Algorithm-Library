@@ -1,8 +1,9 @@
 package com.unipi.informatics.ga.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Population {
+public class Population{
 
     private List<Chromosome> chromosomes;
     private Chromosome fittestChromosome;

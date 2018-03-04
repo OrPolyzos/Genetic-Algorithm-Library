@@ -4,12 +4,17 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique {
 
     private static FitnessTechniqueWithoutSickJoints fitnessTechniqueWithoutSickJoints;
+
+    public static FitnessTechniqueWithoutSickJoints getFitnessTechniqueWithoutSickJoints() {
+        return fitnessTechniqueWithoutSickJoints;
+    }
 
     private FitnessTechniqueWithoutSickJoints() {
     }
@@ -27,7 +32,7 @@ public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique {
             return 0;
         }
 
-        Map<Integer,List<Point>> geneMap = dna.getGene();
+        Map<Integer, List<Point>> geneMap = dna.getGene();
         List<Point> outsidePoints = geneMap.get(2);
 
         int fitOutsidePoints = outsidePoints.size() + 1;

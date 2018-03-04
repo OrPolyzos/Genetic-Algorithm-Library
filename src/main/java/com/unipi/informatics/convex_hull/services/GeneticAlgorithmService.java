@@ -1,4 +1,4 @@
-package com.unipi.informatics.convex_hull.ch_ga.services;
+package com.unipi.informatics.convex_hull.services;
 
 import com.unipi.informatics.convex_hull.converters.GeneticAlgorithmConverter;
 import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDAO;

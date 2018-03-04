@@ -1,5 +1,7 @@
 package com.unipi.informatics.convex_hull.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,10 +19,11 @@ public class ChromosomeDAO implements Serializable {
     private double fitness;
     @Column(name = "fitnessTechnique")
     private String fitnessTechnique;
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "genetic_algorithm_id", referencedColumnName = "id")
     private GeneticAlgorithmDAO geneticAlgorithmDAO;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "chromosomeDAO", targetEntity = ChromosomeConvexHullPoint.class)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "chromosomeDAO", targetEntity = ChromosomeConvexHullPoint.class)
     private List<ChromosomeConvexHullPoint> chromosomeConvexHullPoints = new ArrayList<>();
 
     public Long getId() {

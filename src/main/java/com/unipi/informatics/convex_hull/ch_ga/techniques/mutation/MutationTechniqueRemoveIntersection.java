@@ -5,7 +5,10 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class MutationTechniqueRemoveIntersection implements MutationTechnique {
 
@@ -23,7 +26,7 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique {
 
     @Override
     public DNA execute(DNA dnaToMutate) {
-        Map<Integer,List<Point>> geneMap = dnaToMutate.getGene();
+        Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
         List<Point> points = geneMap.get(0);
         List<Point> mutatedHull = new ArrayList<>(geneMap.get(1));
 
