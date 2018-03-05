@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class MutationTechniqueRemoveIntersection implements MutationTechnique {
+public class MutationTechniqueRemoveIntersection implements MutationTechnique<Map<Integer, List<Point>>> {
 
     private static MutationTechniqueRemoveIntersection mutationTechniqueRemoveIntersection;
 
@@ -25,7 +25,7 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique {
     }
 
     @Override
-    public DNA execute(DNA dnaToMutate) {
+    public DNA<Map<Integer, List<Point>>> execute(DNA<Map<Integer, List<Point>>> dnaToMutate) {
         Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
         List<Point> points = geneMap.get(0);
         List<Point> mutatedHull = new ArrayList<>(geneMap.get(1));

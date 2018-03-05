@@ -159,19 +159,23 @@ public class ConvexHullUtilities {
 //        pointList.add(new Point(6,195,255));
 //        pointList.add(new Point(7,250,300));
         //Creating random coordinates (points)
-        int border = 25;
+
+        double v_border_bottom = 0.01 * height;
+        double v_border_top = 0.1 * height;
+        double h_border = 0.01 * width;
+
         for (int i = 0; i < pointsCount; i++) {
             double x = new Random().nextDouble() * (double) width;
-            if (x < border) {
-                x += border;
-            } else if (x >= width - border) {
-                x -= border;
+            if (x < h_border) {
+                x += h_border;
+            } else if (x >= width - h_border) {
+                x -= h_border;
             }
             double y = new Random().nextDouble() * (double) height;
-            if (y < border) {
-                y += border;
-            } else if (y >= height - border) {
-                y -= border;
+            if (y < v_border_top) {
+                y += v_border_top;
+            } else if (y >= height - v_border_bottom) {
+                y -= v_border_bottom;
             }
             Point point = new Point(i, x, y);
             pointSet.add(point);

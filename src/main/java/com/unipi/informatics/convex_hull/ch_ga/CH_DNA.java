@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CH_DNA implements DNA {
+public class CH_DNA extends DNA<Map<Integer,List<Point>>> {
 
     private Map<Integer, List<Point>> geneMap = new LinkedHashMap<>();
     private int intersections;
@@ -40,12 +40,12 @@ public class CH_DNA implements DNA {
     }
 
     @Override
-    public double calculateFitness(FitnessTechnique fitnessTechnique) {
+    public double calculateFitness(FitnessTechnique<Map<Integer,List<Point>>> fitnessTechnique) {
         return fitnessTechnique.calculateFitness(this);
     }
 
     @Override
-    public DNA mutate(MutationTechnique mutationTechnique) {
+    public DNA<Map<Integer,List<Point>>> mutate(MutationTechnique<Map<Integer,List<Point>>> mutationTechnique) {
         return mutationTechnique.execute(this);
     }
 

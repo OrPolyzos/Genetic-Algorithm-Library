@@ -1,29 +1,21 @@
 package com.unipi.informatics.ga.domain;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Population{
+public class Population<T> {
 
-    private List<Chromosome> chromosomes;
-    private Chromosome fittestChromosome;
+    private List<Chromosome<T>> chromosomes;
+    private Chromosome<T> fittestChromosome;
 
-//    private GeneticAlgorithm geneticAlgorithm;
-
-    public Population(List<Chromosome> chromosomes) {
+    public Population(List<Chromosome<T>> chromosomes) {
         this.chromosomes = chromosomes;
-//        this.geneticAlgorithm = geneticAlgorithm;
         fittestChromosome = findFittestChromosome();
         calculateProbabilities();
     }
 
-    public Population getCopy() {
-        return new Population(this.chromosomes);
-    }
-
-    private Chromosome findFittestChromosome() {
+    private Chromosome<T> findFittestChromosome() {
         double bestFitness = Double.MIN_VALUE;
-        Chromosome fittestChromosome = null;
+        Chromosome<T> fittestChromosome = null;
 
         for (int i = 0; i < chromosomes.size(); i++) {
             if (chromosomes.get(i).getFitness() > bestFitness) {
@@ -34,11 +26,11 @@ public class Population{
         return fittestChromosome;
     }
 
-    public List<Chromosome> getChromosomes() {
+    public List<Chromosome<T>> getChromosomes() {
         return chromosomes;
     }
 
-    public Chromosome getFittestChromosome() {
+    public Chromosome<T> getFittestChromosome() {
         return fittestChromosome;
     }
 

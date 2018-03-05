@@ -4,11 +4,10 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
+public class FitnessTechniqueWithSickJoints implements FitnessTechnique<Map<Integer, List<Point>>> {
 
     private static FitnessTechniqueWithSickJoints fitnessTechniqueWithSickJoints;
 
@@ -23,7 +22,7 @@ public class FitnessTechniqueWithSickJoints implements FitnessTechnique {
     }
 
     @Override
-    public double calculateFitness(DNA dna) {
+    public double calculateFitness(DNA<Map<Integer, List<Point>>> dna) {
         if (dna.getGene().size() < 3) {
             return 0;
         }

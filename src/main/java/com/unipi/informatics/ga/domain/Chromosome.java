@@ -4,30 +4,31 @@ import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Random;
 
-public class Chromosome{
+public class Chromosome<T> {
 
-
-    public DNA DNA;
-    private FitnessTechnique fitnessTechnique;
+    public DNA<T> DNA;
+    private FitnessTechnique<T> fitnessTechnique;
     private double fitness;
     private double probability;
 
-    public Chromosome(DNA DNA, FitnessTechnique fitnessTechnique) {
+    public Chromosome(DNA<T> DNA, FitnessTechnique<T> fitnessTechnique) {
         this.DNA = DNA;
         this.fitnessTechnique = fitnessTechnique;
         fitness = DNA.calculateFitness(fitnessTechnique);
     }
 
-    public Chromosome getCopy() {
-        return new Chromosome(this.DNA, fitnessTechnique);
+    public Chromosome<T> getCopy() {
+        return new Chromosome<>(this.DNA, fitnessTechnique);
     }
 
-    public DNA getDNA() {
+    public DNA<T> getDNA() {
         return DNA;
+    }
+
+    public void setDNA(DNA<T> DNA) {
+        this.DNA = DNA;
     }
 
     public double getFitness() {
@@ -38,32 +39,21 @@ public class Chromosome{
         return probability;
     }
 
-    public void setProbability(double probability) {
+    void setProbability(double probability) {
         this.probability = probability;
     }
 
-    public Chromosome mutate(double mutationRate, MutationTechnique mutationTechnique) {
+    Chromosome<T> mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
         double chanceToMutate = new Random().nextDouble();
         if (chanceToMutate < mutationRate) {
-            DNA = DNA.mutate(mutationTechnique);
+            DNA= DNA.mutate(mutationTechnique);
             fitness = DNA.calculateFitness(fitnessTechnique);
         }
         return this;
     }
 
-    public void setDNA(com.unipi.informatics.ga.DNA DNA) {
-        this.DNA = DNA;
-    }
-
-    public FitnessTechnique getFitnessTechnique() {
+    public FitnessTechnique<T> getFitnessTechnique() {
         return fitnessTechnique;
     }
 
-    public void setFitnessTechnique(FitnessTechnique fitnessTechnique) {
-        this.fitnessTechnique = fitnessTechnique;
-    }
-
-    public void setFitness(double fitness) {
-        this.fitness = fitness;
-    }
 }

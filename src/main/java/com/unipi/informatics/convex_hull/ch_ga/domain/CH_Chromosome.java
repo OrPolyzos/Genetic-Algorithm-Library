@@ -4,15 +4,9 @@ import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
+class CH_Chromosome<T> extends Chromosome<T> {
 
-public class CH_Chromosome extends Chromosome {
-
-    public CH_Chromosome(DNA DNA, FitnessTechnique fitnessTechnique) {
+    CH_Chromosome(DNA<T> DNA, FitnessTechnique fitnessTechnique) {
         super(DNA, fitnessTechnique);
     }
 

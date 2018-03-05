@@ -1,19 +1,19 @@
 package com.unipi.informatics.ga;
 
-import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.List;
-import java.util.Map;
+public abstract class DNA<T> {
 
-public interface DNA {
+    public abstract T getGene();
 
-    DNA mutate(MutationTechnique mutationTechnique);
+    public abstract int getIntersections();
 
-    double calculateFitness(FitnessTechnique fitnessTechnique);
+    public double calculateFitness(FitnessTechnique<T> fitnessTechnique) {
+        return fitnessTechnique.calculateFitness(this);
+    }
 
-    Map<Integer,List<Point>> getGene();
-
-    int getIntersections();
+    public DNA<T> mutate(MutationTechnique<T> mutationTechnique) {
+        return mutationTechnique.execute(this);
+    }
 }

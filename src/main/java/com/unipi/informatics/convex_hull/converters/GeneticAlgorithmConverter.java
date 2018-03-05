@@ -9,10 +9,11 @@ import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GeneticAlgorithmConverter {
 
-    public static GeneticAlgorithmDAO convertToGeneticAlgorithmDAO(GeneticAlgorithm geneticAlgorithm){
+    public static GeneticAlgorithmDAO convertToGeneticAlgorithmDAO(GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm){
         GeneticAlgorithmDAO geneticAlgorithmDAO = new GeneticAlgorithmDAO();
 
         List<PointDAO> pointDAOS = new ArrayList<>();
@@ -26,7 +27,7 @@ public class GeneticAlgorithmConverter {
         geneticAlgorithmDAO.setGenerations(geneticAlgorithm.getGenerationsCounter());
         geneticAlgorithmDAO.setDuration(geneticAlgorithm.getDuration() / 1000000000);
         List<ChromosomeDAO> chromosomeDAOList = new ArrayList<>();
-        for (Chromosome chromosome : geneticAlgorithm.getFittestChromosomes()){
+        for (Chromosome<Map<Integer,List<Point>>> chromosome : geneticAlgorithm.getFittestChromosomes()){
             chromosomeDAOList.add(ChromosomeConverter.convertToChromosomeDAO(chromosome, geneticAlgorithmDAO));
         }
         geneticAlgorithmDAO.setFittestChromosomes(chromosomeDAOList);

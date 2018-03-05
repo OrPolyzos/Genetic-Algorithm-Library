@@ -7,7 +7,7 @@ import com.unipi.informatics.ga.techniques.SelectionTechnique;
 import java.util.List;
 import java.util.Random;
 
-public class SelectionTechniqueRouletteWheel implements SelectionTechnique {
+public class SelectionTechniqueRouletteWheel<T> implements SelectionTechnique<T> {
 
     private static SelectionTechniqueRouletteWheel selectionTechniqueRouletteWheel;
 
@@ -22,8 +22,8 @@ public class SelectionTechniqueRouletteWheel implements SelectionTechnique {
     }
 
     @Override
-    public Chromosome select(Population population) {
-        List<Chromosome> chromosomes = population.getChromosomes();
+    public Chromosome<T> select(Population<T> population) {
+        List<Chromosome<T>> chromosomes = population.getChromosomes();
         int index = 0;
         double r = new Random().nextDouble();
         while (r > 0) {

@@ -25,22 +25,16 @@ public class Convex_Hull_Problem {
 
     private double mutationRate;
     private int populationCount;
-    private int pointsCount;
-    private int width;
-    private int height;
     private List<Point> points;
-    private Map<Integer, MutationTechnique> mutationTechniqueMap = new LinkedHashMap<>();
-    private FitnessTechnique fitnessTechnique;
-    private SelectionTechnique selectionTechnique;
-    private CrossOverTechnique crossOverTechnique;
+    private Map<Integer, MutationTechnique<Map<Integer,List<Point>>>> mutationTechniqueMap = new LinkedHashMap<>();
+    private FitnessTechnique<Map<Integer,List<Point>>> fitnessTechnique;
+    private SelectionTechnique<Map<Integer,List<Point>>> selectionTechnique;
+    private CrossOverTechnique<Map<Integer,List<Point>>> crossOverTechnique;
 
     public Convex_Hull_Problem(int width, int height, double mutationRate, int populationCount, int pointsCount) {
-        this.width = width;
-        this.height = height;
         this.mutationRate = mutationRate;
         this.populationCount = populationCount;
-        this.pointsCount = pointsCount;
-        this.points = ConvexHullUtilities.generatePoints(width,height,pointsCount);
+        this.points = ConvexHullUtilities.generatePoints(width, height, pointsCount);
 
     }
 
@@ -62,22 +56,15 @@ public class Convex_Hull_Problem {
         mutationTechniqueMap.clear();
         mutationTechniqueMap.put(0, MutationTechniqueRemoveSickJoints.getInstance());
 
-        System.out.println(fitnessTechnique.toString());
-        System.out.println(selectionTechnique.toString());
-        System.out.println(crossOverTechnique.toString());
-        for (Integer key : mutationTechniqueMap.keySet()) {
-            System.out.println(mutationTechniqueMap.get(key).toString());
-        }
     }
 
-    public GeneticAlgorithm solve() {
+    public GeneticAlgorithm<Map<Integer,List<Point>>> solve() {
         setupForPhase1();
         CH_GeneticAlgorithm chGeneticAlgorithm = new CH_GeneticAlgorithm(points, populationCount, mutationRate, fitnessTechnique, selectionTechnique, crossOverTechnique, mutationTechniqueMap);
         chGeneticAlgorithm.initialGeneration();
         chGeneticAlgorithm.run();
 
         if (chGeneticAlgorithm.getFittestChromosomeEver().getDNA().getGene().get(3).size() == 0) {
-            System.out.println("Finished!");
             return chGeneticAlgorithm;
         }
         setupForPhase2();

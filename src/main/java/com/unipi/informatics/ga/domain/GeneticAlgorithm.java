@@ -1,37 +1,32 @@
 package com.unipi.informatics.ga.domain;
 
-
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public abstract class GeneticAlgorithm{
+public abstract class GeneticAlgorithm<T> {
 
+    private Population<T> population;
+    private Chromosome<T> fittestChromosomeEver;
+    private List<Chromosome<T>> fittestChromosomes;
     private int populationCount;
     private double mutationRate;
-
     private FitnessTechnique fitnessTechnique;
-    private SelectionTechnique selectionTechnique;
-    private CrossOverTechnique crossOverTechnique;
-    private Map<Integer, MutationTechnique> mutationTechniqueMap;
-
-    private Population population;
-    private Chromosome fittestChromosomeEver;
+    private SelectionTechnique<T> selectionTechnique;
+    private CrossOverTechnique<T> crossOverTechnique;
+    private Map<Integer, MutationTechnique<T>> mutationTechniqueMap;
     private double bestFitnessEver;
     private int generationsCounter;
     private double startTime;
     private double duration;
-    private List<Chromosome> fittestChromosomes;
 
-
-    public GeneticAlgorithm(int populationCount, double mutationRate, FitnessTechnique fitnessTechnique, SelectionTechnique selectionTechnique, CrossOverTechnique crossOverTechnique, Map<Integer, MutationTechnique> mutationTechniqueMap) {
+    public GeneticAlgorithm(int populationCount, double mutationRate, FitnessTechnique<T> fitnessTechnique, SelectionTechnique<T> selectionTechnique, CrossOverTechnique<T> crossOverTechnique, Map<Integer, MutationTechnique<T>> mutationTechniqueMap) {
         this.populationCount = populationCount;
         this.mutationRate = mutationRate;
         this.fitnessTechnique = fitnessTechnique;
@@ -46,11 +41,12 @@ public abstract class GeneticAlgorithm{
     public void run() {
         bestFitnessEver = Double.MIN_VALUE;
         fittestChromosomeEver = population.getFittestChromosome();
+        fittestChromosomes.add(fittestChromosomeEver);
         while (bestFitnessEver < 1) {
-            fittestChromosomes.add(fittestChromosomeEver);
             findFittestChromosomeEver();
             nextGeneration();
             draw();
+            fittestChromosomes.add(fittestChromosomeEver);
         }
         this.duration = System.nanoTime() - startTime;
     }
@@ -59,17 +55,17 @@ public abstract class GeneticAlgorithm{
 
     public abstract void findFittestChromosomeEver();
 
-    public void nextGeneration() {
-        List<Chromosome> nextChromosomes = new ArrayList<>();
+    private void nextGeneration() {
+        List<Chromosome<T>> nextChromosomes = new ArrayList<>();
         for (int i = 0; i < populationCount; i++) {
-            Chromosome parentA = selectionTechnique.select(population);
-            Chromosome parentB = selectionTechnique.select(population);
-            Chromosome child = crossOverTechnique.crossOver(parentA, parentB);
-            MutationTechnique mutationTechnique = getMutationTechniqueMap().get(new Random().nextInt(getMutationTechniqueMap().size()));
-            child.mutate(mutationRate,mutationTechnique);
+            Chromosome<T> parentA = selectionTechnique.select(population);
+            Chromosome<T> parentB = selectionTechnique.select(population);
+            Chromosome<T> child = crossOverTechnique.crossOver(parentA, parentB);
+            MutationTechnique<T> mutationTechnique = getMutationTechniqueMap().get(new Random().nextInt(getMutationTechniqueMap().size()));
+            child = child.mutate(mutationRate, mutationTechnique);
             nextChromosomes.add(child);
         }
-        population = new Population(nextChromosomes);
+        population = new Population<>(nextChromosomes);
         generationsCounter++;
     }
 
@@ -79,23 +75,11 @@ public abstract class GeneticAlgorithm{
         return populationCount;
     }
 
-    public CrossOverTechnique getCrossOverTechnique() {
-        return crossOverTechnique;
-    }
-
-    public void setCrossOverTechnique(CrossOverTechnique crossOverTechnique) {
-        this.crossOverTechnique = crossOverTechnique;
-    }
-
     public double getMutationRate() {
         return mutationRate;
     }
 
-    public void setMutationRate(double mutationRate) {
-        this.mutationRate = mutationRate;
-    }
-
-    public FitnessTechnique getFitnessTechnique() {
+    protected FitnessTechnique getFitnessTechnique() {
         return fitnessTechnique;
     }
 
@@ -103,43 +87,35 @@ public abstract class GeneticAlgorithm{
         this.fitnessTechnique = fitnessTechnique;
     }
 
-    public SelectionTechnique getSelectionTechnique() {
-        return selectionTechnique;
-    }
-
-    public void setSelectionTechnique(SelectionTechnique selectionTechnique) {
-        this.selectionTechnique = selectionTechnique;
-    }
-
-    public Map<Integer, MutationTechnique> getMutationTechniqueMap() {
+    private Map<Integer, MutationTechnique<T>> getMutationTechniqueMap() {
         return mutationTechniqueMap;
     }
 
-    public void setMutationTechniqueMap(Map<Integer, MutationTechnique> mutationTechniqueMap) {
+    public void setMutationTechniqueMap(Map<Integer, MutationTechnique<T>> mutationTechniqueMap) {
         this.mutationTechniqueMap = mutationTechniqueMap;
     }
 
-    public Population getPopulation() {
+    protected Population<T> getPopulation() {
         return population;
     }
 
-    public void setPopulation(Population population) {
+    protected void setPopulation(Population<T> population) {
         this.population = population;
     }
 
-    public Chromosome getFittestChromosomeEver() {
+    public Chromosome<T> getFittestChromosomeEver() {
         return fittestChromosomeEver;
     }
 
-    public void setFittestChromosomeEver(Chromosome fittestChromosomeEver) {
+    protected void setFittestChromosomeEver(Chromosome<T> fittestChromosomeEver) {
         this.fittestChromosomeEver = fittestChromosomeEver;
     }
 
-    public double getBestFitnessEver() {
+    protected double getBestFitnessEver() {
         return bestFitnessEver;
     }
 
-    public void setBestFitnessEver(double bestFitnessEver) {
+    protected void setBestFitnessEver(double bestFitnessEver) {
         this.bestFitnessEver = bestFitnessEver;
     }
 
@@ -147,27 +123,11 @@ public abstract class GeneticAlgorithm{
         return generationsCounter;
     }
 
-    public void setGenerationsCounter(int generationsCounter) {
-        this.generationsCounter = generationsCounter;
-    }
-
-    public void setPopulationCount(int populationCount) {
-        this.populationCount = populationCount;
-    }
-
     public double getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
-        this.duration = duration;
-    }
-
-    public List<Chromosome> getFittestChromosomes() {
+    public List<Chromosome<T>> getFittestChromosomes() {
         return fittestChromosomes;
-    }
-
-    public void setFittestChromosomes(List<Chromosome> fittestChromosomes) {
-        this.fittestChromosomes = fittestChromosomes;
     }
 }

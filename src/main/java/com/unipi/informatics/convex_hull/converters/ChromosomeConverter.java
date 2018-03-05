@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class ChromosomeConverter {
+class ChromosomeConverter {
 
-    public static ChromosomeDAO convertToChromosomeDAO(Chromosome chromosome, GeneticAlgorithmDAO geneticAlgorithmDAO) {
+    static ChromosomeDAO convertToChromosomeDAO(Chromosome<Map<Integer, List<Point>>> chromosome, GeneticAlgorithmDAO geneticAlgorithmDAO) {
         ChromosomeDAO chromosomeDAO = new ChromosomeDAO();
         chromosomeDAO.setGeneticAlgorithmDAO(geneticAlgorithmDAO);
         chromosomeDAO.setFitness(chromosome.getFitness());

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechnique {
+public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechnique<Map<Integer, List<Point>>> {
 
     private static MutationTechniqueReplaceWithOutsidePoint mutationTechniqueReplaceWithOutsidePoint;
 
@@ -26,7 +26,8 @@ public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechniq
     }
 
     @Override
-    public DNA execute(DNA dnaToMutate) {
+    public DNA<Map<Integer, List<Point>>> execute(DNA<Map<Integer, List<Point>>> dnaToMutate) {
+
         Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
         List<Point> outsidePoints = geneMap.get(2);
 

@@ -5,9 +5,9 @@ import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDAO;
 import com.unipi.informatics.convex_hull.dao.PointDAO;
 import com.unipi.informatics.convex_hull.domain.Point;
 
-public class PointConverter {
+class PointConverter {
 
-    public static PointDAO convertToPointDAO(Point point, GeneticAlgorithmDAO geneticAlgorithmDAO){
+    static PointDAO convertToPointDAO(Point point, GeneticAlgorithmDAO geneticAlgorithmDAO){
         PointDAO pointDAO = new PointDAO();
         pointDAO.setLabel(point.getLabel());
         pointDAO.setX(point.getX());

@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CH_GeneticAlgorithm extends GeneticAlgorithm {
+public class CH_GeneticAlgorithm extends GeneticAlgorithm<Map<Integer, List<Point>>> {
 
     private List<Point> points;
 
-    public CH_GeneticAlgorithm(List<Point> points, int populationCount, double mutationRate, FitnessTechnique fitnessTechnique, SelectionTechnique selectionTechnique, CrossOverTechnique crossOverTechnique, Map<Integer, MutationTechnique> mutationTechniqueMap) {
+    public CH_GeneticAlgorithm(List<Point> points, int populationCount, double mutationRate, FitnessTechnique<Map<Integer,List<Point>>> fitnessTechnique, SelectionTechnique<Map<Integer, List<Point>>> selectionTechnique, CrossOverTechnique<Map<Integer,List<Point>>> crossOverTechnique, Map<Integer, MutationTechnique<Map<Integer,List<Point>>>> mutationTechniqueMap) {
         super(populationCount, mutationRate, fitnessTechnique, selectionTechnique, crossOverTechnique, mutationTechniqueMap);
         this.points = points;
     }
@@ -34,43 +34,42 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
     }
 
     public void initialGeneration() {
-        List<Chromosome> chromosomes = new ArrayList<>();
+        List<Chromosome<Map<Integer, List<Point>>>> chromosomes = new ArrayList<>();
         for (int i = 0; i < this.getPopulationCount(); i++) {
             List<Point> randomConvexHull = ConvexHullUtilities.getRandomPoints(points, 3);
-            DNA DNA = new CH_DNA(points, randomConvexHull);
-            Chromosome chromosome = new Chromosome(DNA, getFitnessTechnique());
+            DNA<Map<Integer, List<Point>>> DNA = new CH_DNA(points, randomConvexHull);
+            Chromosome<Map<Integer, List<Point>>> chromosome = new CH_Chromosome<>(DNA, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
-        Population initialPopulation = new CH_Population(chromosomes);
+        Population<Map<Integer, List<Point>>> initialPopulation = new CH_Population<>(chromosomes);
         this.setPopulation(initialPopulation);
     }
 
     public void eliteGeneration() {
-        DNA bestDNA = getFittestChromosomeEver().getDNA();
+        DNA<Map<Integer, List<Point>>> bestDNA = getFittestChromosomeEver().getDNA();
         Map<Integer, List<Point>> geneMap = bestDNA.getGene();
         List<Point> points = geneMap.get(0);
         List<Point> poorConvexHullPoints = new ArrayList<>(geneMap.get(1));
-        List<Chromosome> chromosomes = new ArrayList<>();
+        List<Chromosome<Map<Integer, List<Point>>>> chromosomes = new ArrayList<>();
         for (int i = 0; i < this.getPopulationCount(); i++) {
-            DNA DNA = new CH_DNA(points, poorConvexHullPoints);
-            Chromosome chromosome = new CH_Chromosome(DNA, getFitnessTechnique());
+            DNA<Map<Integer, List<Point>>> DNA = new CH_DNA(points, poorConvexHullPoints);
+            Chromosome<Map<Integer, List<Point>>> chromosome = new CH_Chromosome<>(DNA, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
-        Population elitePopulation = new Population(chromosomes);
+        Population<Map<Integer, List<Point>>> elitePopulation = new CH_Population<>(chromosomes);
         this.setPopulation(elitePopulation);
 
     }
 
     @Override
     public void draw() {
-        System.out.println("Generation: " + getGenerationsCounter() + " | Fitness: " + getFittestChromosomeEver().getFitness());
     }
 
     @Override
     public void findFittestChromosomeEver() {
-        Chromosome bestChromosomeEver = this.getFittestChromosomeEver();
+        Chromosome<Map<Integer, List<Point>>> bestChromosomeEver = this.getFittestChromosomeEver();
         double bestFitnessEver = this.getBestFitnessEver();
-        Chromosome bestPopulationChromosome = this.getPopulation().getFittestChromosome();
+        Chromosome<Map<Integer, List<Point>>> bestPopulationChromosome = this.getPopulation().getFittestChromosome();
         double bestPopulationFitness = bestPopulationChromosome.getFitness();
         if (bestPopulationFitness > bestFitnessEver) {
             this.setBestFitnessEver(bestPopulationFitness);
@@ -88,12 +87,6 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm {
 
     @Override
     public String toString() {
-        StringBuilder geneticAlgorithmBuilder = new StringBuilder();
-        geneticAlgorithmBuilder.append("Generation: " + getGenerationsCounter()).append("\n")
-                .append("Outside Points: " + getFittestChromosomeEver().getDNA().getGene().get(2).size()).append("\n")
-                .append("Sick Joints: " + getFittestChromosomeEver().getDNA().getGene().get(3).size()).append("\n")
-                .append("Intersections: " + getFittestChromosomeEver().getDNA().getIntersections()).append("\n")
-                .append("Convex points: " + getFittestChromosomeEver().getDNA().getGene().get(1).size()).append("\n");
-        return geneticAlgorithmBuilder.toString();
+        return "Generation: " + getGenerationsCounter() + "\n" + "Outside Points: " + getFittestChromosomeEver().getDNA().getGene().get(2).size() + "\n" + "Sick Joints: " + getFittestChromosomeEver().getDNA().getGene().get(3).size() + "\n" + "Intersections: " + getFittestChromosomeEver().getDNA().getIntersections() + "\n" + "Convex points: " + getFittestChromosomeEver().getDNA().getGene().get(1).size() + "\n";
     }
 }
