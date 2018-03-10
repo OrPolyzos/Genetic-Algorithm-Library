@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "GeneticAlgorithm")
-public class GeneticAlgorithmDAO implements Serializable{
+public class GeneticAlgorithmDAO implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -20,8 +20,10 @@ public class GeneticAlgorithmDAO implements Serializable{
     private int generations;
     @Column(name = "duration", nullable = false, precision = 10, scale = 2)
     private double duration;
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDAO", targetEntity = ChromosomeDAO.class)
     private List<ChromosomeDAO> fittestChromosomes;
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDAO", targetEntity = PointDAO.class)
     private List<PointDAO> points;
 

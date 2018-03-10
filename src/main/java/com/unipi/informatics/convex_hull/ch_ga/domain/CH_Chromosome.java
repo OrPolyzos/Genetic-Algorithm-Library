@@ -6,7 +6,7 @@ import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
 class CH_Chromosome<T> extends Chromosome<T> {
 
-    CH_Chromosome(DNA<T> DNA, FitnessTechnique fitnessTechnique) {
+    CH_Chromosome(DNA<T> DNA, FitnessTechnique<T> fitnessTechnique) {
         super(DNA, fitnessTechnique);
     }
 

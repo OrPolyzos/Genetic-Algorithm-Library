@@ -17,7 +17,7 @@ public abstract class GeneticAlgorithm<T> {
     private List<Chromosome<T>> fittestChromosomes;
     private int populationCount;
     private double mutationRate;
-    private FitnessTechnique fitnessTechnique;
+    private FitnessTechnique<T> fitnessTechnique;
     private SelectionTechnique<T> selectionTechnique;
     private CrossOverTechnique<T> crossOverTechnique;
     private Map<Integer, MutationTechnique<T>> mutationTechniqueMap;
@@ -79,11 +79,11 @@ public abstract class GeneticAlgorithm<T> {
         return mutationRate;
     }
 
-    protected FitnessTechnique getFitnessTechnique() {
+    protected FitnessTechnique<T> getFitnessTechnique() {
         return fitnessTechnique;
     }
 
-    public void setFitnessTechnique(FitnessTechnique fitnessTechnique) {
+    public void setFitnessTechnique(FitnessTechnique<T> fitnessTechnique) {
         this.fitnessTechnique = fitnessTechnique;
     }
 

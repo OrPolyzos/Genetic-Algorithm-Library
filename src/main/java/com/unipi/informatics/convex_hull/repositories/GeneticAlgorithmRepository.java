@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GeneticAlgorithmRepository extends CrudRepository<GeneticAlgorithmDAO, Long> {
 
-    GeneticAlgorithmDAO save(GeneticAlgorithmDAO geneticAlgorithmDAO);
 }
