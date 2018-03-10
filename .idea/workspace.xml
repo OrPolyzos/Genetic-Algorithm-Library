@@ -2,15 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2527778-74b6-43d1-8d73-b3e64ad6d73d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/ChromosomeConvexHullPointRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/ChromosomeRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/PointRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/particle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/sketch.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Chromosome.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Chromosome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_GeneticAlgorithm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithSickJoints.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithSickJoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithoutSickJoints.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithoutSickJoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueAddOutsidePoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueAddOutsidePoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveIntersection.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveIntersection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveSickJoints.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveSickJoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueReplaceWithOutsidePoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueReplaceWithOutsidePoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConvexHullPointConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConvexHullPointConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/GeneticAlgorithmConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/GeneticAlgorithmConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/PointConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/PointConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/GeneticAlgorithmRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/GeneticAlgorithmRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/GeneticAlgorithm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/services/GeneticAlgorithmService.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/services/GeneticAlgorithmService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/IndexController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/RunController.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/RunController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Chromosome.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Chromosome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/FitnessTechnique.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/FitnessTechnique.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/MutationTechnique.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/MutationTechnique.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/Convex_Hull_Problem.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/CH_Problem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/CH_DNA.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Dna.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeConvexHullPoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/CH_PointDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/PointDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/PointDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/utilities/ConvexHullUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/utilities/CH_Utilities.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/DNA.java" afterPath="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Dna.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/ConvexHullChromosome.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Chromosome.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/ConvexHullGA.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_GeneticAlgorithm.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/ConvexHullGAPoint.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Point.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/LoadingCircle.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/LoadingAnimation.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/Segment.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/Segment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/static/ch_ga.js" afterPath="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/sketch.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +51,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ConvexHullGA$MainClass.coverage" NAME="MainClass Coverage Results" MODIFIED="1512080342382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ConvexHullGA$RunMe.coverage" NAME="RunMe Coverage Results" MODIFIED="1520196559131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ConvexHullGA$RunMe.coverage" NAME="RunMe Coverage Results" MODIFIED="1520695820864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ConvexHullGA$CHGeneticAlgorithm.coverage" NAME="CHGeneticAlgorithm Coverage Results" MODIFIED="1512381023494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
@@ -49,9 +78,20 @@
       <find>&lt;Map&lt;Integer,List&lt;Point&gt;&gt;&gt;</find>
       <find>gene</find>
       <find>gener</find>
-      <find>console</find>
       <find>co</find>
       <find>system</find>
+      <find>ConvexHullGA</find>
+      <find>Chromosome</find>
+      <find>convexHullGA</find>
+      <find>ConvexHullChromosome</find>
+      <find>convexHullChromosome</find>
+      <find>CH_Poi</find>
+      <find>chromosome</find>
+      <find>point</find>
+      <find>LoadingCircle</find>
+      <find>loadingCircle</find>
+      <find>consol</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -65,28 +105,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/model/DetailsForm.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/sketch.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/DNAAbstract.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/CrossOverTechnique.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/crossover/CrossOverTechniqueElitism.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithSickJoints.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueAddOutsidePoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveIntersection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueRemoveSickJoints.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/mutation/MutationTechniqueReplaceWithOutsidePoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/selection/SelectionTechniqueRouletteWheel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/SelectionTechnique.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/fitness/FitnessTechniqueWithoutSickJoints.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/techniques/selection/SelectionTechniqueElitism.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/MutationTechnique.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/techniques/FitnessTechnique.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/DNA.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/CH_DNA.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Chromosome.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Population.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Population.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConvexHullPointConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/PointConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeConvexHullPoint.java" />
@@ -99,7 +123,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/utilities/ConvexHullUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullGA.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/styles.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ch_ga.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullChromosome.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_GeneticAlgorithm.java" />
@@ -107,7 +130,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/web/controllers/RunController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Chromosome.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/GeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDAO.java" />
@@ -116,6 +138,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/ChromosomeRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/repositories/PointRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_DNA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Dna.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/DNA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Dna.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ConvexHullPointDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ConvexHullPointDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/PointDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Chromosome.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Point.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/Segment.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/sketch.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_GeneticAlgorithm.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/LoadingAnimation.js" />
       </list>
     </option>
   </component>
@@ -126,11 +166,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-123" />
-    <option name="y" value="-15" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -203,76 +242,6 @@
               <item name="informatics" type="462c0819:PsiDirectoryNode" />
               <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
               <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="techniques" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="techniques" type="462c0819:PsiDirectoryNode" />
-              <item name="crossover" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="techniques" type="462c0819:PsiDirectoryNode" />
-              <item name="fitness" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="techniques" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="informatics" type="462c0819:PsiDirectoryNode" />
-              <item name="convex_hull" type="462c0819:PsiDirectoryNode" />
-              <item name="ch_ga" type="462c0819:PsiDirectoryNode" />
-              <item name="techniques" type="462c0819:PsiDirectoryNode" />
-              <item name="selection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
@@ -398,6 +367,43 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ConvexHullProblem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ConvexHullProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ConvexHullProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConvexHullGA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConvexHullGA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -417,6 +423,9 @@
       <recent name="J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\resources\static\ConvexHullProblem\utilities" />
+      <recent name="J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\resources\static\ConvexHull\domain" />
+      <recent name="J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\resources\static\ConvexHull" />
       <recent name="J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\resources\static" />
     </key>
   </component>
@@ -552,7 +561,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="676" y="0" width="697" height="735" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -573,11 +582,12 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2837607" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30598292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11282051" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11282051" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.301059" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51648355" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5760684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -589,7 +599,6 @@
       <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27315542" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -613,19 +622,19 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4068376" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2905983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17777778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30598292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21196581" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11282051" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23071104" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51648355" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5760684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -658,18 +667,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Population.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="method#Population#0;class#Population#0" expanded="false" />
-            <element signature="method#findFittestChromosome#0;class#Population#0" expanded="false" />
-            <element signature="method#calculateProbabilities#0;class#Population#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/domain/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-425">
@@ -682,13 +679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullGAPoint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -696,52 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="99" column="13" lean-forward="false" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/LoadingCircle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/Segment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullChromosome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="127" lean-forward="false" selection-start-line="17" selection-start-column="127" selection-end-line="17" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullGA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ch_ga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,22 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="39" column="57" lean-forward="false" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/CH_DNA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -929,88 +858,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConvexHullPointConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/PointConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/PointDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="method#setGeneticAlgorithmDAO#0;class#PointDAO#0" expanded="false" />
-            <element signature="method#setChromosomeConvexHullPoints#0;class#PointDAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/GeneticAlgorithmConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.7.RELEASE/spring-data-commons-1.13.7.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeConvexHullPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1269#1270#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1415#1416#0" expanded="true" />
-            <element signature="e#1471#1472#0" expanded="true" />
-            <element signature="e#1530#1531#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#1844#1845#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,18 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="method#setFittestChromosomes#0;class#GeneticAlgorithmDAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/services/GeneticAlgorithmService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1066,7 +906,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/utilities/ConvexHullUtilities.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/utilities/CH_Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="163" column="33" lean-forward="false" selection-start-line="163" selection-start-column="33" selection-end-line="163" selection-end-column="33" />
@@ -1114,7 +954,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/Convex_Hull_Problem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/CH_Problem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
@@ -1122,14 +962,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/DNA.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/ch_ga/domain/CH_Dna.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="17">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/ga/domain/Dna.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#calculateFitness#0;class#DNA#0" expanded="false" />
+            <element signature="method#calculateFitness#0;class#Dna#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/GeneticAlgorithmConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/PointConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConvexHullPointConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/converters/ChromosomeConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/ConvexHullGA_Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/ChromosomeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="25" column="92" lean-forward="false" selection-start-line="25" selection-start-column="92" selection-end-line="25" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/CH_PointDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/PointDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="28" column="62" lean-forward="false" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+          <folding>
+            <element signature="method#setGeneticAlgorithmDao#0;class#PointDao#0" expanded="false" />
+            <element signature="method#setChromosomeConvexHullPoints#0;class#PointDao#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unipi/informatics/convex_hull/dao/GeneticAlgorithmDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+          <folding>
+            <element signature="method#setFittestChromosomes#0;class#GeneticAlgorithmDao#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="30" column="72" lean-forward="false" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Chromosome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_Point.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/Segment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/domain/CH_GeneticAlgorithm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="34" column="51" lean-forward="false" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ConvexHullProblem/utilities/LoadingAnimation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

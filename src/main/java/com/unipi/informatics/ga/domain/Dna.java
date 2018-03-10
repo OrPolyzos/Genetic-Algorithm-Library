@@ -1,9 +1,9 @@
-package com.unipi.informatics.ga;
+package com.unipi.informatics.ga.domain;
 
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-public abstract class DNA<T> {
+public abstract class Dna<T> {
 
     public abstract T getGene();
 
@@ -13,7 +13,7 @@ public abstract class DNA<T> {
         return fitnessTechnique.calculateFitness(this);
     }
 
-    public DNA<T> mutate(MutationTechnique<T> mutationTechnique) {
+    public Dna<T> mutate(MutationTechnique<T> mutationTechnique) {
         return mutationTechnique.execute(this);
     }
 }

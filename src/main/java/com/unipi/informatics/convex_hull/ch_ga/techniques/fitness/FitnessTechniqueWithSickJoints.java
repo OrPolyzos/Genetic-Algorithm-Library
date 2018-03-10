@@ -1,7 +1,7 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.fitness;
 
 import com.unipi.informatics.convex_hull.domain.Point;
-import com.unipi.informatics.ga.DNA;
+import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class FitnessTechniqueWithSickJoints implements FitnessTechnique<Map<Inte
     }
 
     @Override
-    public double calculateFitness(DNA<Map<Integer, List<Point>>> dna) {
+    public double calculateFitness(Dna<Map<Integer, List<Point>>> dna) {
         if (dna.getGene().size() < 3) {
             return 0;
         }

@@ -1,7 +1,7 @@
 package com.unipi.informatics.convex_hull.services;
 
 import com.unipi.informatics.convex_hull.converters.GeneticAlgorithmConverter;
-import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDAO;
+import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDao;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.repositories.GeneticAlgorithmRepository;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
@@ -17,7 +17,7 @@ public class GeneticAlgorithmService<T> {
     @Autowired
     private GeneticAlgorithmRepository geneticAlgorithmRepository;
 
-    public GeneticAlgorithmDAO save(GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm){
+    public GeneticAlgorithmDao save(GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm){
         return geneticAlgorithmRepository.save(GeneticAlgorithmConverter.convertToGeneticAlgorithmDAO(geneticAlgorithm));
     }
 }

@@ -1,8 +1,8 @@
 package com.unipi.informatics.convex_hull.web.controllers;
 
-import com.unipi.informatics.convex_hull.Convex_Hull_Problem;
+import com.unipi.informatics.convex_hull.CH_Problem;
 import com.unipi.informatics.convex_hull.converters.GeneticAlgorithmConverter;
-import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDAO;
+import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDao;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.repositories.GeneticAlgorithmRepository;
 import com.unipi.informatics.convex_hull.web.model.DetailsForm;
@@ -31,9 +31,9 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/run", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public GeneticAlgorithmDAO run(@Valid @ModelAttribute("detailsForm") DetailsForm detailsForm) {
-        Convex_Hull_Problem convex_hull_problem = new Convex_Hull_Problem(500, 500, detailsForm.getMutationRate(), detailsForm.getPopulationCount(), detailsForm.getPointsCount());
-        GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm = convex_hull_problem.solve();
+    public GeneticAlgorithmDao run(@Valid @ModelAttribute("detailsForm") DetailsForm detailsForm) {
+        CH_Problem CH_problem = new CH_Problem(500, 500, detailsForm.getMutationRate(), detailsForm.getPopulationCount(), detailsForm.getPointsCount());
+        GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm = CH_problem.solve();
         return GeneticAlgorithmConverter.convertToGeneticAlgorithmDAO(geneticAlgorithm);
     }
 }

@@ -15,12 +15,13 @@
 	    <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" media="screen" href="/../styles.css">
         <!-- P5 sketch -->
-        <script type="text/javascript" src="../ch_ga.js"></script>
-        <script type="text/javascript" src="../ConvexHullGA.js"></script>
-        <script type="text/javascript" src="../ConvexHullGAPoint.js"></script>
-        <script type="text/javascript" src="../ConvexHullChromosome.js"></script>
-        <script type="text/javascript" src="../Segment.js"></script>
-        <script type="text/javascript" src="../LoadingCircle.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/sketch.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/domain/CH_GeneticAlgorithm.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/domain/CH_Chromosome.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/domain/CH_Point.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/utilities/LoadingAnimation.js"></script>
+        <script type="text/javascript" src="../ConvexHullProblem/utilities/Segment.js"></script>
+
 	</head>
 	<body class = "main-body">
         <div class="sidenav" id="sidenav">

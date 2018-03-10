@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "ConvexHullPoints")
-public class ChromosomeConvexHullPoint implements Serializable {
+public class CH_PointDao implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -16,24 +16,24 @@ public class ChromosomeConvexHullPoint implements Serializable {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "chromosome_id", referencedColumnName = "id")
-    private ChromosomeDAO chromosomeDAO;
+    private ChromosomeDao chromosomeDao;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "point_id", referencedColumnName = "id")
-    private PointDAO pointDAO;
+    private PointDao pointDao;
 
-    public ChromosomeDAO getChromosomeDAO() {
-        return chromosomeDAO;
+    public ChromosomeDao getChromosomeDao() {
+        return chromosomeDao;
     }
 
-    public void setChromosomeDAO(ChromosomeDAO chromosomeDAO) {
-        this.chromosomeDAO = chromosomeDAO;
+    public void setChromosomeDao(ChromosomeDao chromosomeDao) {
+        this.chromosomeDao = chromosomeDao;
     }
 
-    public PointDAO getPointDAO() {
-        return pointDAO;
+    public PointDao getPointDao() {
+        return pointDao;
     }
 
-    public void setPointDAO(PointDAO pointDAO) {
-        this.pointDAO = pointDAO;
+    public void setPointDao(PointDao pointDao) {
+        this.pointDao = pointDao;
     }
 }

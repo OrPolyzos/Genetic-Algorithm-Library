@@ -1,6 +1,5 @@
 package com.unipi.informatics.ga.domain;
 
-import com.unipi.informatics.ga.DNA;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
@@ -8,27 +7,27 @@ import java.util.Random;
 
 public class Chromosome<T> {
 
-    public DNA<T> DNA;
+    public Dna<T> Dna;
     private FitnessTechnique<T> fitnessTechnique;
     private double fitness;
     private double probability;
 
-    public Chromosome(DNA<T> DNA, FitnessTechnique<T> fitnessTechnique) {
-        this.DNA = DNA;
+    public Chromosome(Dna<T> Dna, FitnessTechnique<T> fitnessTechnique) {
+        this.Dna = Dna;
         this.fitnessTechnique = fitnessTechnique;
-        fitness = DNA.calculateFitness(fitnessTechnique);
+        fitness = Dna.calculateFitness(fitnessTechnique);
     }
 
     public Chromosome<T> getCopy() {
-        return new Chromosome<>(this.DNA, fitnessTechnique);
+        return new Chromosome<>(this.Dna, fitnessTechnique);
     }
 
-    public DNA<T> getDNA() {
-        return DNA;
+    public Dna<T> getDna() {
+        return Dna;
     }
 
-    public void setDNA(DNA<T> DNA) {
-        this.DNA = DNA;
+    public void setDna(Dna<T> dna) {
+        this.Dna = dna;
     }
 
     public double getFitness() {
@@ -46,8 +45,8 @@ public class Chromosome<T> {
     Chromosome<T> mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
         double chanceToMutate = new Random().nextDouble();
         if (chanceToMutate < mutationRate) {
-            DNA= DNA.mutate(mutationTechnique);
-            fitness = DNA.calculateFitness(fitnessTechnique);
+            Dna = Dna.mutate(mutationTechnique);
+            fitness = Dna.calculateFitness(fitnessTechnique);
         }
         return this;
     }

@@ -6,7 +6,7 @@ import java.util.*;
 
 import static com.unipi.informatics.convex_hull.utilities.MathUtilities.isInside;
 
-public class ConvexHullUtilities {
+public class CH_Utilities {
 
     public static List<Point> calculateSickJoints(List<Point> convexHull) {
         int winding = MathUtilities.calculateWinding(convexHull);

@@ -1,8 +1,8 @@
 package com.unipi.informatics.convex_hull.converters;
 
-import com.unipi.informatics.convex_hull.dao.ChromosomeDAO;
-import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDAO;
-import com.unipi.informatics.convex_hull.dao.PointDAO;
+import com.unipi.informatics.convex_hull.dao.ChromosomeDao;
+import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDao;
+import com.unipi.informatics.convex_hull.dao.PointDao;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
@@ -13,25 +13,25 @@ import java.util.Map;
 
 public class GeneticAlgorithmConverter {
 
-    public static GeneticAlgorithmDAO convertToGeneticAlgorithmDAO(GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm){
-        GeneticAlgorithmDAO geneticAlgorithmDAO = new GeneticAlgorithmDAO();
+    public static GeneticAlgorithmDao convertToGeneticAlgorithmDAO(GeneticAlgorithm<Map<Integer,List<Point>>> geneticAlgorithm){
+        GeneticAlgorithmDao geneticAlgorithmDao = new GeneticAlgorithmDao();
 
-        List<PointDAO> pointDAOS = new ArrayList<>();
-        List<Point> points = geneticAlgorithm.getFittestChromosomeEver().getDNA().getGene().get(0);
+        List<PointDao> pointDaos = new ArrayList<>();
+        List<Point> points = geneticAlgorithm.getFittestChromosomeEver().getDna().getGene().get(0);
         for (Point point : points){
-            pointDAOS.add(PointConverter.convertToPointDAO(point,geneticAlgorithmDAO));
+            pointDaos.add(PointConverter.convertToPointDAO(point, geneticAlgorithmDao));
         }
-        geneticAlgorithmDAO.setPoints(pointDAOS);
-        geneticAlgorithmDAO.setPopulation(geneticAlgorithm.getPopulationCount());
-        geneticAlgorithmDAO.setMutationRate(geneticAlgorithm.getMutationRate());
-        geneticAlgorithmDAO.setGenerations(geneticAlgorithm.getGenerationsCounter());
-        geneticAlgorithmDAO.setDuration(geneticAlgorithm.getDuration() / 1000000000);
-        List<ChromosomeDAO> chromosomeDAOList = new ArrayList<>();
+        geneticAlgorithmDao.setPoints(pointDaos);
+        geneticAlgorithmDao.setPopulation(geneticAlgorithm.getPopulationCount());
+        geneticAlgorithmDao.setMutationRate(geneticAlgorithm.getMutationRate());
+        geneticAlgorithmDao.setGenerations(geneticAlgorithm.getGenerationsCounter());
+        geneticAlgorithmDao.setDuration(geneticAlgorithm.getDuration() / 1000000000);
+        List<ChromosomeDao> chromosomeDaoList = new ArrayList<>();
         for (Chromosome<Map<Integer,List<Point>>> chromosome : geneticAlgorithm.getFittestChromosomes()){
-            chromosomeDAOList.add(ChromosomeConverter.convertToChromosomeDAO(chromosome, geneticAlgorithmDAO));
+            chromosomeDaoList.add(ChromosomeConverter.convertToChromosomeDAO(chromosome, geneticAlgorithmDao));
         }
-        geneticAlgorithmDAO.setFittestChromosomes(chromosomeDAOList);
-        return geneticAlgorithmDAO;
+        geneticAlgorithmDao.setFittestChromosomes(chromosomeDaoList);
+        return geneticAlgorithmDao;
     }
 
 }

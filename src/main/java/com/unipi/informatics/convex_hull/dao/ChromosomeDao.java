@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Chromosomes")
-public class ChromosomeDAO implements Serializable {
+public class ChromosomeDao implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -22,9 +22,9 @@ public class ChromosomeDAO implements Serializable {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "genetic_algorithm_id", referencedColumnName = "id")
-    private GeneticAlgorithmDAO geneticAlgorithmDAO;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "chromosomeDAO", targetEntity = ChromosomeConvexHullPoint.class)
-    private List<ChromosomeConvexHullPoint> chromosomeConvexHullPoints = new ArrayList<>();
+    private GeneticAlgorithmDao geneticAlgorithmDao;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "chromosomeDao", targetEntity = CH_PointDao.class)
+    private List<CH_PointDao> ch_points = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -50,19 +50,19 @@ public class ChromosomeDAO implements Serializable {
         this.fitnessTechnique = fitnessTechnique;
     }
 
-    public GeneticAlgorithmDAO getGeneticAlgorithmDAO() {
-        return geneticAlgorithmDAO;
+    public GeneticAlgorithmDao getGeneticAlgorithmDao() {
+        return geneticAlgorithmDao;
     }
 
-    public void setGeneticAlgorithmDAO(GeneticAlgorithmDAO geneticAlgorithmDAO) {
-        this.geneticAlgorithmDAO = geneticAlgorithmDAO;
+    public void setGeneticAlgorithmDao(GeneticAlgorithmDao geneticAlgorithmDao) {
+        this.geneticAlgorithmDao = geneticAlgorithmDao;
     }
 
-    public List<ChromosomeConvexHullPoint> getChromosomeConvexHullPoints() {
-        return chromosomeConvexHullPoints;
+    public List<CH_PointDao> getCh_points() {
+        return ch_points;
     }
 
-    public void setChromosomeConvexHullPoints(List<ChromosomeConvexHullPoint> chromosomeConvexHullPoints) {
-        this.chromosomeConvexHullPoints = chromosomeConvexHullPoints;
+    public void setCh_points(List<CH_PointDao> ch_points) {
+        this.ch_points = ch_points;
     }
 }

@@ -1,8 +1,8 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.mutation;
 
-import com.unipi.informatics.convex_hull.ch_ga.CH_DNA;
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Dna;
 import com.unipi.informatics.convex_hull.domain.Point;
-import com.unipi.informatics.ga.DNA;
+import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique<Map<I
     }
 
     @Override
-    public DNA<Map<Integer, List<Point>>> execute(DNA<Map<Integer, List<Point>>> dnaToMutate) {
+    public Dna<Map<Integer, List<Point>>> execute(Dna<Map<Integer, List<Point>>> dnaToMutate) {
         Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
 
         List<Point> outsidePoints = geneMap.get(2);
@@ -37,7 +37,7 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique<Map<I
             int randomIndex = new Random().nextInt(mutatedHull.size());
             mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOutsidePoint)));
 
-            return new CH_DNA(points, mutatedHull);
+            return new CH_Dna(points, mutatedHull);
         }
         return dnaToMutate;
     }

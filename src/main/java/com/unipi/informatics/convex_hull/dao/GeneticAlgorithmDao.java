@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "GeneticAlgorithm")
-public class GeneticAlgorithmDAO implements Serializable {
+public class GeneticAlgorithmDao implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -20,12 +20,12 @@ public class GeneticAlgorithmDAO implements Serializable {
     private int generations;
     @Column(name = "duration", nullable = false, precision = 10, scale = 2)
     private double duration;
-    @Transient
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDAO", targetEntity = ChromosomeDAO.class)
-    private List<ChromosomeDAO> fittestChromosomes;
-    @Transient
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDAO", targetEntity = PointDAO.class)
-    private List<PointDAO> points;
+//    @Transient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = ChromosomeDao.class)
+    private List<ChromosomeDao> fittestChromosomes;
+//    @Transient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = PointDao.class)
+    private List<PointDao> points;
 
     public Long getId() {
         return id;
@@ -67,19 +67,19 @@ public class GeneticAlgorithmDAO implements Serializable {
         this.duration = duration;
     }
 
-    public List<ChromosomeDAO> getFittestChromosomes() {
+    public List<ChromosomeDao> getFittestChromosomes() {
         return fittestChromosomes;
     }
 
-    public void setFittestChromosomes(List<ChromosomeDAO> fittestChromosomes) {
+    public void setFittestChromosomes(List<ChromosomeDao> fittestChromosomes) {
         this.fittestChromosomes = fittestChromosomes;
     }
 
-    public List<PointDAO> getPoints() {
+    public List<PointDao> getPoints() {
         return points;
     }
 
-    public void setPoints(List<PointDAO> points) {
+    public void setPoints(List<PointDao> points) {
         this.points = points;
     }
 }

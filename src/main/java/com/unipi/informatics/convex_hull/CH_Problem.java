@@ -10,7 +10,7 @@ import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechn
 import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechniqueReplaceWithOutsidePoint;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueElitism;
 import com.unipi.informatics.convex_hull.domain.Point;
-import com.unipi.informatics.convex_hull.utilities.ConvexHullUtilities;
+import com.unipi.informatics.convex_hull.utilities.CH_Utilities;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Convex_Hull_Problem {
+public class CH_Problem {
 
     private double mutationRate;
     private int populationCount;
@@ -31,10 +31,10 @@ public class Convex_Hull_Problem {
     private SelectionTechnique<Map<Integer,List<Point>>> selectionTechnique;
     private CrossOverTechnique<Map<Integer,List<Point>>> crossOverTechnique;
 
-    public Convex_Hull_Problem(int width, int height, double mutationRate, int populationCount, int pointsCount) {
+    public CH_Problem(int width, int height, double mutationRate, int populationCount, int pointsCount) {
         this.mutationRate = mutationRate;
         this.populationCount = populationCount;
-        this.points = ConvexHullUtilities.generatePoints(width, height, pointsCount);
+        this.points = CH_Utilities.generatePoints(width, height, pointsCount);
 
     }
 
@@ -64,7 +64,7 @@ public class Convex_Hull_Problem {
         chGeneticAlgorithm.initialGeneration();
         chGeneticAlgorithm.run();
 
-        if (chGeneticAlgorithm.getFittestChromosomeEver().getDNA().getGene().get(3).size() == 0) {
+        if (chGeneticAlgorithm.getFittestChromosomeEver().getDna().getGene().get(3).size() == 0) {
             return chGeneticAlgorithm;
         }
         setupForPhase2();

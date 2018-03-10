@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Points")
-public class PointDAO implements Serializable {
+public class PointDao implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -24,10 +24,10 @@ public class PointDAO implements Serializable {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "genetic_algorithm_id", referencedColumnName = "id")
-    private GeneticAlgorithmDAO geneticAlgorithmDAO;
+    private GeneticAlgorithmDao geneticAlgorithmDao;
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pointDAO", targetEntity = ChromosomeConvexHullPoint.class)
-    private List<ChromosomeConvexHullPoint> chromosomeConvexHullPoints = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pointDao", targetEntity = CH_PointDao.class)
+    private List<CH_PointDao> chromosomeConvexHullPoints = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -61,19 +61,19 @@ public class PointDAO implements Serializable {
         this.y = y;
     }
 
-    public GeneticAlgorithmDAO getGeneticAlgorithmDAO() {
-        return geneticAlgorithmDAO;
+    public GeneticAlgorithmDao getGeneticAlgorithmDao() {
+        return geneticAlgorithmDao;
     }
 
-    public void setGeneticAlgorithmDAO(GeneticAlgorithmDAO geneticAlgorithmDAO) {
-        this.geneticAlgorithmDAO = geneticAlgorithmDAO;
+    public void setGeneticAlgorithmDao(GeneticAlgorithmDao geneticAlgorithmDao) {
+        this.geneticAlgorithmDao = geneticAlgorithmDao;
     }
 
-    public List<ChromosomeConvexHullPoint> getChromosomeConvexHullPoints() {
+    public List<CH_PointDao> getChromosomeConvexHullPoints() {
         return chromosomeConvexHullPoints;
     }
 
-    public void setChromosomeConvexHullPoints(List<ChromosomeConvexHullPoint> chromosomeConvexHullPoints) {
+    public void setChromosomeConvexHullPoints(List<CH_PointDao> chromosomeConvexHullPoints) {
         this.chromosomeConvexHullPoints = chromosomeConvexHullPoints;
     }
 }

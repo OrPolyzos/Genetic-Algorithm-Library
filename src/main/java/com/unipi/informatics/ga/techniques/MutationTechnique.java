@@ -1,7 +1,7 @@
 package com.unipi.informatics.ga.techniques;
 
-import com.unipi.informatics.ga.DNA;
+import com.unipi.informatics.ga.domain.Dna;
 
 public interface MutationTechnique<T> {
-    DNA<T> execute(DNA<T> dnaToMutate);
+    Dna<T> execute(Dna<T> dnaToMutate);
 }
