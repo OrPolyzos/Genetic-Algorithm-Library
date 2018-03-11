@@ -23,7 +23,6 @@ function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittest
 	}
 
 	this.show = function(index, x, y) {
-		background(51);
 		for (var i = 0; i < this.points.length; i++) {
 			this.points[i].show(0);
 		}
@@ -32,7 +31,7 @@ function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittest
 		fill(255, 255, 255);
 		noStroke();
 		var firstOutput = 'Population: ' + this.population + ' | Points: ' + this.points.length + ' | Duration: ' + this.duration + ' s ';
-		var secondOutput = 'Generation: ' + index + 'Fitness: ' + this.fittestChromosomes[index].fitness + ' ' + this.fittestChromosomes[index].fitnessTechnique;
+		var secondOutput = 'Generation: ' + index + ' | Fitness: ' + this.fittestChromosomes[index].fitness + ' ' + this.fittestChromosomes[index].fitnessTechnique;
 		text(firstOutput, 0.025 * x, 0.04 * y);
 		text(secondOutput, 0.025 * x, 0.08 * y);
 	}

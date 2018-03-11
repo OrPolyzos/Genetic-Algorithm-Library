@@ -1,11 +1,13 @@
-function Segment(coordinate1, coordinate2, color) {
-	this.coordinate1 = coordinate1;
-	this.coordinate2 = coordinate2;
+function Segment(pointOne, pointTwo, color) {
+	this.pointOne = pointOne;
+	this.pointTwo = pointTwo;
 	this.color = color;
-}
 
-Segment.prototype.show = function() {
-	stroke(this.color);
-	strokeWeight(1);
-	line(this.coordinate1.x, this.coordinate1.y, this.coordinate2.x, this.coordinate2.y);
+
+	this.show = function() {
+		stroke(this.color);
+		strokeWeight(1);
+		line(this.pointOne.x, this.pointOne.y, this.pointTwo.x, this.pointTwo.y);
+	}
+
 }

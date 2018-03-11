@@ -16,7 +16,7 @@ import java.util.Random;
 
 @SpringBootApplication
 @ComponentScan("com.unipi.informatics.*")
-public class ConvexHullGA_Application{// implements CommandLineRunner {
+public class ConvexHullGA_Application {//implements CommandLineRunner {
 
     @Autowired
     private GeneticAlgorithmService geneticAlgorithmService;
@@ -28,16 +28,16 @@ public class ConvexHullGA_Application{// implements CommandLineRunner {
 //    @Override
 //    public void run(String... args) throws Exception {
 //
-//        int limit = 1000;
+//        int limit = 5000;
 //        int pointsCount = 10000;
 //        for (int i = 0; i < limit; i++) {
 //            double mutationRate;
 //            do {
 //                mutationRate = new Random().nextDouble();
-//            } while (mutationRate == 0 || mutationRate > 0.5);
+//            } while (mutationRate == 0);
 //            int populationCount;
 //            do {
-//                populationCount = new Random().nextInt(50);
+//                populationCount = new Random().nextInt(250);
 //            } while (populationCount < 5);
 //
 //            System.out.println();
@@ -51,9 +51,6 @@ public class ConvexHullGA_Application{// implements CommandLineRunner {
 //            System.out.println();
 //
 //            geneticAlgorithmService.save(geneticAlgorithm);
-//
-//
 //        }
-//
 //    }
 }

@@ -20,10 +20,10 @@ public class GeneticAlgorithmDao implements Serializable {
     private int generations;
     @Column(name = "duration", nullable = false, precision = 10, scale = 2)
     private double duration;
-//    @Transient
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = ChromosomeDao.class)
     private List<ChromosomeDao> fittestChromosomes;
-//    @Transient
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = PointDao.class)
     private List<PointDao> points;
 

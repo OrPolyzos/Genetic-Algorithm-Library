@@ -22,7 +22,6 @@ function CH_Chromosome(fitness, fitnessTechnique, ch_points) {
 		}
 		var finalLine = new Segment(this.ch_points[this.ch_points.length - 1], this.ch_points[0], color(0, 191, 255));
 		finalLine.show();
-
 	}
 
 }
