@@ -6,7 +6,7 @@ function Segment(pointOne, pointTwo, color) {
 
 	this.show = function() {
 		stroke(this.color);
-		strokeWeight(1);
+		strokeWeight(3);
 		line(this.pointOne.x, this.pointOne.y, this.pointTwo.x, this.pointTwo.y);
 	}
 

@@ -12,6 +12,7 @@ import com.unipi.informatics.ga.techniques.MutationTechnique;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +37,10 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm<Map<Integer, List<Poin
         List<Chromosome<Map<Integer, List<Point>>>> chromosomes = new ArrayList<>();
         for (int i = 0; i < this.getPopulationCount(); i++) {
             List<Point> randomConvexHull = CH_Utilities.getRandomPoints(points, 3);
-            Dna<Map<Integer, List<Point>>> Dna = new CH_Dna(points, randomConvexHull);
+            Map<Integer,List<Point>> geneMap = new LinkedHashMap<>();
+            geneMap.put(0,points);
+            geneMap.put(1,randomConvexHull);
+            Dna<Map<Integer, List<Point>>> Dna = new CH_Dna(geneMap);
             Chromosome<Map<Integer, List<Point>>> chromosome = new CH_Chromosome<>(Dna, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
@@ -51,18 +55,14 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm<Map<Integer, List<Poin
         List<Point> poorConvexHullPoints = new ArrayList<>(geneMap.get(1));
         List<Chromosome<Map<Integer, List<Point>>>> chromosomes = new ArrayList<>();
         for (int i = 0; i < this.getPopulationCount(); i++) {
-            Dna<Map<Integer, List<Point>>> Dna = new CH_Dna(points, poorConvexHullPoints);
+            Dna<Map<Integer, List<Point>>> Dna = new CH_Dna(geneMap);
             Chromosome<Map<Integer, List<Point>>> chromosome = new CH_Chromosome<>(Dna, getFitnessTechnique());
             chromosomes.add(chromosome);
         }
         Population<Map<Integer, List<Point>>> elitePopulation = new CH_Population<>(chromosomes);
         this.setPopulation(elitePopulation);
-
     }
 
-    @Override
-    public void draw() {
-    }
 
     @Override
     public void findFittestChromosomeEver() {
@@ -86,6 +86,6 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm<Map<Integer, List<Poin
 
     @Override
     public String toString() {
-        return "Generation: " + getGenerationsCounter() + "\n" + "Outside Points: " + getFittestChromosomeEver().getDna().getGene().get(2).size() + "\n" + "Sick Joints: " + getFittestChromosomeEver().getDna().getGene().get(3).size() + "\n" + "Intersections: " + getFittestChromosomeEver().getDna().getIntersections() + "\n" + "Convex points: " + getFittestChromosomeEver().getDna().getGene().get(1).size() + "\n";
+        return "Generation: " + getGenerationsCounter() + "\n" + "Outside Points: " + getFittestChromosomeEver().getDna().getGene().get(2).size() + "\n" + "Sick Joints: " + getFittestChromosomeEver().getDna().getGene().get(3).size() + "\n" + "Intersections: " + getFittestChromosomeEver().getDna().getGene().get(4).size() + "\n" + "Convex points: " + getFittestChromosomeEver().getDna().getGene().get(1).size() + "\n";
     }
 }

@@ -56,32 +56,31 @@ public class CH_Utilities {
         return outsidePoints;
     }
 
-    public static int calculateIntersections(List<Point> convexHull) {
+    public static List<Point> calculateIntersections(List<Point> convexHull) {
+        List<Point> intersectionPoints = new ArrayList<>();
         int intersections = 0;
         for (int i = 0; i < convexHull.size() - 1; i++) {
-            int currentEdgeStart = i;
             int currentEdgeEnd = i + 1;
             for (int j = currentEdgeEnd + 1; j < convexHull.size() - 1; j++) {
-                int testEdgeStart = j;
                 int testEdgeEnd = j + 1;
-
-                if (MathUtilities.doIntersect(convexHull.get(currentEdgeStart), convexHull.get(currentEdgeEnd),
-                        convexHull.get(testEdgeStart), convexHull.get(testEdgeEnd))) {
-                    intersections++;
+                if (MathUtilities.doIntersect(convexHull.get(i), convexHull.get(currentEdgeEnd),
+                        convexHull.get(j), convexHull.get(testEdgeEnd))) {
+                    //We do not really need to know the intersection point, but we need to fill a list of points depending on intersections
+                    //So for every intersection we will always add the (0,0) point in order to avoid unnecessary computations
+                    intersectionPoints.add(new Point(0,0d,0d));
                 }
             }
         }
         int currentEdgeStart = convexHull.size() - 1;
         int currentEdgeEnd = 0;
         for (int i = 1; i < convexHull.size() - 2; i++) {
-            int testEdgeStart = i;
             int testEdgeEnd = i + 1;
             if (MathUtilities.doIntersect(convexHull.get(currentEdgeStart), convexHull.get(currentEdgeEnd),
-                    convexHull.get(testEdgeStart), convexHull.get(testEdgeEnd))) {
-                intersections++;
+                    convexHull.get(i), convexHull.get(testEdgeEnd))) {
+                intersectionPoints.add(new Point(0,0d,0d));
             }
         }
-        return intersections;
+        return intersectionPoints;
     }
 
     public static int findClosest(Point checkPoint, List<Point> polygon) {
@@ -171,25 +170,7 @@ public class CH_Utilities {
             Point point = new Point(i, x, y);
             pointSet.add(point);
         }
-//        Point middle = new Point(-1, (double) width / 2, (double) 2 * height / 5);
-//        int i = 0;
-//        int radius;
-//        if (width < height) {
-//            radius = width;
-//        } else {
-//            radius = height;
-//        }
-//        while (pointSet.size() < pointsCount) {
-//            double x = new Random().nextDouble() * radius;
-//            double y = new Random().nextDouble() * radius;
-//            Point testP = new Point(i, x, y);
-//            if (MathUtilities.calculateDistance(middle, testP) < (double) radius / 3) {
-//                pointSet.add(testP);
-//                i++;
-//            }
-//
-//        }
-       return new ArrayList<>(pointSet);
+        return new ArrayList<>(pointSet);
     }
 
     public static List<Point> getRandomPoints(List<Point> points, int amount) {

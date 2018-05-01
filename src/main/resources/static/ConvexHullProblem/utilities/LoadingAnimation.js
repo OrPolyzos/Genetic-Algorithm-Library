@@ -28,11 +28,22 @@ function LoadingAnimation(cnvWidth, cnvHeight) {
 		stroke(255);
 		ellipse(this.x, this.y, this.radius, this.radius);
 
-		fill(255);
-        strokeWeight(1);
-		stroke(0);
-		ellipse(this.x1, this.y1, this.sideRadius, this.sideRadius);
-		ellipse(this.x2, this.y2, this.sideRadius, this.sideRadius);
+
+
+        if (dist(this.x2,this.y2,this.x,this.y) < this.radius){
+            fill(0,191,255);
+            strokeWeight(1);
+            stroke(0);
+            ellipse(this.x1, this.y1, this.sideRadius, this.sideRadius);
+            ellipse(this.x2, this.y2, this.sideRadius, this.sideRadius);
+        }
+        else{
+            fill(255);
+            strokeWeight(1);
+            stroke(0);
+            ellipse(this.x1, this.y1, this.sideRadius, this.sideRadius);
+            ellipse(this.x2, this.y2, this.sideRadius, this.sideRadius);
+        }
 	}
 
 	this.update = function() {

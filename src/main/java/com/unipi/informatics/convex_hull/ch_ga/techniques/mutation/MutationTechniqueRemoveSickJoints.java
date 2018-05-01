@@ -6,6 +6,7 @@ import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,10 +32,11 @@ public class MutationTechniqueRemoveSickJoints implements MutationTechnique<Map<
         List<Point> sickJoints = geneMap.get(3);
 
         if (mutatedHull.size() > 3 && !sickJoints.isEmpty()) {
-
             mutatedHull.removeAll(sickJoints);
-
-            return new CH_Dna(points, mutatedHull);
+            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
+            newGeneMap.put(0,points);
+            newGeneMap.put(1,mutatedHull);
+            return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;
     }

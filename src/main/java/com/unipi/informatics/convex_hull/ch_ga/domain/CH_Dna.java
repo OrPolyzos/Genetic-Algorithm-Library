@@ -6,46 +6,30 @@ import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CH_Dna extends Dna<Map<Integer,List<Point>>> {
+public class CH_Dna extends Dna<Map<Integer, List<Point>>> {
 
-    private Map<Integer, List<Point>> geneMap = new LinkedHashMap<>();
-    private int intersections;
-
-    public CH_Dna(List<Point> points, List<Point> convexHull) {
-
+    public CH_Dna(Map<Integer,List<Point>> geneMap) {
+        super(geneMap);
+        List<Point> points = geneMap.get(0);
+        List<Point> convexHull = geneMap.get(1);
         List<Point> outsidePoints = CH_Utilities.calculateOutsidePoints(convexHull, points);
         List<Point> sickJoints = CH_Utilities.calculateSickJoints(convexHull);
-
-        geneMap.put(0, points);
-        geneMap.put(1, convexHull);
+        List<Point> intersectionPoints = CH_Utilities.calculateIntersections(convexHull);
         geneMap.put(2, outsidePoints);
         geneMap.put(3, sickJoints);
-
-        intersections = CH_Utilities.calculateIntersections(convexHull);
-
+        geneMap.put(4, intersectionPoints);
     }
 
     @Override
-    public Map<Integer, List<Point>> getGene() {
-        return geneMap;
-    }
-
-    @Override
-    public int getIntersections() {
-        return intersections;
-    }
-
-    @Override
-    public double calculateFitness(FitnessTechnique<Map<Integer,List<Point>>> fitnessTechnique) {
+    public double calculateFitness(FitnessTechnique<Map<Integer, List<Point>>> fitnessTechnique) {
         return fitnessTechnique.calculateFitness(this);
     }
 
     @Override
-    public Dna<Map<Integer,List<Point>>> mutate(MutationTechnique<Map<Integer,List<Point>>> mutationTechnique) {
+    public Dna<Map<Integer, List<Point>>> mutate(MutationTechnique<Map<Integer, List<Point>>> mutationTechnique) {
         return mutationTechnique.execute(this);
     }
 

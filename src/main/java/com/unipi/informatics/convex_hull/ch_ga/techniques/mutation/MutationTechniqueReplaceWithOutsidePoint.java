@@ -6,10 +6,7 @@ import com.unipi.informatics.convex_hull.utilities.CH_Utilities;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechnique<Map<Integer, List<Point>>> {
 
@@ -38,8 +35,10 @@ public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechniq
             Point chosenOutsidePoint = outsidePoints.get(new Random().nextInt(outsidePoints.size()));
             int closestCurrentPoint = CH_Utilities.findClosest(chosenOutsidePoint, mutatedHull);
             mutatedHull.set(closestCurrentPoint, chosenOutsidePoint);
-
-            return new CH_Dna(points, mutatedHull);
+            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
+            newGeneMap.put(0,points);
+            newGeneMap.put(1,mutatedHull);
+            return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;
     }

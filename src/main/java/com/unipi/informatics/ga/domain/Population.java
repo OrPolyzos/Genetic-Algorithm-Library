@@ -13,14 +13,26 @@ public class Population<T> {
         calculateProbabilities();
     }
 
+    private void calculateProbabilities() {
+        double fitnessesSum = 0;
+        for (Chromosome<T> chromosome : chromosomes) {
+            fitnessesSum += chromosome.getFitness();
+        }
+        //Calculate probabilities
+        for (Chromosome<T> chromosome : chromosomes) {
+            double probability = chromosome.getFitness() / fitnessesSum;
+            chromosome.setProbability(probability);
+        }
+    }
+
     private Chromosome<T> findFittestChromosome() {
         double bestFitness = Double.MIN_VALUE;
         Chromosome<T> fittestChromosome = null;
 
-        for (int i = 0; i < chromosomes.size(); i++) {
-            if (chromosomes.get(i).getFitness() > bestFitness) {
-                fittestChromosome = chromosomes.get(i);
-                bestFitness = chromosomes.get(i).getFitness();
+        for (Chromosome<T> chromosome : chromosomes) {
+            if (chromosome.getFitness() > bestFitness) {
+                fittestChromosome = chromosome;
+                bestFitness = chromosome.getFitness();
             }
         }
         return fittestChromosome;
@@ -33,17 +45,4 @@ public class Population<T> {
     public Chromosome<T> getFittestChromosome() {
         return fittestChromosome;
     }
-
-    private void calculateProbabilities() {
-        double fitnessesSum = 0;
-        for (int i = 0; i < chromosomes.size(); i++) {
-            fitnessesSum += chromosomes.get(i).getFitness();
-        }
-        //Calculate probabilities
-        for (int i = 0; i < chromosomes.size(); i++) {
-            double probability = chromosomes.get(i).getFitness() / fitnessesSum;
-            chromosomes.get(i).setProbability(probability);
-        }
-    }
-
 }

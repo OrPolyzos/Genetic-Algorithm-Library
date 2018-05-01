@@ -5,10 +5,7 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MutationTechniqueRemoveIntersection implements MutationTechnique<Map<Integer, List<Point>>> {
 
@@ -33,7 +30,10 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique<Ma
         if (mutatedHull.size() > 3) {
             int possibleIntersectionPoint = new Random().nextInt(mutatedHull.size() - 1);
             mutatedHull.remove(possibleIntersectionPoint);
-            return new CH_Dna(points, mutatedHull);
+            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
+            newGeneMap.put(0,points);
+            newGeneMap.put(1,mutatedHull);
+            return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;
     }

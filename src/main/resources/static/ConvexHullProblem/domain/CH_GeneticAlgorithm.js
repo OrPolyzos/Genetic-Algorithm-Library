@@ -4,6 +4,7 @@ function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittest
 	this.population = population;
 	this.points = [];
 	this.fittestChromosomes = [];
+	this.showConvexHull = true;
 
 	for (var i = 0; i < points.length; i++) {
 		var label = points[i].label;
@@ -22,18 +23,20 @@ function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittest
 		this.fittestChromosomes.push(ch_chromosome);
 	}
 
-	this.show = function(index, x, y) {
-		for (var i = 0; i < this.points.length; i++) {
-			this.points[i].show(0);
-		}
-		this.fittestChromosomes[index].show();
-		textSize(12.5);
-		fill(255, 255, 255);
-		noStroke();
-		var firstOutput = 'Population: ' + this.population + ' | Points: ' + this.points.length + ' | Duration: ' + this.duration + ' s ';
-		var secondOutput = 'Generation: ' + index + ' | Fitness: ' + this.fittestChromosomes[index].fitness + ' ' + this.fittestChromosomes[index].fitnessTechnique;
-		text(firstOutput, 0.025 * x, 0.04 * y);
-		text(secondOutput, 0.025 * x, 0.08 * y);
-	}
+	this.show = function(index, x, y, showConvexHull) {
+        for (var i = 0; i < this.points.length; i++) {
+            this.points[i].show(255);
+        }
+        if (showConvexHull){
+            this.fittestChromosomes[index].show();
+            textSize(12.5);
+            fill(255, 255, 255);
+            noStroke();
+//            var firstOutput = 'Population: ' + this.population + ' | Points: ' + this.points.length + ' | Duration: ' + this.duration + ' s ';
+//            var secondOutput = 'Generation: ' + index + ' | Fitness: ' + this.fittestChromosomes[index].fitness + ' ' + this.fittestChromosomes[index].fitnessTechnique;
+//            text(firstOutput, 0.025 * x, 0.04 * y);
+//            text(secondOutput, 0.025 * x, 0.08 * y);
+        }
 
+	}
 }

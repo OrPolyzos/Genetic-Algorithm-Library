@@ -5,10 +5,7 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MutationTechniqueAddOutsidePoint implements MutationTechnique<Map<Integer, List<Point>>> {
 
@@ -37,7 +34,10 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique<Map<I
             int randomIndex = new Random().nextInt(mutatedHull.size());
             mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOutsidePoint)));
 
-            return new CH_Dna(points, mutatedHull);
+            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
+            newGeneMap.put(0,points);
+            newGeneMap.put(1,mutatedHull);
+            return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;
     }

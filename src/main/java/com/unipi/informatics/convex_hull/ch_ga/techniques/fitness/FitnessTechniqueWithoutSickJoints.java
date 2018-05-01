@@ -29,9 +29,9 @@ public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique<Map<I
 
         Map<Integer, List<Point>> geneMap = dna.getGene();
         List<Point> outsidePoints = geneMap.get(2);
-
+        List<Point> intersectionPoints = geneMap.get(4);
         int fitOutsidePoints = outsidePoints.size() + 1;
-        int fitIntersections = dna.getIntersections() + 1;
+        int fitIntersections = intersectionPoints.size() + 1;
 
         return 1 / (double) (fitOutsidePoints * fitIntersections);
     }

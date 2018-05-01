@@ -5,7 +5,7 @@ function CH_Point(label, x, y) {
 
 	this.show = function(color) {
 		stroke(color);
-		strokeWeight(3);
+		strokeWeight(5);
 		point(this.x, this.y);
 	}
 

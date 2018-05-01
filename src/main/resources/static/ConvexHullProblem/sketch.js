@@ -4,6 +4,9 @@ var populationInput;
 
 var runButton;
 
+var toggleButton;
+var showConvexHull = true;
+
 var slider;
 
 var canvasParent;
@@ -17,6 +20,7 @@ var index;
 var ch_geneticAlgorithm;
 var loading = true;
 
+
 function setup() {
 	pointsInput = document.getElementById("pointsInput");
 	mutationRateInput = document.getElementById("mutationRateInput");
@@ -27,14 +31,30 @@ function setup() {
 
 	var canvasParent = document.getElementById("canvasParent");
 	canvas = createCanvas(cnvWidth, cnvHeight);
-	canvas.style('border', 'solid white 2px');
+	canvas.style('border', 'solid black 2px');
 	canvas.parent('canvasParent');
 
+    var divForRun = createElement('div');
+    divForRun.parent("sidenav");
+
+    var br = createElement('br');
+    br.parent("sidenav");
+
+    var divForToggle = createElement('div');
+    divForToggle.parent("sidenav");
+
 	runButton = createButton('Run');
-	runButton.parent("sidenav");
+	runButton.parent(divForRun);
 	runButton.addClass("btn");
 	runButton.addClass("btn-success");
 	runButton.mousePressed(run);
+
+
+	toggleButton = createButton('Toggle Convex Hull');
+	toggleButton.parent(divForToggle);
+	toggleButton.addClass("btn");
+	toggleButton.addClass("btn-success");
+	toggleButton.mousePressed(toggleConvexHull);
 
 	loadingAnimation = new LoadingAnimation(cnvWidth, cnvHeight);
 
@@ -44,7 +64,7 @@ function setup() {
 function draw() {
 	background(51);
 	if (ch_geneticAlgorithm != undefined) {
-		ch_geneticAlgorithm.show(slider.value(), cnvWidth, cnvHeight);
+		ch_geneticAlgorithm.show(slider.value(), cnvWidth, cnvHeight, showConvexHull);
 	} else {
 		if (loading == true) {
 			loadingAnimation.show();
@@ -99,4 +119,8 @@ function run() {
 		loading = true;
 		loadJSON("http://localhost:8080/run?width=" + parseInt(cnvWidth) + "&height=" + parseInt(cnvHeight) + "&mutationRate=" + mutationRateInput.value + "&populationCount=" + populationInput.value + "&pointsCount=" + pointsInput.value, gotData);
 	}
+}
+
+function toggleConvexHull() {
+    showConvexHull = !showConvexHull;
 }

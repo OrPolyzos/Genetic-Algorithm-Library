@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Chromosome<T> {
 
-    public Dna<T> Dna;
+    private Dna<T> Dna;
     private FitnessTechnique<T> fitnessTechnique;
     private double fitness;
     private double probability;
@@ -16,6 +16,15 @@ public class Chromosome<T> {
         this.Dna = Dna;
         this.fitnessTechnique = fitnessTechnique;
         fitness = Dna.calculateFitness(fitnessTechnique);
+    }
+
+    Chromosome<T> mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
+        double chanceToMutate = new Random().nextDouble();
+        if (chanceToMutate < mutationRate) {
+            Dna = Dna.mutate(mutationTechnique);
+            fitness = Dna.calculateFitness(fitnessTechnique);
+        }
+        return this;
     }
 
     public Chromosome<T> getCopy() {
@@ -40,15 +49,6 @@ public class Chromosome<T> {
 
     void setProbability(double probability) {
         this.probability = probability;
-    }
-
-    Chromosome<T> mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
-        double chanceToMutate = new Random().nextDouble();
-        if (chanceToMutate < mutationRate) {
-            Dna = Dna.mutate(mutationTechnique);
-            fitness = Dna.calculateFitness(fitnessTechnique);
-        }
-        return this;
     }
 
     public FitnessTechnique<T> getFitnessTechnique() {

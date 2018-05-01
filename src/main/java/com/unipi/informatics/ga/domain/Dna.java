@@ -3,11 +3,17 @@ package com.unipi.informatics.ga.domain;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-public abstract class Dna<T> {
+public class Dna<T> {
 
-    public abstract T getGene();
+    private T gene;
 
-    public abstract int getIntersections();
+    public Dna(T gene) {
+        this.gene = gene;
+    }
+
+    public T getGene() {
+        return gene;
+    }
 
     public double calculateFitness(FitnessTechnique<T> fitnessTechnique) {
         return fitnessTechnique.calculateFitness(this);
