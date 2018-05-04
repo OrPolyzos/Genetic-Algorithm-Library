@@ -1,6 +1,5 @@
 package com.unipi.informatics.ga.domain;
 
-import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
@@ -40,6 +39,7 @@ public abstract class GeneticAlgorithm<T> {
     }
 
     public void run() {
+        bestFitnessEver = Double.MIN_VALUE;
         while (bestFitnessEver < 1) {
             findFittestChromosomeEver();
             fittestChromosomes.add(fittestChromosomeEver);
@@ -50,8 +50,8 @@ public abstract class GeneticAlgorithm<T> {
 
     public abstract void initialGeneration();
 
-    public void findFittestChromosomeEver(){
-        if (population.getFittestChromosome().getFitness() > bestFitnessEver){
+    public void findFittestChromosomeEver() {
+        if (population.getFittestChromosome().getFitness() > bestFitnessEver) {
             fittestChromosomeEver = population.getFittestChromosome();
             bestFitnessEver = fittestChromosomeEver.getFitness();
         }

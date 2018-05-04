@@ -1,5 +1,6 @@
 package com.unipi.informatics.convex_hull.converters;
 
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.dao.CH_PointDao;
 import com.unipi.informatics.convex_hull.dao.ChromosomeDao;
 import com.unipi.informatics.convex_hull.dao.GeneticAlgorithmDao;
@@ -9,16 +10,15 @@ import com.unipi.informatics.ga.domain.Chromosome;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 class ChromosomeConverter {
 
-    static ChromosomeDao convertToChromosomeDAO(Chromosome<Map<Integer, List<Point>>> chromosome, GeneticAlgorithmDao geneticAlgorithmDao) {
+    static ChromosomeDao convertToChromosomeDAO(Chromosome<CH_Gene> chromosome, GeneticAlgorithmDao geneticAlgorithmDao) {
         ChromosomeDao chromosomeDao = new ChromosomeDao();
         chromosomeDao.setGeneticAlgorithmDao(geneticAlgorithmDao);
         chromosomeDao.setFitness(chromosome.getFitness());
 
-        List<Point> convexHull = chromosome.getDna().getGene().get(1);
+        List<Point> convexHull = chromosome.getDna().getGene().getConvexHull();
         List<CH_PointDao> chromosomeConvexHullPoints = new ArrayList<>();
 
         for (Point point : convexHull) {

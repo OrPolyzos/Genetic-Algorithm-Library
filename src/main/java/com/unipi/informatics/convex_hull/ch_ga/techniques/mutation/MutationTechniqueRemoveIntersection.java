@@ -1,13 +1,15 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.mutation;
 
 import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Dna;
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MutationTechniqueRemoveIntersection implements MutationTechnique<Map<Integer, List<Point>>> {
+public class MutationTechniqueRemoveIntersection implements MutationTechnique<CH_Gene> {
 
     private static MutationTechniqueRemoveIntersection mutationTechniqueRemoveIntersection;
 
@@ -22,17 +24,15 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique<Ma
     }
 
     @Override
-    public Dna<Map<Integer, List<Point>>> execute(Dna<Map<Integer, List<Point>>> dnaToMutate) {
-        Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
-        List<Point> points = geneMap.get(0);
-        List<Point> mutatedHull = new ArrayList<>(geneMap.get(1));
+    public Dna<CH_Gene> execute(Dna<CH_Gene> dnaToMutate) {
+        CH_Gene geneMap = dnaToMutate.getGene();
+        List<Point> points = geneMap.getPoints();
+        List<Point> mutatedHull = new ArrayList<>(geneMap.getConvexHull());
+        List<Point> intersectionPoints = new ArrayList<>(geneMap.getIntersectionPoints());
+        if (mutatedHull.size() > 3 && !intersectionPoints.isEmpty()) {
+            mutatedHull.removeAll(intersectionPoints);
+            CH_Gene newGeneMap = new CH_Gene(points, mutatedHull);
 
-        if (mutatedHull.size() > 3) {
-            int possibleIntersectionPoint = new Random().nextInt(mutatedHull.size() - 1);
-            mutatedHull.remove(possibleIntersectionPoint);
-            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
-            newGeneMap.put(0,points);
-            newGeneMap.put(1,mutatedHull);
             return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;

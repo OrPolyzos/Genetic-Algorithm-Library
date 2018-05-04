@@ -4,25 +4,34 @@ import com.unipi.informatics.convex_hull.domain.Point;
 
 import java.util.List;
 
-public class MathUtilities {
+class MathUtilities {
 
-    public static double calculateDistance(Point p, Point q) {
+    static double calculateDistance(Point p, Point q) {
         return Math.sqrt(Math.pow((p.getX() - q.getX()), 2) + Math.pow((p.getY() - q.getY()), 2));
     }
 
     static int orientation(Point p, Point q, Point r) {
-        // To find orientation of ordered triplet (p, q, r).
-        // The function returns following values
-        // 0 --> p, q and r are colinear
-        // 1 --> Clockwise
-        // 2 --> Counterclockwise
-        double val = (q.getY() - p.getY()) * (r.getX() - q.getX())
-                - (q.getX() - p.getX()) * (r.getY() - q.getY());
+        double result = (q.getY() - p.getY()) * (r.getX() - q.getX()) - (q.getX() - p.getX()) * (r.getY() - q.getY());
+        //Returning 0 for collinear points
+        if (result == 0) return 0;
 
-        if (val == 0) {
-            return 0; //colinear
+        //Returning 1 for clockwise orientation or 2 for counter-clockwise
+        return (result > 0) ? 1 : 2;
+    }
+
+    static boolean onSegment(Point p, Point q, Point r) {
+        return q.getX() <= Math.max(p.getX(), r.getX()) && q.getX() >= Math.min(p.getX(), r.getX()) &&
+                q.getY() <= Math.max(p.getY(), r.getY()) && q.getY() >= Math.min(p.getY(), r.getY());
+    }
+
+    static int calculateWinding(List<Point> polygon) {
+        int sum = 0;
+        for (int i = 0; i < polygon.size(); i++) {
+            Point p1 = polygon.get(i);
+            Point p2 = i < polygon.size() - 1 ? polygon.get(i + 1) : polygon.get(0);
+            sum += (p1.getX() * p2.getY()) - (p2.getX() * p1.getY());
         }
-        return (val > 0) ? 1 : 2; // clock or counterclock wise
+        return (sum > 0) ? 1 : -1;
     }
 
     static boolean doIntersect(Point p1, Point q1, Point p2, Point q2) {
@@ -34,8 +43,7 @@ public class MathUtilities {
         int o4 = orientation(p2, q2, q1);
 
         // General case
-        if (o1 != o2 && o3 != o4)
-            return true;
+        if (o1 != o2 && o3 != o4) return true;
 
         // Special Cases
         // p1, q1 and p2 are colinear and p2 lies on segment p1q1
@@ -53,51 +61,15 @@ public class MathUtilities {
         return false; // Doesn't fall in any of the above cases
     }
 
-    static boolean onSegment(Point p, Point q, Point r) {
-        if (q.getX() <= Math.max(p.getX(), r.getX()) && q.getX() >= Math.min(p.getX(), r.getX()) &&
-                q.getY() <= Math.max(p.getY(), r.getY()) && q.getY() >= Math.min(p.getY(), r.getY()))
-            return true;
-
-        return false;
-    }
-
-    static int calculateWinding(List<Point> polygon) {
-        int sum = 0;
-        Point p1;
-        Point p2;
-        for (int i = 0; i < polygon.size(); i++) {
-            p1 = polygon.get(i);
-            if (i == polygon.size() - 1) {
-                p2 = polygon.get(0);
-            } else {
-                p2 = polygon.get(i + 1);
-            }
-//            sum += (p2.getX() - p1.getY()) * (p2.getY() + p1.getY());
-            sum += (p1.getX() * p2.getY()) - (p2.getX() * p1.getY());
-        }
-        if (sum / 2 > 0) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-
-    public static boolean isInside(List<Point> polygon, Point checkPoint) {
-        int n = polygon.size();
+    static boolean isInside(List<Point> polygon, Point checkPoint) {
         // There must be at least 3 vertices in polygon[]
-        if (n < 3) return false;
-
-//        if (polygon.contains(checkPoint)){
-//            return true;
-//        }
-        // Create a point for line segment from p to infinite
-        Point extremePoint = new Point(-5, Integer.MAX_VALUE, checkPoint.getY());
-
+        if (polygon.size() < 3) return false;
+        Point extremePoint = new Point(Integer.MAX_VALUE, Integer.MAX_VALUE, checkPoint.getY());
         // Count intersections of the above line with sides of polygon
         int count = 0;
         int i = 0;
         do {
-            int next = (i + 1) % n;
+            int next = (i + 1) % polygon.size();
             // Check if the line segment from 'p' to 'extreme' intersects
             // with the line segment from 'polygon[i]' to 'polygon[next]'
 
@@ -107,21 +79,12 @@ public class MathUtilities {
                 // otherwise false
                 if (orientation(polygon.get(i), checkPoint, polygon.get(next)) == 0)
                     return onSegment(polygon.get(i), checkPoint, polygon.get(next));
-//                if (checkPoint.getLabel() == 2) {
-//                    System.out.println("------------------------------------");
-//                    System.out.println(polygon.stream().map(Point::getLabel).collect(Collectors.toList()));
-//                    System.out.println("Intersects with " + polygon.get(i).getLabel() + "-" + polygon.get(next).getLabel());
-//                    System.out.println("#########################");
-//
-//                }
                 count++;
             }
             i = next;
         } while (i != 0);
-
-//            System.out.println(count);
         // Return true if count is odd, false otherwise
-        return (count % 2 == 1);  // Same as (count%2 == 1)
+        return (count % 2 == 1);
     }
 
 }

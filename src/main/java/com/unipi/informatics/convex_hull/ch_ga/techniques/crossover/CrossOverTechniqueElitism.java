@@ -1,13 +1,10 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.crossover;
 
-import com.unipi.informatics.convex_hull.domain.Point;
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 
-import java.util.List;
-import java.util.Map;
-
-public class CrossOverTechniqueElitism implements CrossOverTechnique<Map<Integer, List<Point>>> {
+public class CrossOverTechniqueElitism implements CrossOverTechnique<CH_Gene> {
 
     private static CrossOverTechniqueElitism crossOverTechniqueElitism;
 
@@ -22,7 +19,7 @@ public class CrossOverTechniqueElitism implements CrossOverTechnique<Map<Integer
     }
 
     @Override
-    public Chromosome<Map<Integer, List<Point>>> crossOver(Chromosome<Map<Integer, List<Point>>> parentA, Chromosome<Map<Integer, List<Point>>> parentB) {
+    public Chromosome<CH_Gene> crossOver(Chromosome<CH_Gene> parentA, Chromosome<CH_Gene> parentB) {
         if (parentA.getFitness() > parentB.getFitness()) {
             return parentA;
         } else {

@@ -1,23 +1,14 @@
 package com.unipi.informatics;
 
-import com.unipi.informatics.convex_hull.CH_Problem;
-import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.services.GeneticAlgorithmService;
-import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 @SpringBootApplication
 @ComponentScan("com.unipi.informatics.*")
 public class ConvexHullGA_Application {//implements CommandLineRunner {
-
     @Autowired
     private GeneticAlgorithmService geneticAlgorithmService;
 

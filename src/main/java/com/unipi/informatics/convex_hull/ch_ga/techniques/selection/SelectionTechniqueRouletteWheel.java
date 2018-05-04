@@ -1,5 +1,6 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.selection;
 
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.domain.Population;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
@@ -7,7 +8,7 @@ import com.unipi.informatics.ga.techniques.SelectionTechnique;
 import java.util.List;
 import java.util.Random;
 
-public class SelectionTechniqueRouletteWheel<T> implements SelectionTechnique<T> {
+public class SelectionTechniqueRouletteWheel implements SelectionTechnique<CH_Gene> {
 
     private static SelectionTechniqueRouletteWheel selectionTechniqueRouletteWheel;
 
@@ -22,8 +23,8 @@ public class SelectionTechniqueRouletteWheel<T> implements SelectionTechnique<T>
     }
 
     @Override
-    public Chromosome<T> select(Population<T> population) {
-        List<Chromosome<T>> chromosomes = population.getChromosomes();
+    public Chromosome<CH_Gene> select(Population<CH_Gene> population) {
+        List<Chromosome<CH_Gene>> chromosomes = population.getChromosomes();
         int index = 0;
         double r = new Random().nextDouble();
         while (r > 0) {

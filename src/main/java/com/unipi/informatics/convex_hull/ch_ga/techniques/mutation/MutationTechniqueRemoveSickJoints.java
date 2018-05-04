@@ -1,16 +1,15 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.mutation;
 
 import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Dna;
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-public class MutationTechniqueRemoveSickJoints implements MutationTechnique<Map<Integer, List<Point>>> {
+public class MutationTechniqueRemoveSickJoints implements MutationTechnique<CH_Gene> {
 
     private static MutationTechniqueRemoveSickJoints mutationTechniqueRemoveSickJoints;
 
@@ -25,17 +24,15 @@ public class MutationTechniqueRemoveSickJoints implements MutationTechnique<Map<
     }
 
     @Override
-    public Dna<Map<Integer, List<Point>>> execute(Dna<Map<Integer, List<Point>>> dnaToMutate) {
-        Map<Integer, List<Point>> geneMap = dnaToMutate.getGene();
-        List<Point> points = geneMap.get(0);
-        List<Point> mutatedHull = new ArrayList<>(geneMap.get(1));
-        List<Point> sickJoints = geneMap.get(3);
+    public Dna<CH_Gene> execute(Dna<CH_Gene> dnaToMutate) {
+        CH_Gene geneMap = dnaToMutate.getGene();
+        List<Point> points = geneMap.getPoints();
+        List<Point> mutatedHull = new ArrayList<>(geneMap.getConvexHull());
+        List<Point> sickJoints = geneMap.getSickJoints();
 
         if (mutatedHull.size() > 3 && !sickJoints.isEmpty()) {
             mutatedHull.removeAll(sickJoints);
-            Map<Integer, List<Point>> newGeneMap = new LinkedHashMap<>();
-            newGeneMap.put(0,points);
-            newGeneMap.put(1,mutatedHull);
+            CH_Gene newGeneMap = new CH_Gene(points, mutatedHull);
             return new CH_Dna(newGeneMap);
         }
         return dnaToMutate;

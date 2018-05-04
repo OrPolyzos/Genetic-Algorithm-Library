@@ -1,13 +1,10 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.fitness;
 
-import com.unipi.informatics.convex_hull.domain.Point;
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 
-import java.util.List;
-import java.util.Map;
-
-public class FitnessTechniqueWithSickJoints implements FitnessTechnique<Map<Integer, List<Point>>> {
+public class FitnessTechniqueWithSickJoints implements FitnessTechnique<CH_Gene> {
 
     private static FitnessTechniqueWithSickJoints fitnessTechniqueWithSickJoints;
 
@@ -22,19 +19,16 @@ public class FitnessTechniqueWithSickJoints implements FitnessTechnique<Map<Inte
     }
 
     @Override
-    public double calculateFitness(Dna<Map<Integer, List<Point>>> dna) {
-        if (dna.getGene().size() < 3) {
+    public double calculateFitness(Dna<CH_Gene> dna) {
+        if (dna.getGene().getConvexHull().size() < 3) {
             return 0;
         }
 
-        Map<Integer, List<Point>> geneMap = dna.getGene();
-        List<Point> outsidePoints = geneMap.get(2);
-        List<Point> sickJoints = geneMap.get(3);
-        List<Point> intersectionPoints = geneMap.get(4);
+        CH_Gene geneMap = dna.getGene();
 
-        int fitOutsidePoints = outsidePoints.size() + 1;
-        int fitSickJoints = sickJoints.size() + 1;
-        int fitIntersections = intersectionPoints.size() + 1;
+        int fitOutsidePoints = geneMap.getOutsidePoints().size() + 1;
+        int fitSickJoints = geneMap.getSickJoints().size() + 1;
+        int fitIntersections = geneMap.getIntersectionPoints().size() + 1;
 
         return 1 / (double) (fitIntersections * fitOutsidePoints * fitSickJoints);
     }

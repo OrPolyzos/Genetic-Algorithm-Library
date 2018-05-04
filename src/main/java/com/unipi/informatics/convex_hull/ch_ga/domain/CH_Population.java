@@ -5,10 +5,9 @@ import com.unipi.informatics.ga.domain.Population;
 
 import java.util.List;
 
-class CH_Population<T> extends Population<T> {
+class CH_Population extends Population<CH_Gene> {
 
-    CH_Population(List<Chromosome<T>> chromosomes) {
+    CH_Population(List<Chromosome<CH_Gene>> chromosomes) {
         super(chromosomes);
     }
-
 }

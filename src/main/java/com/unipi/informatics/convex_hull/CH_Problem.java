@@ -1,5 +1,6 @@
 package com.unipi.informatics.convex_hull;
 
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.ch_ga.domain.CH_GeneticAlgorithm;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.crossover.CrossOverTechniqueElitism;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.fitness.FitnessTechniqueWithSickJoints;
@@ -26,10 +27,10 @@ public class CH_Problem {
     private double mutationRate;
     private int populationCount;
     private List<Point> points;
-    private Map<Integer, MutationTechnique<Map<Integer,List<Point>>>> mutationTechniqueMap = new LinkedHashMap<>();
-    private FitnessTechnique<Map<Integer,List<Point>>> fitnessTechnique;
-    private SelectionTechnique<Map<Integer,List<Point>>> selectionTechnique;
-    private CrossOverTechnique<Map<Integer,List<Point>>> crossOverTechnique;
+    private Map<Integer, MutationTechnique<CH_Gene>> mutationTechniqueMap = new LinkedHashMap<>();
+    private FitnessTechnique<CH_Gene> fitnessTechnique;
+    private SelectionTechnique<CH_Gene> selectionTechnique;
+    private CrossOverTechnique<CH_Gene> crossOverTechnique;
 
     public CH_Problem(int width, int height, double mutationRate, int populationCount, int pointsCount) {
         this.mutationRate = mutationRate;
@@ -58,15 +59,12 @@ public class CH_Problem {
 
     }
 
-    public GeneticAlgorithm<Map<Integer,List<Point>>> solve() {
+    public GeneticAlgorithm<CH_Gene> solve() {
         setupForPhase1();
         CH_GeneticAlgorithm chGeneticAlgorithm = new CH_GeneticAlgorithm(points, populationCount, mutationRate, fitnessTechnique, selectionTechnique, crossOverTechnique, mutationTechniqueMap);
         chGeneticAlgorithm.initialGeneration();
         chGeneticAlgorithm.run();
 
-        if (chGeneticAlgorithm.getFittestChromosomeEver().getDna().getGene().get(3).size() == 0) {
-            return chGeneticAlgorithm;
-        }
         setupForPhase2();
         chGeneticAlgorithm.setFitnessTechnique(fitnessTechnique);
         chGeneticAlgorithm.setMutationTechniqueMap(mutationTechniqueMap);
