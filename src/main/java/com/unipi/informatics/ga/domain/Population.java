@@ -10,10 +10,9 @@ public class Population<T> {
     public Population(List<Chromosome<T>> chromosomes) {
         this.chromosomes = chromosomes;
         fittestChromosome = findFittestChromosome();
-        calculateProbabilities();
     }
 
-    private void calculateProbabilities() {
+    public void calculateProbabilities() {
         double fitnessesSum = 0;
         for (Chromosome<T> chromosome : chromosomes) {
             fitnessesSum += chromosome.getFitness();
@@ -25,10 +24,8 @@ public class Population<T> {
         }
     }
 
-    private Chromosome<T> findFittestChromosome() {
+    public Chromosome<T> findFittestChromosome() {
         double bestFitness = Double.MIN_VALUE;
-        Chromosome<T> fittestChromosome = null;
-
         for (Chromosome<T> chromosome : chromosomes) {
             if (chromosome.getFitness() > bestFitness) {
                 fittestChromosome = chromosome;
@@ -42,7 +39,16 @@ public class Population<T> {
         return chromosomes;
     }
 
+    public void setChromosomes(List<Chromosome<T>> chromosomes) {
+        this.chromosomes = chromosomes;
+        fittestChromosome = findFittestChromosome();
+    }
+
     public Chromosome<T> getFittestChromosome() {
         return fittestChromosome;
+    }
+
+    public void setFittestChromosome(Chromosome<T> fittestChromosome) {
+        this.fittestChromosome = fittestChromosome;
     }
 }

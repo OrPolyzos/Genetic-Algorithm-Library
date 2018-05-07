@@ -50,35 +50,38 @@ public class CH_Utilities {
         return outsidePoints;
     }
 
-    public static List<Point> calculateIntersections(List<Point> convexHull) {
-        Set<Point> intersectionPoints = new HashSet<>();
+    public static List<List<Point>> calculateIntersections(List<Point> convexHull) {
+        List<List<Point>> intersectionsLists = new ArrayList<>();
         for (int i = 0; i < convexHull.size() - 1; i++) {
             int currentEdgeEnd = i + 1;
             for (int j = currentEdgeEnd + 1; j < convexHull.size() - 1; j++) {
+                List<Point> intersectionsList = new ArrayList<>();
                 int testEdgeEnd = j + 1;
                 if (MathUtilities.doIntersect(convexHull.get(i), convexHull.get(currentEdgeEnd),
                         convexHull.get(j), convexHull.get(testEdgeEnd))) {
-                    intersectionPoints.add(convexHull.get(i));
-                    intersectionPoints.add(convexHull.get(j));
-                    intersectionPoints.add(convexHull.get(currentEdgeEnd));
-                    intersectionPoints.add(convexHull.get(testEdgeEnd));
-
+                    intersectionsList.add(new Point(convexHull.get(i)));
+                    intersectionsList.add(new Point(convexHull.get(currentEdgeEnd)));
+                    intersectionsList.add(new Point(convexHull.get(j)));
+                    intersectionsList.add(new Point(convexHull.get(testEdgeEnd)));
+                    intersectionsLists.add(intersectionsList);
                 }
             }
         }
         int currentEdgeStart = convexHull.size() - 1;
         int currentEdgeEnd = 0;
         for (int i = 1; i < convexHull.size() - 2; i++) {
+            List<Point> intersectionsList = new ArrayList<>();
             int testEdgeEnd = i + 1;
             if (MathUtilities.doIntersect(convexHull.get(currentEdgeStart), convexHull.get(currentEdgeEnd),
                     convexHull.get(i), convexHull.get(testEdgeEnd))) {
-                intersectionPoints.add(convexHull.get(currentEdgeStart));
-                intersectionPoints.add(convexHull.get(currentEdgeEnd));
-                intersectionPoints.add(convexHull.get(i));
-                intersectionPoints.add(convexHull.get(testEdgeEnd));
+                intersectionsList.add(new Point(convexHull.get(currentEdgeStart)));
+                intersectionsList.add(new Point(convexHull.get(currentEdgeEnd)));
+                intersectionsList.add(new Point(convexHull.get(i)));
+                intersectionsList.add(new Point(convexHull.get(testEdgeEnd)));
+                intersectionsLists.add(intersectionsList);
             }
         }
-        return new ArrayList<>(intersectionPoints);
+        return intersectionsLists;
     }
 
     public static List<Point> calculateSickJoints(List<Point> convexHull) {
@@ -91,7 +94,7 @@ public class CH_Utilities {
             Point p2 = i < convexHull.size() - 2 ? convexHull.get(i + 2) : i == convexHull.size() - 2 ? convexHull.get(0) : convexHull.get(1);
 
             if (MathUtilities.orientation(p0, p1, p2) == sickNumber) {
-                sickJoints.add(p1);
+                sickJoints.add(new Point(p1));
             }
         }
         return sickJoints;

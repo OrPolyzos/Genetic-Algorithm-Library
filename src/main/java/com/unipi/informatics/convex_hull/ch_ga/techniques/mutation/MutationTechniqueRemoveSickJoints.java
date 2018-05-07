@@ -1,6 +1,5 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.mutation;
 
-import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Dna;
 import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
@@ -24,16 +23,15 @@ public class MutationTechniqueRemoveSickJoints implements MutationTechnique<CH_G
     }
 
     @Override
-    public Dna<CH_Gene> execute(Dna<CH_Gene> dnaToMutate) {
-        CH_Gene geneMap = dnaToMutate.getGene();
-        List<Point> points = geneMap.getPoints();
-        List<Point> mutatedHull = new ArrayList<>(geneMap.getConvexHull());
-        List<Point> sickJoints = geneMap.getSickJoints();
-
+    public Dna<CH_Gene> mutate(Dna<CH_Gene> dnaToMutate) {
+        CH_Gene ch_gene = dnaToMutate.getGene();
+        List<Point> points = ch_gene.getPoints();
+        List<Point> mutatedHull = new ArrayList<>(ch_gene.getConvexHull());
+        List<Point> sickJoints = ch_gene.getSickJoints();
         if (mutatedHull.size() > 3 && !sickJoints.isEmpty()) {
             mutatedHull.removeAll(sickJoints);
-            CH_Gene newGeneMap = new CH_Gene(points, mutatedHull);
-            return new CH_Dna(newGeneMap);
+            CH_Gene mutated_ch_gene = new CH_Gene(points, mutatedHull);
+            return new Dna<>(mutated_ch_gene);
         }
         return dnaToMutate;
     }

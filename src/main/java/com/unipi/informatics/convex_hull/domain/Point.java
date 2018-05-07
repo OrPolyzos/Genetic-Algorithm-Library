@@ -25,12 +25,21 @@ public class Point implements Cloneable {
 
         Point point = (Point) o;
 
-        return getLabel() == point.getLabel();
+        if (getLabel() != point.getLabel()) return false;
+        if (Double.compare(point.getX(), getX()) != 0) return false;
+        return Double.compare(point.getY(), getY()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return getLabel();
+        int result;
+        long temp;
+        result = getLabel();
+        temp = Double.doubleToLongBits(getX());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(getY());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     public int getLabel() {

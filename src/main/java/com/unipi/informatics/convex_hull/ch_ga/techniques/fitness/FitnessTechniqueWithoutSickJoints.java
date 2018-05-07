@@ -20,15 +20,13 @@ public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique<CH_Ge
 
     @Override
     public double calculateFitness(Dna<CH_Gene> dna) {
-        if (dna.getGene().getConvexHull().size() < 3) {
+        CH_Gene ch_gene = dna.getGene();
+        if (ch_gene.getConvexHull().size() < 3) {
             return 0;
         }
-
-        CH_Gene geneMap = dna.getGene();
-        int fitOutsidePoints = geneMap.getOutsidePoints().size() + 1;
-        int fitIntersections = geneMap.getIntersectionPoints().size() + 1;
-
-        return 1 / (double) (fitOutsidePoints * fitIntersections);
+        double fitOutsidePoints = Math.pow(ch_gene.getOutsidePoints().size() + 1, 3);
+        double fitIntersections = Math.pow(ch_gene.getIntersectionPoints().size() + 1, 2);
+        return 1 / (fitOutsidePoints * fitIntersections);
     }
 
     @Override

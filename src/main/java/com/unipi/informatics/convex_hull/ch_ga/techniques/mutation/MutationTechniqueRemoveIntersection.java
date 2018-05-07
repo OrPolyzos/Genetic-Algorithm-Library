@@ -1,6 +1,5 @@
 package com.unipi.informatics.convex_hull.ch_ga.techniques.mutation;
 
-import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Dna;
 import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
@@ -8,6 +7,7 @@ import com.unipi.informatics.ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MutationTechniqueRemoveIntersection implements MutationTechnique<CH_Gene> {
 
@@ -24,16 +24,24 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique<CH
     }
 
     @Override
-    public Dna<CH_Gene> execute(Dna<CH_Gene> dnaToMutate) {
-        CH_Gene geneMap = dnaToMutate.getGene();
-        List<Point> points = geneMap.getPoints();
-        List<Point> mutatedHull = new ArrayList<>(geneMap.getConvexHull());
-        List<Point> intersectionPoints = new ArrayList<>(geneMap.getIntersectionPoints());
-        if (mutatedHull.size() > 3 && !intersectionPoints.isEmpty()) {
-            mutatedHull.removeAll(intersectionPoints);
-            CH_Gene newGeneMap = new CH_Gene(points, mutatedHull);
-
-            return new CH_Dna(newGeneMap);
+    public Dna<CH_Gene> mutate(Dna<CH_Gene> dnaToMutate) {
+        CH_Gene ch_gene = dnaToMutate.getGene();
+        List<Point> points = ch_gene.getPoints();
+        List<Point> mutatedHull = new ArrayList<>(ch_gene.getConvexHull());
+        List<List<Point>> intersectionsLists = ch_gene.getIntersectionPoints();
+        if (mutatedHull.size() > 3 && !intersectionsLists.isEmpty()) {
+            List<Point> randomIntersectionsList = intersectionsLists.get(new Random().nextInt(intersectionsLists.size()));
+            Point intersectionPointA = randomIntersectionsList.get(1);
+            Point intersectionPointB = randomIntersectionsList.get(2);
+            for (int i = 0; i < mutatedHull.size(); i++) {
+                if (mutatedHull.get(i).equals(intersectionPointA)) {
+                    mutatedHull.set(i, intersectionPointB);
+                } else if (mutatedHull.get(i).equals(intersectionPointB)) {
+                    mutatedHull.set(i, intersectionPointA);
+                }
+            }
+            CH_Gene mutated_ch_gene = new CH_Gene(points, mutatedHull);
+            return new Dna<>(mutated_ch_gene);
         }
         return dnaToMutate;
     }
