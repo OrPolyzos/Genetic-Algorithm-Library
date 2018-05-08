@@ -1,6 +1,5 @@
 package com.unipi.informatics.ga.domain;
 
-import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
@@ -16,15 +15,17 @@ public class Chromosome<T> {
     public Chromosome(Dna<T> dna, FitnessTechnique<T> fitnessTechnique) {
         this.dna = dna;
         this.fitnessTechnique = fitnessTechnique;
-        this.fitness = this.dna.calculateFitness(fitnessTechnique);
     }
 
     public void mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
         double chanceToMutate = new Random().nextDouble();
         if (chanceToMutate < mutationRate) {
-            this.dna = this.dna.mutate(mutationTechnique);
-            this.fitness = this.dna.calculateFitness(this.fitnessTechnique);
+            this.dna.mutate(mutationTechnique);
         }
+    }
+
+    public void calculateFitness() {
+        this.fitness = this.dna.calculateFitness(this.fitnessTechnique);
     }
 
     public Chromosome<T> getCopy() {
@@ -37,7 +38,6 @@ public class Chromosome<T> {
 
     public void setDna(Dna<T> dna) {
         this.dna = dna;
-        this.fitness = this.dna.calculateFitness(fitnessTechnique);
     }
 
     public FitnessTechnique<T> getFitnessTechnique() {
@@ -46,7 +46,6 @@ public class Chromosome<T> {
 
     public void setFitnessTechnique(FitnessTechnique<T> fitnessTechnique) {
         this.fitnessTechnique = fitnessTechnique;
-        this.fitness = this.dna.calculateFitness(fitnessTechnique);
     }
 
     public double getFitness() {

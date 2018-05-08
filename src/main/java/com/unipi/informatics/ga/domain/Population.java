@@ -12,25 +12,20 @@ public class Population<T> {
         fittestChromosome = findFittestChromosome();
     }
 
-    public void calculateProbabilities() {
-        double fitnessesSum = 0;
-        for (Chromosome<T> chromosome : chromosomes) {
-            fitnessesSum += chromosome.getFitness();
-        }
-        //Calculate probabilities
-        for (Chromosome<T> chromosome : chromosomes) {
-            double probability = chromosome.getFitness() / fitnessesSum;
-            chromosome.setProbability(probability);
-        }
-    }
-
     public Chromosome<T> findFittestChromosome() {
+        double fitnessesSum = 0;
         double bestFitness = Double.MIN_VALUE;
         for (Chromosome<T> chromosome : chromosomes) {
+            chromosome.calculateFitness();
+            fitnessesSum += chromosome.getFitness();
             if (chromosome.getFitness() > bestFitness) {
                 fittestChromosome = chromosome;
                 bestFitness = chromosome.getFitness();
             }
+        }
+        for (Chromosome<T> chromosome : chromosomes) {
+            double probability = chromosome.getFitness() / fitnessesSum;
+            chromosome.setProbability(probability);
         }
         return fittestChromosome;
     }

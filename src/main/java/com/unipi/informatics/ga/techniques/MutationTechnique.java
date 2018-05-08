@@ -4,5 +4,5 @@ import com.unipi.informatics.ga.domain.Dna;
 
 public interface MutationTechnique<T> {
 
-    Dna<T> mutate(Dna<T> dnaToMutate);
+    void mutate(Dna<T> dnaToMutate);
 }

@@ -6,7 +6,6 @@ import com.unipi.informatics.convex_hull.utilities.CH_Utilities;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -25,21 +24,17 @@ public class MutationTechniqueReplaceWithOutsidePoint implements MutationTechniq
     }
 
     @Override
-    public Dna<CH_Gene> mutate(Dna<CH_Gene> dnaToMutate) {
+    public void mutate(Dna<CH_Gene> dnaToMutate) {
         CH_Gene ch_gene = dnaToMutate.getGene();
         List<Point> outsidePoints = ch_gene.getOutsidePoints();
-
         if (!outsidePoints.isEmpty()) {
-            List<Point> points = ch_gene.getPoints();
-            List<Point> mutatedHull = new ArrayList<>(ch_gene.getConvexHull());
+            List<Point> mutatedHull = ch_gene.getConvexHull();
 
             Point chosenOutsidePoint = outsidePoints.get(new Random().nextInt(outsidePoints.size()));
             int closestCurrentPoint = CH_Utilities.findClosest(chosenOutsidePoint, mutatedHull);
             mutatedHull.set(closestCurrentPoint, chosenOutsidePoint);
-            CH_Gene mutated_ch_gene = new CH_Gene(points, mutatedHull);
-            return new Dna<>(mutated_ch_gene);
+            ch_gene.setConvexHull(mutatedHull);
         }
-        return dnaToMutate;
     }
 
     @Override

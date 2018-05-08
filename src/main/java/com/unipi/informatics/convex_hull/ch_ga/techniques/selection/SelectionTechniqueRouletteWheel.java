@@ -32,7 +32,7 @@ public class SelectionTechniqueRouletteWheel implements SelectionTechnique<CH_Ge
             index++;
         }
         index--;
-        return chromosomes.get(index).getCopy();
+        return chromosomes.get(index);
     }
 
     @Override

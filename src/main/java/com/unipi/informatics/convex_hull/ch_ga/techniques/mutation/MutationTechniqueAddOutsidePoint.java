@@ -24,21 +24,16 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique<CH_Ge
     }
 
     @Override
-    public Dna<CH_Gene> mutate(Dna<CH_Gene> dnaToMutate) {
+    public void mutate(Dna<CH_Gene> dnaToMutate) {
         CH_Gene ch_gene = dnaToMutate.getGene();
         List<Point> outsidePoints = ch_gene.getOutsidePoints();
         if (!outsidePoints.isEmpty()) {
-            List<Point> points = ch_gene.getPoints();
-            List<Point> mutatedHull = new ArrayList<>(ch_gene.getConvexHull());
-
+            List<Point> mutatedHull = ch_gene.getConvexHull();
             int chosenOutsidePoint = new Random().nextInt(outsidePoints.size());
             int randomIndex = new Random().nextInt(mutatedHull.size());
             mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOutsidePoint)));
-
-            CH_Gene mutated_ch_gene = new CH_Gene(points, mutatedHull);
-            return new Dna<>(mutated_ch_gene);
+            ch_gene.setConvexHull(mutatedHull);
         }
-        return dnaToMutate;
     }
 
     @Override

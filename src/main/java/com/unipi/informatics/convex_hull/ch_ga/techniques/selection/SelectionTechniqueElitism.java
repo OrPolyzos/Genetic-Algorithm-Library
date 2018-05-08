@@ -21,7 +21,7 @@ public class SelectionTechniqueElitism implements SelectionTechnique<CH_Gene> {
 
     @Override
     public Chromosome<CH_Gene> select(Population<CH_Gene> population) {
-        return population.getFittestChromosome().getCopy();
+        return population.getFittestChromosome();
     }
 
     @Override

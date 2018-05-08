@@ -23,17 +23,14 @@ public class MutationTechniqueRemoveSickJoints implements MutationTechnique<CH_G
     }
 
     @Override
-    public Dna<CH_Gene> mutate(Dna<CH_Gene> dnaToMutate) {
+    public void mutate(Dna<CH_Gene> dnaToMutate) {
         CH_Gene ch_gene = dnaToMutate.getGene();
-        List<Point> points = ch_gene.getPoints();
-        List<Point> mutatedHull = new ArrayList<>(ch_gene.getConvexHull());
+        List<Point> mutatedHull = ch_gene.getConvexHull();
         List<Point> sickJoints = ch_gene.getSickJoints();
         if (mutatedHull.size() > 3 && !sickJoints.isEmpty()) {
             mutatedHull.removeAll(sickJoints);
-            CH_Gene mutated_ch_gene = new CH_Gene(points, mutatedHull);
-            return new Dna<>(mutated_ch_gene);
+            ch_gene.setConvexHull(mutatedHull);
         }
-        return dnaToMutate;
     }
 
     @Override

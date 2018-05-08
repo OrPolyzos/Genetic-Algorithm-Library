@@ -21,10 +21,7 @@ public class CH_Gene {
     }
 
     public CH_Gene getCopy() {
-        List<Point> convexHullCopy = new ArrayList<>();
-        for (Point point : this.convexHull) {
-            convexHullCopy.add(new Point(point));
-        }
+        List<Point> convexHullCopy = new ArrayList<>(this.convexHull);
         return new CH_Gene(this.points,convexHullCopy);
     }
 
@@ -53,12 +50,10 @@ public class CH_Gene {
         return intersectionPoints;
     }
 
-    private void updateLists() {
-        if (this.convexHull.size() >= 3) {
+    public void updateLists() {
             this.outsidePoints = CH_Utilities.calculateOutsidePoints(convexHull, points);
             this.sickJoints = CH_Utilities.calculateSickJoints(convexHull);
             this.intersectionPoints = CH_Utilities.calculateIntersections(convexHull);
-        }
     }
 
     @Override

@@ -23,8 +23,8 @@ public class Dna<T>{
         return fitnessTechnique.calculateFitness(this);
     }
 
-    public Dna<T> mutate(MutationTechnique<T> mutationTechnique) {
-        return mutationTechnique.mutate(this);
+    public void mutate(MutationTechnique<T> mutationTechnique) {
+        mutationTechnique.mutate(this);
     }
 
     @Override
