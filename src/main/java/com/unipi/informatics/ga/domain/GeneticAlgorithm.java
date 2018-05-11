@@ -40,12 +40,13 @@ public abstract class GeneticAlgorithm<T> {
 
     public void run() {
         bestFitnessEver = Double.MIN_VALUE;
-        while (bestFitnessEver < 1) {
+        while (bestFitnessEver < 1 && this.getDuration() / 1000000000 < 10) {
             findFittestChromosomeEver();
             fittestChromosomes.add(fittestChromosomeEver);
             nextGeneration();
+            this.duration = System.nanoTime() - startTime;
         }
-γ    }
+    }
 
     public abstract void initialGeneration();
 

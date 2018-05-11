@@ -53,10 +53,6 @@ public class CH_Problem {
 
     private void setupForPhase2() {
         fitnessTechnique = FitnessTechniqueWithSickJoints.getInstance();
-
-        mutationTechniqueMap.clear();
-        mutationTechniqueMap.put(0, MutationTechniqueRemoveSickJoints.getInstance());
-
     }
 
     public GeneticAlgorithm<CH_Gene> solve() {

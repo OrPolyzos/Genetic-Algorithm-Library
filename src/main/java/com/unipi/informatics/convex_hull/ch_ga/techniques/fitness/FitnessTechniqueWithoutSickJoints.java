@@ -25,7 +25,7 @@ public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique<CH_Ge
             return 0;
         }
 
-        double fitOutsidePoints = Math.pow(ch_gene.getOutsidePoints().size() + 1, 2);
+        double fitOutsidePoints = Math.pow(ch_gene.getOutsidePoints().size() + 1, 1);
         double fitIntersections = Math.pow(ch_gene.getIntersectionPoints().size() + 1, 1);
         return 1 / (fitOutsidePoints * fitIntersections);
     }
