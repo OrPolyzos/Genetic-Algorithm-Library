@@ -45,8 +45,7 @@ public abstract class GeneticAlgorithm<T> {
             fittestChromosomes.add(fittestChromosomeEver);
             nextGeneration();
         }
-        this.duration = System.nanoTime() - startTime;
-    }
+γ    }
 
     public abstract void initialGeneration();
 
