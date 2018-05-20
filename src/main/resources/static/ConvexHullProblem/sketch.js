@@ -105,7 +105,7 @@ function checkElements() {
 		alert("Mutation rate should be greater than 0 and less (or equal) than 1.");
 		return false;
 	}
-	if (populationInput.value < 1) {
+	if (populationInput.value < 2) {
 		alert("There should be at least 2 individuals in the population.")
 		return false;
 	}

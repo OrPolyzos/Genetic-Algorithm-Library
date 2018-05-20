@@ -6,6 +6,7 @@ import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -30,15 +31,27 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique<CH
         List<List<Point>> intersectionsLists = ch_gene.getIntersectionPoints();
         if (mutatedHull.size() > 3 && !intersectionsLists.isEmpty()) {
             List<Point> randomIntersectionsList = intersectionsLists.get(new Random().nextInt(intersectionsLists.size()));
-            Point intersectionPointA = randomIntersectionsList.get(1);
-            Point intersectionPointB = randomIntersectionsList.get(2);
+            double whatToSwap = new Random().nextDouble();
+            Point intersectionPointA;
+            Point intersectionPointB;
+            if (whatToSwap < 0.5){
+                intersectionPointA = randomIntersectionsList.get(0);
+                intersectionPointB = randomIntersectionsList.get(3);
+            }
+            else{
+                intersectionPointA = randomIntersectionsList.get(1);
+                intersectionPointB = randomIntersectionsList.get(2);
+            }
+            int indexA = 0;
+            int indexB = 0;
             for (int i = 0; i < mutatedHull.size(); i++) {
                 if (mutatedHull.get(i).equals(intersectionPointA)) {
-                    mutatedHull.set(i, intersectionPointB);
+                    indexA = i;
                 } else if (mutatedHull.get(i).equals(intersectionPointB)) {
-                    mutatedHull.set(i, intersectionPointA);
+                    indexB = i;
                 }
             }
+            Collections.swap(mutatedHull, indexA, indexB);
             ch_gene.setConvexHull(mutatedHull);
         }
     }

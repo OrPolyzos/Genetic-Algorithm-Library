@@ -3,7 +3,7 @@ package com.unipi.informatics.ga.domain;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-public class Dna<T>{
+public class Dna<T> {
 
     private T gene;
 

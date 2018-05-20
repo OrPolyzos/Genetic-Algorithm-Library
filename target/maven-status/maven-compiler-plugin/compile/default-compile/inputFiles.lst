@@ -1,4 +1,6 @@
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\domain\Dna.java
+J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\repositories\ChromosomeRepository.java
+J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\repositories\ConvexHullPointRepository.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\domain\Chromosome.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\techniques\FitnessTechnique.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\fitness\FitnessTechniqueWithoutSickJoints.java
@@ -8,9 +10,10 @@ J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatic
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueRemoveIntersection.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\web\controllers\RunController.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\converters\ChromosomeConverter.java
-J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\domain\CH_Population.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\domain\CH_GeneticAlgorithm.java
+J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueRemoveRandomPoint.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueReplaceWithOutsidePoint.java
+J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\repositories\PointRepository.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\techniques\CrossOverTechnique.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\dao\CH_PointDao.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\dao\PointDao.java
@@ -20,6 +23,7 @@ J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatic
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\utilities\CH_Utilities.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\techniques\SelectionTechnique.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\converters\GeneticAlgorithmConverter.java
+J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\domain\CH_Gene.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\crossover\CrossOverTechniqueElitism.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\utilities\MathUtilities.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\fitness\FitnessTechniqueWithSickJoints.java
@@ -32,9 +36,6 @@ J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatic
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\domain\Population.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\selection\SelectionTechniqueElitism.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\dao\ChromosomeDao.java
-J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\utilities\TimeIt.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\techniques\selection\SelectionTechniqueRouletteWheel.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\converters\ChromosomeConvexHullPointConverter.java
-J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\domain\CH_Chromosome.java
 J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\ga\techniques\MutationTechnique.java
-J:\DevProjects\IntelliJ Projects\ConvexHullGA\src\main\java\com\unipi\informatics\convex_hull\ch_ga\domain\CH_Dna.java

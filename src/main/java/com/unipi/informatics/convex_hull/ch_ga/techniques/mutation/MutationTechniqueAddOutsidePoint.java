@@ -31,7 +31,7 @@ public class MutationTechniqueAddOutsidePoint implements MutationTechnique<CH_Ge
             List<Point> mutatedHull = ch_gene.getConvexHull();
             int chosenOutsidePoint = new Random().nextInt(outsidePoints.size());
             int randomIndex = new Random().nextInt(mutatedHull.size());
-            mutatedHull.add(randomIndex, new Point(outsidePoints.get(chosenOutsidePoint)));
+            mutatedHull.add(randomIndex, outsidePoints.get(chosenOutsidePoint));
             ch_gene.setConvexHull(mutatedHull);
         }
     }

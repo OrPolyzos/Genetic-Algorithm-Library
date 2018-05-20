@@ -5,11 +5,9 @@ import com.unipi.informatics.convex_hull.ch_ga.domain.CH_GeneticAlgorithm;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.crossover.CrossOverTechniqueElitism;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.fitness.FitnessTechniqueWithSickJoints;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.fitness.FitnessTechniqueWithoutSickJoints;
-import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechniqueAddOutsidePoint;
-import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechniqueRemoveIntersection;
-import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechniqueRemoveSickJoints;
-import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.MutationTechniqueReplaceWithOutsidePoint;
+import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.*;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueElitism;
+import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueRouletteWheel;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.utilities.CH_Utilities;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
@@ -36,7 +34,6 @@ public class CH_Problem {
         this.mutationRate = mutationRate;
         this.populationCount = populationCount;
         this.points = CH_Utilities.generatePoints(width, height, pointsCount);
-
     }
 
     private void setupForPhase1() {
@@ -49,10 +46,13 @@ public class CH_Problem {
         mutationTechniqueMap.put(1, MutationTechniqueReplaceWithOutsidePoint.getInstance());
         mutationTechniqueMap.put(2, MutationTechniqueRemoveIntersection.getInstance());
         mutationTechniqueMap.put(3, MutationTechniqueRemoveSickJoints.getInstance());
+        mutationTechniqueMap.put(4, MutationTechniqueRemoveRandomPoint.getInstance());
     }
 
     private void setupForPhase2() {
         fitnessTechnique = FitnessTechniqueWithSickJoints.getInstance();
+        mutationTechniqueMap.clear();
+        mutationTechniqueMap.put(0,MutationTechniqueRemoveSickJoints.getInstance());
     }
 
     public GeneticAlgorithm<CH_Gene> solve() {

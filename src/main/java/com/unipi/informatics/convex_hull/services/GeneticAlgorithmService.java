@@ -7,6 +7,7 @@ import com.unipi.informatics.convex_hull.repositories.GeneticAlgorithmRepository
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class GeneticAlgorithmService<T> {

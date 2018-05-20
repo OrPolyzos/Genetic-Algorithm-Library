@@ -1,10 +1,14 @@
 package com.unipi.informatics.ga.domain;
 
+import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
+import org.apache.tomcat.jni.Local;
 
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +27,8 @@ public abstract class GeneticAlgorithm<T> {
     private Map<Integer, MutationTechnique<T>> mutationTechniqueMap;
     private double bestFitnessEver;
     private int generationsCounter;
-    private double startTime;
-    private double duration;
+    private LocalTime startTime;
+    private Duration duration;
 
     public GeneticAlgorithm(int populationCount, double mutationRate, FitnessTechnique<T> fitnessTechnique, SelectionTechnique<T> selectionTechnique, CrossOverTechnique<T> crossOverTechnique, Map<Integer, MutationTechnique<T>> mutationTechniqueMap) {
         this.populationCount = populationCount;
@@ -33,19 +37,20 @@ public abstract class GeneticAlgorithm<T> {
         this.selectionTechnique = selectionTechnique;
         this.crossOverTechnique = crossOverTechnique;
         this.mutationTechniqueMap = mutationTechniqueMap;
-        this.startTime = System.nanoTime();
-        this.duration = System.nanoTime() - startTime;
+        this.startTime = LocalTime.now();
+        this.duration = Duration.between(startTime, LocalTime.now());
         this.fittestChromosomes = new ArrayList<>();
     }
 
     public void run() {
         bestFitnessEver = Double.MIN_VALUE;
-        while (bestFitnessEver < 1 && this.getDuration() / 1000000000 < 10) {
+        while (bestFitnessEver < 1 && this.duration.getSeconds() < 20) {
             findFittestChromosomeEver();
-            fittestChromosomes.add(fittestChromosomeEver);
+            fittestChromosomes.add(population.getFittestChromosome());
             nextGeneration();
-            this.duration = System.nanoTime() - startTime;
+            this.duration = Duration.between(startTime, LocalTime.now());
         }
+        this.duration = Duration.between(startTime, LocalTime.now());
     }
 
     public abstract void initialGeneration();
@@ -159,19 +164,19 @@ public abstract class GeneticAlgorithm<T> {
         this.generationsCounter = generationsCounter;
     }
 
-    public double getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(double startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public double getDuration() {
+    public Duration getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(Duration duration) {
         this.duration = duration;
     }
 }

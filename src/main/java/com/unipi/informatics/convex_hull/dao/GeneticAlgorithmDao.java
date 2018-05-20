@@ -5,21 +5,23 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "GeneticAlgorithm")
+@Table(name = "GeneticAlgorithms")
 public class GeneticAlgorithmDao implements Serializable {
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    @Column(name = "populationCount", nullable = false)
+    @Column(name = "populationCount")
     private int population;
-    @Column(name = "mutationRate", nullable = false)
+    @Column(name = "mutationRate")
     private double mutationRate;
-    @Column(name = "generations", nullable = false)
+    @Column(name = "generations")
     private int generations;
-    @Column(name = "duration", nullable = false, precision = 10, scale = 2)
+    @Column(name = "duration")
     private double duration;
+    @Column(name = "pointsSize")
+    private int pointsSize;
     @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = ChromosomeDao.class)
     private List<ChromosomeDao> fittestChromosomes;
@@ -65,6 +67,14 @@ public class GeneticAlgorithmDao implements Serializable {
 
     public void setDuration(double duration) {
         this.duration = duration;
+    }
+
+    public int getPointsSize() {
+        return pointsSize;
+    }
+
+    public void setPointsSize(int pointsSize) {
+        this.pointsSize = pointsSize;
     }
 
     public List<ChromosomeDao> getFittestChromosomes() {

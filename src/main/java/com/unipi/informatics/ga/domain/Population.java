@@ -10,11 +10,13 @@ public class Population<T> {
     public Population(List<Chromosome<T>> chromosomes) {
         this.chromosomes = chromosomes;
         fittestChromosome = findFittestChromosome();
+
     }
 
     public Chromosome<T> findFittestChromosome() {
         double fitnessesSum = 0;
-        double bestFitness = Double.MIN_VALUE;
+        Chromosome<T> fittestChromosome = chromosomes.get(0);
+        double bestFitness = chromosomes.get(0).getFitness();
         for (Chromosome<T> chromosome : chromosomes) {
             chromosome.calculateFitness();
             fitnessesSum += chromosome.getFitness();
@@ -29,6 +31,7 @@ public class Population<T> {
         }
         return fittestChromosome;
     }
+
 
     public List<Chromosome<T>> getChromosomes() {
         return chromosomes;

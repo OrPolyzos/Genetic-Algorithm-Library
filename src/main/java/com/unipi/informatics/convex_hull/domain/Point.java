@@ -12,12 +12,6 @@ public class Point implements Cloneable {
         this.y = y;
     }
 
-    public Point(Point otherPoint) {
-        this.label = otherPoint.getLabel();
-        this.x = otherPoint.getX();
-        this.y = otherPoint.getY();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

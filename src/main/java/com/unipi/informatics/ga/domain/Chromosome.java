@@ -24,9 +24,9 @@ public class Chromosome<T> {
         }
     }
 
-    public void calculateFitness() {
-        this.fitness = this.dna.calculateFitness(this.fitnessTechnique);
-    }
+        public void calculateFitness() {
+            this.fitness = this.dna.calculateFitness(this.fitnessTechnique);
+        }
 
     public Chromosome<T> getCopy() {
         return new Chromosome<>(dna, fitnessTechnique);

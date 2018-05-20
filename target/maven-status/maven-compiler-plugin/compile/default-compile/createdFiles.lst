@@ -1,6 +1,6 @@
 com\unipi\informatics\convex_hull\web\controllers\RunController.class
 com\unipi\informatics\ga\techniques\MutationTechnique.class
-com\unipi\informatics\convex_hull\utilities\TimeIt.class
+com\unipi\informatics\convex_hull\repositories\PointRepository.class
 com\unipi\informatics\ga\domain\Population.class
 com\unipi\informatics\convex_hull\web\model\DetailsForm.class
 com\unipi\informatics\convex_hull\utilities\CH_Utilities.class
@@ -13,7 +13,7 @@ com\unipi\informatics\convex_hull\ch_ga\techniques\fitness\FitnessTechniqueWitho
 com\unipi\informatics\convex_hull\dao\ChromosomeDao.class
 com\unipi\informatics\ConvexHullGA_Application.class
 com\unipi\informatics\convex_hull\converters\ChromosomeConvexHullPointConverter.class
-com\unipi\informatics\convex_hull\ch_ga\domain\CH_Population.class
+com\unipi\informatics\convex_hull\repositories\ConvexHullPointRepository.class
 com\unipi\informatics\convex_hull\converters\PointConverter.class
 com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueRemoveIntersection.class
 com\unipi\informatics\convex_hull\dao\CH_PointDao.class
@@ -26,15 +26,16 @@ com\unipi\informatics\convex_hull\ch_ga\techniques\fitness\FitnessTechniqueWithS
 com\unipi\informatics\ga\techniques\SelectionTechnique.class
 com\unipi\informatics\ga\techniques\CrossOverTechnique.class
 com\unipi\informatics\convex_hull\dao\GeneticAlgorithmDao.class
+com\unipi\informatics\convex_hull\ch_ga\domain\CH_Gene.class
 com\unipi\informatics\convex_hull\converters\ChromosomeConverter.class
 com\unipi\informatics\convex_hull\ch_ga\techniques\crossover\CrossOverTechniqueElitism.class
 com\unipi\informatics\ga\domain\GeneticAlgorithm.class
 com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueAddOutsidePoint.class
 com\unipi\informatics\convex_hull\repositories\GeneticAlgorithmRepository.class
-com\unipi\informatics\convex_hull\ch_ga\domain\CH_Dna.class
-com\unipi\informatics\convex_hull\ch_ga\domain\CH_Chromosome.class
 com\unipi\informatics\convex_hull\services\GeneticAlgorithmService.class
 com\unipi\informatics\convex_hull\ch_ga\techniques\selection\SelectionTechniqueRouletteWheel.class
 com\unipi\informatics\convex_hull\converters\GeneticAlgorithmConverter.class
+com\unipi\informatics\convex_hull\ch_ga\techniques\mutation\MutationTechniqueRemoveRandomPoint.class
+com\unipi\informatics\convex_hull\repositories\ChromosomeRepository.class
 com\unipi\informatics\ga\domain\Chromosome.class
 com\unipi\informatics\ga\techniques\FitnessTechnique.class

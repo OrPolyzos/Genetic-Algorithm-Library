@@ -8,6 +8,7 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Chromosome;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +26,19 @@ public class GeneticAlgorithmConverter {
         geneticAlgorithmDao.setPopulation(geneticAlgorithm.getPopulationCount());
         geneticAlgorithmDao.setMutationRate(geneticAlgorithm.getMutationRate());
         geneticAlgorithmDao.setGenerations(geneticAlgorithm.getGenerationsCounter());
-        geneticAlgorithmDao.setDuration(geneticAlgorithm.getDuration() / 1000000000);
+        geneticAlgorithmDao.setDuration((convertDurationToSeconds(geneticAlgorithm.getDuration())));
+        geneticAlgorithmDao.setPointsSize(geneticAlgorithm.getFittestChromosomeEver().getDna().getGene().getPoints().size());
         List<ChromosomeDao> chromosomeDaoList = new ArrayList<>();
         for (Chromosome<CH_Gene> chromosome : geneticAlgorithm.getFittestChromosomes()) {
             chromosomeDaoList.add(ChromosomeConverter.convertToChromosomeDAO(chromosome, geneticAlgorithmDao));
         }
         geneticAlgorithmDao.setFittestChromosomes(chromosomeDaoList);
         return geneticAlgorithmDao;
+    }
+
+    private static double convertDurationToSeconds(Duration duration) {
+        final double thousandSeconds = 1000d;
+        return duration.toMillis() / thousandSeconds;
     }
 
 }
