@@ -32,7 +32,6 @@ public class Population<T> {
         return fittestChromosome;
     }
 
-
     public List<Chromosome<T>> getChromosomes() {
         return chromosomes;
     }

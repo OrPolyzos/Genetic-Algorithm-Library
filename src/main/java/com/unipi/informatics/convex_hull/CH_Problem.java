@@ -7,7 +7,6 @@ import com.unipi.informatics.convex_hull.ch_ga.techniques.fitness.FitnessTechniq
 import com.unipi.informatics.convex_hull.ch_ga.techniques.fitness.FitnessTechniqueWithoutSickJoints;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.mutation.*;
 import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueElitism;
-import com.unipi.informatics.convex_hull.ch_ga.techniques.selection.SelectionTechniqueRouletteWheel;
 import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.convex_hull.utilities.CH_Utilities;
 import com.unipi.informatics.ga.domain.GeneticAlgorithm;
@@ -52,7 +51,7 @@ public class CH_Problem {
     private void setupForPhase2() {
         fitnessTechnique = FitnessTechniqueWithSickJoints.getInstance();
         mutationTechniqueMap.clear();
-        mutationTechniqueMap.put(0,MutationTechniqueRemoveSickJoints.getInstance());
+        mutationTechniqueMap.put(0, MutationTechniqueRemoveSickJoints.getInstance());
     }
 
     public GeneticAlgorithm<CH_Gene> solve() {

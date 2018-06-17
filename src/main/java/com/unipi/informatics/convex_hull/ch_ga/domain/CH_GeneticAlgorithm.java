@@ -26,13 +26,13 @@ public class CH_GeneticAlgorithm extends GeneticAlgorithm<CH_Gene> {
 
     @Override
     public void findFittestChromosomeEver() {
-        if (getPopulation().getFittestChromosome() == null){
+        if (getPopulation().getFittestChromosome() == null) {
             System.out.println("here");
         }
         boolean betterFitness = getPopulation().getFittestChromosome().getFitness() > getBestFitnessEver();
         boolean equalFitness = false;
         boolean lessConvexHullPoints = false;
-        if (!betterFitness){
+        if (!betterFitness) {
             equalFitness = getPopulation().getFittestChromosome().getFitness() == getBestFitnessEver();
             lessConvexHullPoints = getPopulation().getFittestChromosome().getDna().getGene().getConvexHull().size() < getFittestChromosomeEver().getDna().getGene().getConvexHull().size();
         }

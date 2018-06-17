@@ -1,33 +1,33 @@
 function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittestChromosomes) {
-	this.duration = duration;
-	this.mutationRate = mutationRate;
-	this.population = population;
-	this.points = [];
-	this.fittestChromosomes = [];
-	this.showConvexHull = true;
+    this.duration = duration;
+    this.mutationRate = mutationRate;
+    this.population = population;
+    this.points = [];
+    this.fittestChromosomes = [];
+    this.showConvexHull = true;
 
-	for (var i = 0; i < points.length; i++) {
-		var label = points[i].label;
-		var x = points[i].x;
-		var y = points[i].y;
-		var ch_point = new CH_Point(label, x, y);
-		this.points.push(ch_point);
-	}
-	for (var i = 0; i < fittestChromosomes.length; i++) {
-		var fitness = fittestChromosomes[i].fitness;
-		var fitnessTechnique = fittestChromosomes[i].fitnessTechnique;
-		var ch_points = fittestChromosomes[i].ch_points;
+    for (var i = 0; i < points.length; i++) {
+        var label = points[i].label;
+        var x = points[i].x;
+        var y = points[i].y;
+        var ch_point = new CH_Point(label, x, y);
+        this.points.push(ch_point);
+    }
+    for (var i = 0; i < fittestChromosomes.length; i++) {
+        var fitness = fittestChromosomes[i].fitness;
+        var fitnessTechnique = fittestChromosomes[i].fitnessTechnique;
+        var ch_points = fittestChromosomes[i].ch_points;
 
-		var ch_chromosome = new CH_Chromosome(fitness, fitnessTechnique, ch_points);
+        var ch_chromosome = new CH_Chromosome(fitness, fitnessTechnique, ch_points);
 
-		this.fittestChromosomes.push(ch_chromosome);
-	}
+        this.fittestChromosomes.push(ch_chromosome);
+    }
 
-	this.show = function(index, x, y, showConvexHull) {
+    this.show = function (index, x, y, showConvexHull) {
         for (var i = 0; i < this.points.length; i++) {
             this.points[i].show(255);
         }
-        if (showConvexHull){
+        if (showConvexHull) {
             this.fittestChromosomes[index].show();
             textSize(12.5);
             fill(255, 255, 255);
@@ -38,5 +38,5 @@ function CH_GeneticAlgorithm(duration, mutationRate, population, points, fittest
             text(secondOutput, 0.025 * x, 0.08 * y);
         }
 
-	}
+    }
 }

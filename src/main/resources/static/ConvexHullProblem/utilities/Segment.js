@@ -1,13 +1,13 @@
 function Segment(pointOne, pointTwo, color) {
-	this.pointOne = pointOne;
-	this.pointTwo = pointTwo;
-	this.color = color;
+    this.pointOne = pointOne;
+    this.pointTwo = pointTwo;
+    this.color = color;
 
 
-	this.show = function() {
-		stroke(this.color);
-		strokeWeight(3);
-		line(this.pointOne.x, this.pointOne.y, this.pointTwo.x, this.pointTwo.y);
-	}
+    this.show = function () {
+        stroke(this.color);
+        strokeWeight(3);
+        line(this.pointOne.x, this.pointOne.y, this.pointTwo.x, this.pointTwo.y);
+    }
 
 }

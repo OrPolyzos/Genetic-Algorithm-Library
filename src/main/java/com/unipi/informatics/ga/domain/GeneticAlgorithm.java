@@ -1,11 +1,9 @@
 package com.unipi.informatics.ga.domain;
 
-import com.unipi.informatics.convex_hull.ch_ga.domain.CH_Gene;
 import com.unipi.informatics.ga.techniques.CrossOverTechnique;
 import com.unipi.informatics.ga.techniques.FitnessTechnique;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 import com.unipi.informatics.ga.techniques.SelectionTechnique;
-import org.apache.tomcat.jni.Local;
 
 import java.time.Duration;
 import java.time.LocalTime;

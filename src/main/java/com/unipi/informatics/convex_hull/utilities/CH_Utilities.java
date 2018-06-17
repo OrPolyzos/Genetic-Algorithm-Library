@@ -100,7 +100,7 @@ public class CH_Utilities {
     }
 
     public static List<Point> calculateSickJoints(List<Point> convexHull) {
-        if (convexHull.size() < 3){
+        if (convexHull.size() < 3) {
             return convexHull;
         }
         int winding = MathUtilities.calculateWinding(convexHull);

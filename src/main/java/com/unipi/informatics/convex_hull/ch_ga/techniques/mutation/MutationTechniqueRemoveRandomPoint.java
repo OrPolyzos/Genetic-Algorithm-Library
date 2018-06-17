@@ -5,7 +5,6 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

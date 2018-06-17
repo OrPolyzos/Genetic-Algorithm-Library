@@ -37,7 +37,7 @@ public class CrossOverTechniqueElitism implements CrossOverTechnique<CH_Gene> {
         FitnessTechnique<CH_Gene> fitnessTechnique = winnerParent.getFitnessTechnique();
         CH_Gene childGene = new CH_Gene(points, childHull);
         Dna<CH_Gene> childDna = new Dna<>(childGene);
-        return new Chromosome<>(childDna,fitnessTechnique);
+        return new Chromosome<>(childDna, fitnessTechnique);
     }
 
     @Override

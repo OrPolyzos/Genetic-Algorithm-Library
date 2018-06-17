@@ -5,7 +5,6 @@ import com.unipi.informatics.convex_hull.domain.Point;
 import com.unipi.informatics.ga.domain.Dna;
 import com.unipi.informatics.ga.techniques.MutationTechnique;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -34,11 +33,10 @@ public class MutationTechniqueRemoveIntersection implements MutationTechnique<CH
             double whatToSwap = new Random().nextDouble();
             Point intersectionPointA;
             Point intersectionPointB;
-            if (whatToSwap < 0.5){
+            if (whatToSwap < 0.5) {
                 intersectionPointA = randomIntersectionsList.get(0);
                 intersectionPointB = randomIntersectionsList.get(3);
-            }
-            else{
+            } else {
                 intersectionPointA = randomIntersectionsList.get(1);
                 intersectionPointB = randomIntersectionsList.get(2);
             }
