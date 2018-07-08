@@ -5,8 +5,8 @@ import com.algorithm.genetic.convex_hull.dao.ChromosomeDao;
 import com.algorithm.genetic.convex_hull.dao.GeneticAlgorithmDao;
 import com.algorithm.genetic.convex_hull.dao.PointDao;
 import com.algorithm.genetic.convex_hull.domain.Point;
-import com.algorithm.genetic.ga.domain.Chromosome;
-import com.algorithm.genetic.ga.domain.GeneticAlgorithm;
+import com.algorithm.genetic.library.ga.domain.Chromosome;
+import com.algorithm.genetic.library.ga.domain.GeneticAlgorithm;
 
 import java.time.Duration;
 import java.util.ArrayList;

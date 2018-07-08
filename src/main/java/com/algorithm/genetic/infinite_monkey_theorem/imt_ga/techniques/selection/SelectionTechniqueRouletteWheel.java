@@ -1,8 +1,8 @@
 package com.algorithm.genetic.infinite_monkey_theorem.imt_ga.techniques.selection;
 
-import com.algorithm.genetic.ga.domain.Chromosome;
-import com.algorithm.genetic.ga.domain.Population;
-import com.algorithm.genetic.ga.techniques.SelectionTechnique;
+import com.algorithm.genetic.library.ga.domain.Chromosome;
+import com.algorithm.genetic.library.ga.domain.Population;
+import com.algorithm.genetic.library.ga.techniques.SelectionTechnique;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_Gene;
 
 import java.util.List;

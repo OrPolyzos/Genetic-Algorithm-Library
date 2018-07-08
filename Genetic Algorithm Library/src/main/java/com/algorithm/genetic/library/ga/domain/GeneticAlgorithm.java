@@ -1,9 +1,9 @@
-package com.algorithm.genetic.ga.domain;
+package com.algorithm.genetic.library.ga.domain;
 
-import com.algorithm.genetic.ga.techniques.CrossOverTechnique;
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
-import com.algorithm.genetic.ga.techniques.SelectionTechnique;
+import com.algorithm.genetic.library.ga.techniques.CrossOverTechnique;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.techniques.SelectionTechnique;
 
 import java.time.Duration;
 import java.time.LocalTime;

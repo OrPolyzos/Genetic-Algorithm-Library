@@ -6,7 +6,11 @@
 
     <groupId>com.algorithm.genetic</groupId>
     <artifactId>Genetic Algorithm</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>Genetic Algorithm Library</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,6 +32,11 @@
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>com.algorithm.genetic</groupId>
+            <artifactId>Genetic Algorithm Library</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>

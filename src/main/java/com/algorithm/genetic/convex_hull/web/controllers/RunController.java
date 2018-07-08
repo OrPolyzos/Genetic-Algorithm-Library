@@ -4,7 +4,7 @@ import com.algorithm.genetic.convex_hull.CH_Problem;
 import com.algorithm.genetic.convex_hull.ch_ga.domain.CH_Gene;
 import com.algorithm.genetic.convex_hull.converters.GeneticAlgorithmConverter;
 import com.algorithm.genetic.convex_hull.dao.GeneticAlgorithmDao;
-import com.algorithm.genetic.ga.domain.GeneticAlgorithm;
+import com.algorithm.genetic.library.ga.domain.GeneticAlgorithm;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;

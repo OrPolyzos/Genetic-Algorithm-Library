@@ -1,6 +1,6 @@
-package com.algorithm.genetic.ga.techniques;
+package com.algorithm.genetic.library.ga.techniques;
 
-import com.algorithm.genetic.ga.domain.Chromosome;
+import com.algorithm.genetic.library.ga.domain.Chromosome;
 
 public interface CrossOverTechnique<T> {
 

@@ -1,4 +1,4 @@
-package com.algorithm.genetic.ga.domain;
+package com.algorithm.genetic.library.ga.domain;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package com.algorithm.genetic.convex_hull.ch_ga.techniques.selection;
 
 import com.algorithm.genetic.convex_hull.ch_ga.domain.CH_Gene;
-import com.algorithm.genetic.ga.domain.Chromosome;
-import com.algorithm.genetic.ga.domain.Population;
-import com.algorithm.genetic.ga.techniques.SelectionTechnique;
+import com.algorithm.genetic.library.ga.domain.Chromosome;
+import com.algorithm.genetic.library.ga.domain.Population;
+import com.algorithm.genetic.library.ga.techniques.SelectionTechnique;
 
 import java.util.List;
 import java.util.Random;

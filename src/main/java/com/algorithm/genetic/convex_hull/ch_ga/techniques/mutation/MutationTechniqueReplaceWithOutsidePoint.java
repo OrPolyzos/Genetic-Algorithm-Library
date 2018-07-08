@@ -3,8 +3,8 @@ package com.algorithm.genetic.convex_hull.ch_ga.techniques.mutation;
 import com.algorithm.genetic.convex_hull.ch_ga.domain.CH_Gene;
 import com.algorithm.genetic.convex_hull.domain.Point;
 import com.algorithm.genetic.convex_hull.utilities.CH_Utilities;
-import com.algorithm.genetic.ga.domain.Dna;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.domain.Dna;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
 
 import java.util.List;
 import java.util.Random;

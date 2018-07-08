@@ -1,11 +1,11 @@
 package com.algorithm.genetic.infinite_monkey_theorem;
 
 
-import com.algorithm.genetic.ga.domain.GeneticAlgorithm;
-import com.algorithm.genetic.ga.techniques.CrossOverTechnique;
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
-import com.algorithm.genetic.ga.techniques.SelectionTechnique;
+import com.algorithm.genetic.library.ga.domain.GeneticAlgorithm;
+import com.algorithm.genetic.library.ga.techniques.CrossOverTechnique;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.techniques.SelectionTechnique;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_Gene;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_GeneticAlgorithm;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.techniques.crossover.CrossOverTechniqueHalfWay;

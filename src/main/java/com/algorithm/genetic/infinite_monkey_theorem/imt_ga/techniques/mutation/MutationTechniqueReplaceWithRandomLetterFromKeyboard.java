@@ -1,7 +1,7 @@
 package com.algorithm.genetic.infinite_monkey_theorem.imt_ga.techniques.mutation;
 
-import com.algorithm.genetic.ga.domain.Dna;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.domain.Dna;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_Gene;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_Keyboard;
 

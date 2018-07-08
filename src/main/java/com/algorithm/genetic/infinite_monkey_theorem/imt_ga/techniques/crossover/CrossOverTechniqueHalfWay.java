@@ -1,9 +1,9 @@
 package com.algorithm.genetic.infinite_monkey_theorem.imt_ga.techniques.crossover;
 
-import com.algorithm.genetic.ga.domain.Chromosome;
-import com.algorithm.genetic.ga.domain.Dna;
-import com.algorithm.genetic.ga.techniques.CrossOverTechnique;
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.domain.Chromosome;
+import com.algorithm.genetic.library.ga.domain.Dna;
+import com.algorithm.genetic.library.ga.techniques.CrossOverTechnique;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
 import com.algorithm.genetic.infinite_monkey_theorem.imt_ga.domain.IMT_Gene;
 
 public class CrossOverTechniqueHalfWay implements CrossOverTechnique<IMT_Gene> {

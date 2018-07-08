@@ -1,8 +1,8 @@
 package com.algorithm.genetic.convex_hull.ch_ga.techniques.fitness;
 
 import com.algorithm.genetic.convex_hull.ch_ga.domain.CH_Gene;
-import com.algorithm.genetic.ga.domain.Dna;
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.domain.Dna;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
 
 public class FitnessTechniqueWithoutSickJoints implements FitnessTechnique<CH_Gene> {
 

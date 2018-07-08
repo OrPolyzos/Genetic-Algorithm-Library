@@ -1,7 +1,7 @@
-package com.algorithm.genetic.ga.domain;
+package com.algorithm.genetic.library.ga.domain;
 
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
 
 import java.util.Random;
 

@@ -9,11 +9,11 @@ import com.algorithm.genetic.convex_hull.ch_ga.techniques.mutation.*;
 import com.algorithm.genetic.convex_hull.ch_ga.techniques.selection.SelectionTechniqueElitism;
 import com.algorithm.genetic.convex_hull.domain.Point;
 import com.algorithm.genetic.convex_hull.utilities.CH_Utilities;
-import com.algorithm.genetic.ga.domain.GeneticAlgorithm;
-import com.algorithm.genetic.ga.techniques.CrossOverTechnique;
-import com.algorithm.genetic.ga.techniques.FitnessTechnique;
-import com.algorithm.genetic.ga.techniques.MutationTechnique;
-import com.algorithm.genetic.ga.techniques.SelectionTechnique;
+import com.algorithm.genetic.library.ga.domain.GeneticAlgorithm;
+import com.algorithm.genetic.library.ga.techniques.CrossOverTechnique;
+import com.algorithm.genetic.library.ga.techniques.FitnessTechnique;
+import com.algorithm.genetic.library.ga.techniques.MutationTechnique;
+import com.algorithm.genetic.library.ga.techniques.SelectionTechnique;
 
 import java.util.LinkedHashMap;
 import java.util.List;
