@@ -1,41 +1,17 @@
 package com.unipi.informatics.convex_hull.dao;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table(name = "GeneticAlgorithms")
 public class GeneticAlgorithmDao implements Serializable {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
-    @Column(name = "populationCount")
     private int population;
-    @Column(name = "mutationRate")
     private double mutationRate;
-    @Column(name = "generations")
     private int generations;
-    @Column(name = "duration")
     private double duration;
-    @Column(name = "pointsSize")
     private int pointsSize;
-    @Transient
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = ChromosomeDao.class)
     private List<ChromosomeDao> fittestChromosomes;
-    @Transient
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "geneticAlgorithmDao", targetEntity = PointDao.class)
     private List<PointDao> points;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public int getPopulation() {
         return population;

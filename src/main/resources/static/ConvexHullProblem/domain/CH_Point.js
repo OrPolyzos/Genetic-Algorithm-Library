@@ -7,9 +7,9 @@ function CH_Point(label, x, y) {
         stroke(color);
         strokeWeight(5);
         point(this.x, this.y);
-        textSize(10); // Set initial text size
-        fill(0, 102, 153);
-        text(this.label, this.x, this.y); // Draw text on baseline
+        //textSize(10); // Set initial text size
+        //fill(0, 102, 153);
+        //text(this.label, this.x, this.y); // Draw text on baseline
     }
 
 }

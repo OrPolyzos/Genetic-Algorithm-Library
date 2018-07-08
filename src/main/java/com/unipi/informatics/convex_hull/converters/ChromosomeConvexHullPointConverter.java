@@ -12,5 +12,4 @@ class ChromosomeConvexHullPointConverter {
         chromosomeConvexHullPoint.setPointDao(pointDao);
         return chromosomeConvexHullPoint;
     }
-
 }

@@ -85,15 +85,15 @@ function gotData(data) {
 }
 
 function checkElements() {
-    if ((pointsInput.value).trim() == '') {
+    if ((pointsInput.value).trim() === '') {
         alert("Please fill the Points count.");
         return false;
     }
-    if ((mutationRateInput.value).trim() == '') {
+    if ((mutationRateInput.value).trim() === '') {
         alert("Please fill the Mutation rate.");
         return false;
     }
-    if ((populationInput.value).trim() == '') {
+    if ((populationInput.value).trim() === '') {
         alert("Please fill the Population count.");
         return false;
     }
@@ -101,8 +101,8 @@ function checkElements() {
         alert("There should be at least 3 points.");
         return false;
     }
-    if (mutationRateInput.value <= 0 || mutationRateInput.value > 1) {
-        alert("Mutation rate should be greater than 0 and less (or equal) than 1.");
+    if (mutationRateInput.value <= 0.3 || mutationRateInput.value > 1) {
+        alert("Mutation rate should be greater than 0.3 and less (or equal) than 1.");
         return false;
     }
     if (populationInput.value < 2) {

@@ -50,7 +50,7 @@ public class CH_Gene {
         return intersectionPoints;
     }
 
-    public void updateLists() {
+    private void updateLists() {
         this.outsidePoints = CH_Utilities.calculateOutsidePoints(convexHull, points);
         this.sickJoints = CH_Utilities.calculateSickJoints(convexHull);
         this.intersectionPoints = CH_Utilities.calculateIntersections(convexHull);
