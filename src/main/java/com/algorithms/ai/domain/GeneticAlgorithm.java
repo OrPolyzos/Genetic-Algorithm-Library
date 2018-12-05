@@ -1,5 +1,6 @@
 package com.algorithms.ai.domain;
 
+import com.algorithms.ai.exception.GeneticAlgorithmException;
 import com.algorithms.ai.provider.CrossOverTechniqueProvider;
 import com.algorithms.ai.provider.FitnessTechniqueProvider;
 import com.algorithms.ai.provider.MutationTechniqueProvider;
@@ -37,7 +38,7 @@ public abstract class GeneticAlgorithm<T> {
         this.mutationTechniqueProvider = mutationTechniqueProvider;
     }
 
-    public void run() throws Exception {
+    public void run() throws GeneticAlgorithmException {
         initialGeneration();
         while (fittestChromosomeEver == null || shouldContinue()) {
             findFittestChromosomeEver();
@@ -56,7 +57,7 @@ public abstract class GeneticAlgorithm<T> {
         return fittestChromosomeEver == null || fittestChromosomeEver.getFitness() < 1;
     }
 
-    protected void findFittestChromosomeEver() throws Exception {
+    protected void findFittestChromosomeEver() throws GeneticAlgorithmException {
         Chromosome<T> populationFittest = population.findFittestChromosome(fitnessTechniqueProvider.provideFitnessTechnique());
         if (fittestChromosomeEver == null || fittestChromosomeEver.getFitness() < populationFittest.getFitness()) {
             fittestChromosomeEver = populationFittest;

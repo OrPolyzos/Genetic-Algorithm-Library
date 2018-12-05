@@ -17,7 +17,7 @@ public class Population<T> {
         this.chromosomes = chromosomes;
     }
 
-    public Chromosome<T> findFittestChromosome(FitnessTechnique<T> fitnessTechnique) throws Exception {
+    public Chromosome<T> findFittestChromosome(FitnessTechnique<T> fitnessTechnique) throws GeneticAlgorithmException {
         fittestChromosome = chromosomes.stream()
                 .max(Comparator.comparing(chromosome -> chromosome.calculateFitness(fitnessTechnique)))
                 .orElseThrow(() -> new GeneticAlgorithmException(FAILED_TO_FIND_ANY_CHROMOSOME_THAT_FITS_MESSAGE));
