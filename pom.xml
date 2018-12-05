@@ -8,6 +8,7 @@
     <groupId>com.algorithms.ai</groupId>
     <artifactId>genetic-algorithm</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
@@ -21,7 +22,6 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
