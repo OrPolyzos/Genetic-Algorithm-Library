@@ -78,4 +78,24 @@ public abstract class GeneticAlgorithm<T> {
         population.setChromosomes(nextGeneration);
         generationsCounter++;
     }
+
+    public int getPopulationCount() {
+        return populationCount;
+    }
+
+    public double getMutationRate() {
+        return mutationRate;
+    }
+
+    public Population<T> getPopulation() {
+        return population;
+    }
+
+    public Chromosome<T> getFittestChromosomeEver() {
+        return fittestChromosomeEver;
+    }
+
+    public int getGenerationsCounter() {
+        return generationsCounter;
+    }
 }
