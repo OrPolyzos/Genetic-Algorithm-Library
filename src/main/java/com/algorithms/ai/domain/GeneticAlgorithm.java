@@ -68,7 +68,8 @@ public class GeneticAlgorithm<T> {
 
     public Chromosome<T> findPopulationsFittestChromosome() throws GeneticAlgorithmException {
         return population.stream()
-                .max(Comparator.comparing(chromosome -> chromosome.calculateFitness(fitnessTechniqueProvider.provideFitnessTechnique())))
+                .peek(chromosome -> chromosome.setFitness(fitnessTechniqueProvider.provideFitnessTechnique(chromosome)))
+                .max(Comparator.comparingDouble(Chromosome::getFitness))
                 .orElseThrow(() -> new GeneticAlgorithmException(FAILED_TO_FIND_ANY_CHROMOSOME_THAT_FITS_MESSAGE));
     }
 
@@ -76,10 +77,10 @@ public class GeneticAlgorithm<T> {
         population = IntStream.range(0, population.size())
                 .boxed()
                 .map(i -> {
-                    Chromosome<T> firstParent = selectionTechniqueProvider.provideSelectionTechnique().select(population, fittestChromosomeEver, fittestChromosome);
-                    Chromosome<T> secondParent = selectionTechniqueProvider.provideSelectionTechnique().select(population, fittestChromosomeEver, fittestChromosome);
-                    Chromosome<T> child = crossOverTechniqueProvider.provideCrossOverTechnique().crossOver(firstParent, secondParent);
-                    child.mutate(mutationRate, mutationTechniqueProvider.provideMutationTechnique());
+                    Chromosome<T> firstParent = selectionTechniqueProvider.provideSelectionTechnique(population, fittestChromosomeEver, fittestChromosome);
+                    Chromosome<T> secondParent = selectionTechniqueProvider.provideSelectionTechnique(population, fittestChromosomeEver, fittestChromosome);
+                    Chromosome<T> child = crossOverTechniqueProvider.provideCrossOverTechnique(firstParent, secondParent);
+                    mutationTechniqueProvider.provideMutationTechnique(child, mutationRate);
                     return child;
                 })
                 .collect(Collectors.toList());

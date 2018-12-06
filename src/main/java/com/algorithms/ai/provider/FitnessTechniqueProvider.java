@@ -1,20 +1,9 @@
 package com.algorithms.ai.provider;
 
-import com.algorithms.ai.techniques.FitnessTechnique;
+import com.algorithms.ai.domain.Chromosome;
 
-import java.util.List;
-import java.util.Random;
+public interface FitnessTechniqueProvider<T> {
 
-public class FitnessTechniqueProvider<T> {
-
-    protected List<FitnessTechnique<T>> fitnessTechniques;
-
-    public FitnessTechniqueProvider(List<FitnessTechnique<T>> fitnessTechniques) {
-        this.fitnessTechniques = fitnessTechniques;
-    }
-
-    public FitnessTechnique<T> provideFitnessTechnique() {
-        return fitnessTechniques.get(new Random().nextInt(fitnessTechniques.size()));
-    }
+    double provideFitnessTechnique(Chromosome<T> chromosomeToCalculateFitness);
 
 }
