@@ -7,33 +7,32 @@ import java.util.Random;
 
 public class Chromosome<T> {
 
-    private Dna<T> dna;
+    private T gene;
     private double fitness;
 
-    public Chromosome(Dna<T> dna) {
-        this.dna = dna;
+    public Chromosome(T gene) {
+        this.gene = gene;
     }
 
     public double calculateFitness(FitnessTechnique<T> fitnessTechnique) {
-        fitness = dna.calculateFitness(fitnessTechnique);
+        fitness = fitnessTechnique.calculateFitness(gene);
         return fitness;
     }
 
     public void mutate(double mutationRate, MutationTechnique<T> mutationTechnique) {
         double chanceToMutate = new Random().nextDouble();
         if (chanceToMutate < mutationRate) {
-            dna.mutate(mutationTechnique);
+            mutationTechnique.mutate(gene);
         }
     }
 
-    public Dna<T> getDna() {
-        return dna;
+    public T getGene() {
+        return gene;
     }
 
-    public void setDna(Dna<T> dna) {
-        this.dna = dna;
+    public void setGene(T gene) {
+        this.gene = gene;
     }
-
 
     public double getFitness() {
         return fitness;
