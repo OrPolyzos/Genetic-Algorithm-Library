@@ -3,6 +3,7 @@ package com.algorithms.ai.domain;
 import com.algorithms.ai.exception.GeneticAlgorithmException;
 import com.algorithms.ai.provider.CrossOverTechniqueProvider;
 import com.algorithms.ai.provider.FitnessTechniqueProvider;
+import com.algorithms.ai.provider.InitialGenerationProvider;
 import com.algorithms.ai.provider.MutationTechniqueProvider;
 import com.algorithms.ai.provider.SelectionTechniqueProvider;
 
@@ -29,12 +30,12 @@ public class GeneticAlgorithm<T> {
     private int generationsCounter;
 
     public GeneticAlgorithm(double mutationRate,
-                            List<Chromosome<T>> initialGeneration,
+                            InitialGenerationProvider<T> initialGenerationProvider,
                             FitnessTechniqueProvider<T> fitnessTechniqueProvider,
                             SelectionTechniqueProvider<T> selectionTechniqueProvider,
                             CrossOverTechniqueProvider<T> crossOverTechniqueProvider,
                             MutationTechniqueProvider<T> mutationTechniqueProvider) {
-        this.population = initialGeneration;
+        this.population = initialGenerationProvider.provideInitialGeneration();
         this.mutationRate = mutationRate;
         this.fitnessTechniqueProvider = fitnessTechniqueProvider;
         this.selectionTechniqueProvider = selectionTechniqueProvider;
