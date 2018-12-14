@@ -14,3 +14,4 @@ Library that contains base functionality to implement a Genetic Algorithm tailor
 
 Sample projects/implementations
 * <em>Infinite Monkey Theorem</em> https://github.com/OrPolyzos/ga-infinite-monkey-theorem
+* <em>Convex Hull Ptoblem</em> https://github.com/OrPolyzos/ga-convex-hull
